@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditVotingActivity">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/EditVoteBack"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="14dp"
+            android:background="@null"
+            android:src="@mipmap/ic_launcher_back" />
+
+        <TextView
+            android:id="@+id/editTextUpload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="UPLOAD"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:id="@+id/imgEditKosongVoting"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/placeholder" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/judulEditVoting"
+                android:hint="Judul"/>
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/kategoriEdit"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Voting :"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/EdtAdd1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"/>
+
+
+                <ImageButton
+                    android:id="@+id/EdtPlus1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher_plus"
+                    android:background="@null"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/addEdtVoting1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+                <EditText
+                    android:id="@+id/EdtAdd2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/deletePlus2"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:src="@mipmap/ic_hapus"/>
+                <ImageButton
+                    android:id="@+id/EdtPlus2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher_plus"
+                    android:background="@null"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/addEdtVoting2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+                <EditText
+                    android:id="@+id/EdtAdd3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/deletePlus3"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:src="@mipmap/ic_hapus"/>
+                <ImageButton
+                    android:id="@+id/EdtPlus3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher_plus"
+                    android:background="@null"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/addEdtVoting3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+                <EditText
+                    android:id="@+id/EdtAdd4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/deletePlus4"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:src="@mipmap/ic_hapus"/>
+                <ImageButton
+                    android:id="@+id/EdtPlus4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher_plus"
+                    android:background="@null"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/addEdtVoting4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+                <EditText
+                    android:id="@+id/EdtAdd5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/deletePlus5"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:src="@mipmap/ic_hapus"/>
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/buttonEditVoting"
+                style="@android:style/Widget.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#F98637"
+                android:text="UPLOAD"
+                android:textAlignment="center"
+                android:textColor="#FFF" />
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

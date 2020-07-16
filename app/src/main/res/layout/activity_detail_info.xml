@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DetailInfoActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/orange"
+        >
+
+        <ImageButton
+            android:id="@+id/detailsInfoBack"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@null"
+            android:src="@drawable/back" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/Details"
+        >
+        <com.zolad.zoominimageview.ZoomInImageView
+            android:id="@+id/imgDtlInf"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/placeholder"
+            />
+
+            />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/jdlDtl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JUDUL"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="15dp"/>
+    <TextView
+        android:id="@+id/descDtl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerita mengikuti siswa SMA Saki Miyanaga (Minami Hamabe) dan teman sekelasnya saat mereka terlarut dalam permainan mahjong. Mereka menargetkan kompetisi nasional yang akan datang."
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"/>
+
+</LinearLayout>

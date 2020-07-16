@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".VoteActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="310dp">
+    <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+        android:layout_width="match_parent"
+        android:id="@+id/imgVote"
+        android:layout_height="300dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/basket"
+        app:siShape="@drawable/shape_raunded_rectangle"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/detailsVoteBack"
+        android:elevation="1dp"
+        android:background="@drawable/myrect"
+        android:src="@drawable/back"/>
+
+    <TextView
+        android:id="@+id/txtVw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KBM BASKET"
+        android:shadowColor="@color/black"
+        android:shadowRadius="20"
+        android:textColor="#FFF"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="23dp"
+        android:background="@color/orange"
+        android:layout_marginTop="280dp"
+        android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+
+
+
+
+    <RadioGroup
+        android:id="@+id/rdGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
+
+        <RadioButton
+            android:id="@+id/rdBtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ketua 1" />
+
+        <RadioButton
+            android:id="@+id/rdBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ketua 2" />
+
+        <RadioButton
+            android:id="@+id/rdBtn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ketua 3" />
+
+        <RadioButton
+            android:id="@+id/rdBtn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ketua 4" />
+
+        <RadioButton
+            android:id="@+id/rdBtn5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ketua 5" />
+    </RadioGroup>
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/btnSubmitVote"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:layout_gravity="center"
+        app:fb_borderColor="#FFFFFF"
+        app:fb_borderWidth="1dp"
+        app:fb_defaultColor="@color/orange"
+        app:fb_focusColor="@color/orange"
+        app:fb_radius="30dp"
+        app:fb_text="SUBMIT"
+        app:fb_textColor="#FFFFFF" />
+
+
+</LinearLayout>

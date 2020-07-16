@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/imageView"
+        android:fontFamily="@font/caesar_dressing"
+        android:text="LOGIN"
+        android:textColor="#000"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/elektro" />
+
+    <LinearLayout
+        android:id="@+id/LinearLogin"
+        android:layout_below="@id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/usnme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+            <EditText
+                android:id="@+id/uspass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+            <ImageButton
+                android:id="@+id/visibility"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="290dp"
+                android:layout_marginTop="5dp"
+                android:background="#FFF"
+                android:src="@drawable/ic_visibility_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/visibilityOff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="290dp"
+                android:layout_marginTop="5dp"
+                android:background="#FFF"
+                android:src="@drawable/ic_visibility_off_black_24dp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password ?"
+            android:textColor="#707070" />
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnLogin"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:layout_marginTop="15dp"
+            app:fb_borderColor="#FFFFFF"
+            app:fb_borderWidth="1dp"
+            app:fb_defaultColor="@color/orange"
+            app:fb_focusColor="@color/orange"
+            app:fb_radius="30dp"
+            app:fb_text="LOG IN"
+            app:fb_textColor="#FFFFFF" />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:id="@+id/txtSign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New User? SIGN UP" />
+    </LinearLayout>
+</RelativeLayout>

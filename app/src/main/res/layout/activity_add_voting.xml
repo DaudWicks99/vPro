@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddVotingActivity">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/VoteBack"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="14dp"
+            android:background="@null"
+            android:src="@mipmap/ic_launcher_back" />
+
+        <TextView
+            android:id="@+id/textUpload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="UPLOAD"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:orientation="vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/imgKosongVoting"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/placeholder" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/judulUploadVoting"
+        android:hint="Judul"/>
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/kategori"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voting :"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <EditText
+        android:id="@+id/add1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/plus1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_plus"
+            android:background="@null"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/addVoting1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+        <EditText
+            android:id="@+id/add2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:id="@+id/hapusPlus1"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@mipmap/ic_hapus"/>
+
+        <ImageButton
+            android:id="@+id/plus2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_plus"
+            android:background="@null"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/addVoting2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+        <EditText
+            android:id="@+id/add3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:id="@+id/hapusPlus2"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@mipmap/ic_hapus"/>
+        <ImageButton
+            android:id="@+id/plus3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_plus"
+            android:background="@null"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/addVoting3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+        <EditText
+            android:id="@+id/add4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:id="@+id/hapusPlus3"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@mipmap/ic_hapus"/>
+        <ImageButton
+            android:id="@+id/plus4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_plus"
+            android:background="@null"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/addVoting4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+        <EditText
+            android:id="@+id/add5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:id="@+id/hapusPlus4"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@mipmap/ic_hapus"/>
+
+    </LinearLayout>
+         <mehdi.sakout.fancybuttons.FancyButton
+             android:id="@+id/buttonUploadVoting"
+             android:layout_width="200dp"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="15dp"
+             android:paddingLeft="20dp"
+             android:paddingTop="10dp"
+             android:paddingRight="20dp"
+             android:paddingBottom="10dp"
+             android:layout_gravity="center"
+             app:fb_borderColor="#FFFFFF"
+             app:fb_borderWidth="1dp"
+             app:fb_defaultColor="@color/orange"
+             app:fb_focusColor="@color/orange"
+             app:fb_radius="30dp"
+             app:fb_text="SUBMIT"
+             app:fb_textColor="#FFFFFF" />
+
+
+
+
+     </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

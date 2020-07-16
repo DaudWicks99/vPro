@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+
+    >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp">
+
+        <ImageButton
+            android:id="@+id/opDrwSmua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="15dp"
+            android:background="@null"
+            android:src="@drawable/ic_menu_black_24dp" />
+
+
+
+        <TextView
+            android:id="@+id/txtVw2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="HASIL VOTING"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/HasilVoting"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="15dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                android:src="@drawable/basket1"
+                >
+            </ImageView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="KBM BASKET"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="32dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    >
+                </TextView>
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="15dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                android:src="@drawable/makrab"
+                >
+            </ImageView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PANITIA MAKRAB"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="32dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    >
+                </TextView>
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="15dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                android:src="@drawable/smf"
+                >
+            </ImageView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PEMILIHAN KETUA SMF"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="28dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    >
+                </TextView>
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>
+

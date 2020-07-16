@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".SignupActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/orange"
+        >
+
+        <ImageButton
+            android:id="@+id/signUpBack"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@null"
+            android:src="@drawable/back" />
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:text="SignUp"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="85dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:textColor="#707070" />
+
+        <EditText
+            android:id="@+id/fullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:hint="Full Name"
+            android:inputType="textPersonName"
+            android:textColor="#707070" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:hint="Email "
+            android:inputType="textPersonName"
+            android:textColor="#707070" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/confirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:hint="Confrim Password"
+            android:inputType="textPassword" />
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnSignUp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            app:fb_borderColor="#FFFFFF"
+            app:fb_borderWidth="1dp"
+            app:fb_defaultColor="@color/orange"
+            app:fb_focusColor="@color/orange"
+            app:fb_radius="30dp"
+            app:fb_text="SIGN UP"
+            app:fb_textColor="#FFFFFF" />
+    </LinearLayout>
+</RelativeLayout>
+

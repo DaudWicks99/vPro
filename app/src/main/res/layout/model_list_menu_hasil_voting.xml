@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/clckHasil"
+        android:layout_marginTop="15dp">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        >
+
+        <ImageView
+            android:id="@+id/imgHasilVoting"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/basket1"
+            >
+        </ImageView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:id="@+id/descHasilVote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="KBM BASKET"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="15dp"
+                android:textSize="32dp"
+                android:shadowColor="@color/black"
+                android:shadowRadius="20"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                >
+            </TextView>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+</LinearLayout>

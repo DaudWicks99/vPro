@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditInfoActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/editInfoBack"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="14dp"
+            android:background="@null"
+            android:src="@mipmap/ic_launcher_back" />
+
+        <TextView
+            android:id="@+id/editTextUpload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/InfoBack"
+            android:gravity="center"
+            android:text="UPLOAD"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:id="@+id/editImgKosong"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/placeholder" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Judul"
+            android:id="@+id/editJudulUploadInfo"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:hint="Description"
+            android:lines="5"
+            android:gravity="top|left"
+            android:inputType="textMultiLine"
+            android:id="@+id/editDescInfoUpload"
+            android:scrollHorizontally="false"/>
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/editButtonUploadInfo"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:layout_gravity="center"
+            app:fb_borderColor="#FFFFFF"
+            app:fb_borderWidth="1dp"
+            app:fb_defaultColor="@color/orange"
+            app:fb_focusColor="@color/orange"
+            app:fb_radius="30dp"
+            app:fb_text="SUBMIT"
+            app:fb_textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

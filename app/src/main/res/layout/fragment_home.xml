@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageButton
+            android:id="@+id/opDrawer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="15dp"
+            android:background="@null"
+            android:src="@drawable/ic_menu_black_24dp" />
+
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="INFO VOTING"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="9dp"
+            app:cardBackgroundColor="#F98637"
+            app:cardCornerRadius="20dp">
+
+            <com.google.android.material.tabs.TabLayout
+
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:tabMode="scrollable"
+                app:tabSelectedTextColor="#FFF"
+                app:tabIndicatorColor="#FFF"
+                app:tabTextColor="#2EFFFFFF" />
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.viewpager.widget.ViewPager
+
+        android:id="@+id/vyPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher_plus"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/plus"/>
+
+</RelativeLayout>
+
+</LinearLayout>
