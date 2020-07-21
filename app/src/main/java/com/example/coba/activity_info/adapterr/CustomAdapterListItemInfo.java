@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
+
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.coba.AppController;
@@ -108,12 +110,19 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
             }
         });
 
-        checkAdmin(holders.editInfo,holders.hapusInfo);
+        holders.hapusInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteInfo(id);
+            }
+        });
+
+        checkAdmin(holders.menuInfoFtek);
         holders.title.setText(items.get(i).getTitle());
         Picasso.get().load(url).placeholder(R.drawable.placeholder).into(holders.background);
         return view;
     }
-    public void checkAdmin(final ImageView edit, final ImageView delete){
+    public void checkAdmin(final CardView menu){
         JSONObject payload = new JSONObject();
         JsonHelper.put(payload,"token", sToken);
 
@@ -129,11 +138,11 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
                         String mag=response.getString("msg");
                         Log.e("pesan",mag);
                         if (mag.equals("You are admin")){
-                            edit.setVisibility(View.VISIBLE);
-                            delete.setVisibility(View.VISIBLE);
+                            menu.setVisibility(View.VISIBLE);
+
                         }else {
-                            edit.setVisibility(View.GONE);
-                            delete.setVisibility(View.GONE);
+                            menu.setVisibility(View.GONE);
+
                         }
                     }catch (JSONException e){
                         e.printStackTrace();
@@ -145,30 +154,11 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.CHECK_ADMIN,payload,successResp,errorResp);
         AppController.getRest().addToReqq(jsonObjectRequest,"");
     }
-    public void deleteMenu(String id, final String idInfo){
-        JSONObject payload = new JSONObject();
-        JsonHelper.put(payload, "token",sToken);
-        JsonHelper.put(payload, "idList",id);
 
-        Response.Listener successResp = new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                if(!RestHelper.validateResponse(response)) {
-                    Log.w("adapter", "invalid response");
-                }else {
-                    deleteInfo(idInfo);
-                    fragment.onReload();
-                }
-            }
-        };
-        Response.ErrorListener errorResp = RestHelper.generalErrorResponse(null,null);
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.DELETE_LIST_MENU,payload,successResp,errorResp);
-        AppController.getRest().addToReqq(jsonObjectRequest,"");
-    }
     public void deleteInfo(String id){
         JSONObject payload = new JSONObject();
         JsonHelper.put(payload, "token",sToken);
-        JsonHelper.put(payload, "idInfo",id);
+        JsonHelper.put(payload, "id",id);
 
         Response.Listener successResp = new Response.Listener<JSONObject>() {
             @Override
@@ -176,6 +166,7 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
                 if(!RestHelper.validateResponse(response)) {
                     Log.w("adapter", "invalid response");
                 }else {
+                    fragment.onReload();
                     Log.w("adapter", "success");
                 }
             }
@@ -194,6 +185,7 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
         ImageView editInfo;
         ImageView hapusInfo;
         ImageView shareInfo;
+        CardView menuInfoFtek;
 
 
         public Holders(View v){
@@ -203,6 +195,7 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
             editInfo=(ImageView) v.findViewById(R.id.editInfo);
             hapusInfo=(ImageView) v.findViewById(R.id.hapusInfo);
             shareInfo=(ImageView) v.findViewById(R.id.shareInfo);
+            menuInfoFtek=(CardView)v.findViewById(R.id.menuInfoFtek);
 
         }
     }

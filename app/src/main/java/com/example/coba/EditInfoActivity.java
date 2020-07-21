@@ -50,6 +50,7 @@ public class EditInfoActivity extends AppCompatActivity {
     String upload1;
     String sToken;
     String mTitle;
+    String image;
     String status;
     String description;
     String id;
@@ -162,8 +163,7 @@ public class EditInfoActivity extends AppCompatActivity {
         JsonHelper.put(payload,"token",sToken);
         JsonHelper.put(payload,"judul",mTitle);
         JsonHelper.put(payload,"desc",description);
-        JsonHelper.put(payload,"status","1");
-        JsonHelper.put(payload,"image",upload1);
+        JsonHelper.put(payload,"id",id);
 
         if(!mTitle.isEmpty()){
             if (!description.isEmpty()){
@@ -183,7 +183,7 @@ public class EditInfoActivity extends AppCompatActivity {
                     }
                 };
                 Response.ErrorListener errorResp = RestHelper.generalErrorResponse(" ",null);
-                JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.UPDATE_LIST_MENU,payload,successResp,errorResp);
+                JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.UPDATE_INFO,payload,successResp,errorResp);
                 myReq.setRetryPolicy(new DefaultRetryPolicy(
                         10000,
                         0,
@@ -198,6 +198,8 @@ public class EditInfoActivity extends AppCompatActivity {
             Toast.makeText(EditInfoActivity.this, "Input Title first", Toast.LENGTH_LONG).show();
         }
     }
+
+
     private void  EditVote(JSONObject payload){
         Response.Listener<JSONObject> successResp = new Response.Listener<JSONObject>() {
             @Override
@@ -234,10 +236,9 @@ public class EditInfoActivity extends AppCompatActivity {
                         JSONArray result=response.getJSONArray("result");
                         for (int i=0; i<result.length();i++){
                             JSONObject item=result.getJSONObject(i);
-                            JSONObject object=item.getJSONObject("listMenu");
-                            editJudulUploadInfo.setText(object.getString("judul"));
-                            editDescInfoUpload.setText(object.getString("description"));
-                            String url=RestUrl.IMAGE_URL_INFO+object.getString("image");
+                            editJudulUploadInfo.setText(item.getString("judul"));
+                            editDescInfoUpload.setText(item.getString("description"));
+                            String url=RestUrl.IMAGE_URL_INFO+item.getString("image");
                             Picasso.get().load(url).placeholder(R.drawable.placeholder).into(editImgKosong);
 
                         }

@@ -28,6 +28,8 @@ public class RestUrl {
     public static final String DELETE_INFO ="http://167.71.199.106:8001/vpro/v-project/delete-info";
     public static final String UPDATE_INFO ="http://167.71.199.106:8001/vpro/v-project/update-info";
     public static final String UPDATE_PIC_INFO ="http://167.71.199.106:8001/vpro/v-project/update-pic-info";
+    public static final String UPDATE_PIC_LIST ="http://167.71.199.106:8001/vpro/v-project/update-pic-list";
+
 
 
 }

@@ -104,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
         Response.Listener successResp = new Response.Listener<JSONObject>(){
             @Override
             public void onResponse(JSONObject response){
-                Toast.makeText(LoginActivity.this,response.toString(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(LoginActivity.this,response.toString(), Toast.LENGTH_LONG).show();
                 if(!RestHelper.validateResponse(response)){
                     Log.w(" ", "Cannot login");
                 }

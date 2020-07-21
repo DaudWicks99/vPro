@@ -199,6 +199,13 @@ public class EditVotingActivity extends AppCompatActivity {
                 editItemMenu();
             }
         });
+
+        imgEditKosongVoting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPictureDialog();
+            }
+        });
     }
     private void showPictureDialog(){
         final CharSequence[] options = { "Take Photos", "Choose from gallery", "Cancel"};
@@ -277,8 +284,6 @@ public class EditVotingActivity extends AppCompatActivity {
         JsonHelper.put(payload,"nama",mTitle);
         JsonHelper.put(payload,"group",cat);
         JsonHelper.put(payload,"desc"," ");
-
-
 
         if(!mTitle.isEmpty()){
             if (!medit1.isEmpty()){

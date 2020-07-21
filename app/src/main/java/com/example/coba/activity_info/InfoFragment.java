@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -109,25 +110,50 @@ public class InfoFragment extends Fragment {
             }
         });
         infSwip=(SwipeRefreshLayout)view.findViewById(R.id.infSwip);
-        infSwip.setColorSchemeColors(R.color.orange);
-        infSwip.setDistanceToTriggerSync(10);
-        infSwip.setSize(SwipeRefreshLayout.DEFAULT);
-        infSwip.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        infSwip.setRefreshing(false);
-                        onReload();
-                    }
-                },2000);
-            }
-        });
+
+
 
 
         adapterr=new CustomAdapterListItemInfo(getContext(),transactions,InfoFragment.this);
         getTransactions();
+        LsVi.setOnScrollListener(new AbsListView.OnScrollListener() {
+            private boolean scrollEnabled;
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                int topRowVerticalPosition =
+                        (LsVi == null || LsVi.getChildCount() == 0) ?
+                                0 : LsVi.getChildAt(0).getTop();
+
+                boolean newScrollEnabled =
+                        (firstVisibleItem == 0 && topRowVerticalPosition >= 0) ?
+                                true : false;
+
+                if (null != infSwip && scrollEnabled != newScrollEnabled) {
+                    // Start refreshing....
+                    infSwip.setEnabled(newScrollEnabled);
+                    infSwip.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                        @Override
+                        public void onRefresh() {
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    infSwip.setRefreshing(false);
+                                    onReload();
+                                }
+                            },2000);
+
+                        }
+                    });
+                    scrollEnabled = newScrollEnabled;
+
+                }
+            }
+        });
         return view;
     }
 
@@ -193,6 +219,8 @@ public class InfoFragment extends Fragment {
         transactions.clear();
         getTransactions();
     }
+
+
 
     public static Date toDate(String value) throws ParseException{
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
