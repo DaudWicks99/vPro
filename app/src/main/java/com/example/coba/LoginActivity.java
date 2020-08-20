@@ -2,6 +2,7 @@ package com.example.coba;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
+
 import com.example.coba.database.Database;
 import com.example.coba.model.Json.JsonHelper;
 import com.example.coba.model.Rest.RestHelper;
@@ -35,11 +37,14 @@ public class LoginActivity extends AppCompatActivity {
     FancyButton login;
     ImageButton visibility;
     ImageButton visibilityOff;
+    ProgressDialog spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         login=(FancyButton) findViewById(R.id.btnLogin);
+        spinner=new ProgressDialog(LoginActivity.this);
+        spinner.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
         TextView daftar = (TextView) findViewById(R.id.txtSign);
         daftar.setOnClickListener(new View.OnClickListener() {
@@ -100,10 +105,10 @@ public class LoginActivity extends AppCompatActivity {
         JSONObject payload = new JSONObject();
         JsonHelper.put(payload, "email", email);
         JsonHelper.put(payload, "pass", password);
-        Log.e(" ",email+password);
         Response.Listener successResp = new Response.Listener<JSONObject>(){
             @Override
             public void onResponse(JSONObject response){
+                spinner.dismiss();
                 //Toast.makeText(LoginActivity.this,response.toString(), Toast.LENGTH_LONG).show();
                 if(!RestHelper.validateResponse(response)){
                     Log.w(" ", "Cannot login");
@@ -125,8 +130,10 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         };
-        Response.ErrorListener errorResp = RestHelper.generalErrorResponse("", null);
-        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.LOGIN,payload,successResp,errorResp);
-        AppController.getRest().addToReqq(myReq,"");
+        Response.ErrorListener errorResp = RestHelper.generalErrorResponse("", spinner);
+        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.LOGIN),payload,successResp,errorResp);
+        spinner.setMessage("Loading.....");
+        spinner.show();
+        AppController.getRest().addToReqq(myReq," ");
     }
 }

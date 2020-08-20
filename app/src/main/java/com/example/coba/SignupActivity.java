@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -30,6 +32,7 @@ public class SignupActivity extends AppCompatActivity {
     EditText fullname;
     EditText email;
     EditText confirmPassword;
+    ImageButton mataOn, mataOff, mataOn2, mataOff2;
     FancyButton btnSignUp;
     SessionManajer session;
     ImageButton signUpBack;
@@ -46,6 +49,10 @@ public class SignupActivity extends AppCompatActivity {
         fullname=(EditText)findViewById(R.id.fullname);
         email=(EditText)findViewById(R.id.email);
         confirmPassword=(EditText)findViewById(R.id.confirmPassword);
+        mataOn=(ImageButton)findViewById(R.id.visibilitySignup);
+        mataOff=(ImageButton)findViewById(R.id.visibilityOffSignup);
+        mataOn2=(ImageButton)findViewById(R.id.visibilitySignup2);
+        mataOff2=(ImageButton)findViewById(R.id.visibilityOffSignup2);
         btnSignUp=(FancyButton)findViewById(R.id.btnSignUp);
         signUpBack=(ImageButton)findViewById(R.id.signUpBack);
         signUpBack.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +62,38 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
         session=new SessionManajer(getApplicationContext());
+        mataOn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mataOn.setVisibility(View.GONE);
+                mataOff.setVisibility(View.VISIBLE);
+                password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            }
+        });
+        mataOff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mataOn.setVisibility(View.VISIBLE);
+                mataOff.setVisibility(View.GONE);
+                password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            }
+        });
+        mataOn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mataOn2.setVisibility(View.GONE);
+                mataOff2.setVisibility(View.VISIBLE);
+                confirmPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            }
+        });
+        mataOff2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mataOn2.setVisibility(View.VISIBLE);
+                mataOff2.setVisibility(View.GONE);
+                confirmPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            }
+        });
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,11 +145,13 @@ public class SignupActivity extends AppCompatActivity {
                 spinner.dismiss();
                 if (!RestHelper.validateResponse(response)){
                     Log.w("", "not Valid Response");
+                    Toast.makeText(SignupActivity.this, "not Response", Toast.LENGTH_LONG).show();
                     return;
                 }else {
                     try{
-                        String mag = response.getString("mag");
-                        login();
+                        String msg = response.getString("msg");
+                        onBackPressed();
+                        //login();
                     } catch (JSONException e){
                         Log.w("","not a valid payload");
                     }
@@ -118,7 +159,7 @@ public class SignupActivity extends AppCompatActivity {
             }
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse("", spinner);
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.REGISTER,payload,successResp,errorResp);
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.getUrl(RestUrl.REGISTER),payload,successResp,errorResp);
         spinner.setMessage("Sign Up. . . ");
         spinner.show();
         AppController.getRest().addToReqq(jsonObjectRequest,"");
@@ -155,7 +196,7 @@ public class SignupActivity extends AppCompatActivity {
             }
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse("", spinner);
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.LOGIN,payload,successResp,errorResp);
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.getUrl(RestUrl.LOGIN),payload,successResp,errorResp);
         spinner.setMessage("Login. . . ");
         spinner.show();
         AppController.getRest().addToReqq(jsonObjectRequest,"");

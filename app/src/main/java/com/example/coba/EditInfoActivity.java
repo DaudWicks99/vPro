@@ -3,6 +3,7 @@ package com.example.coba;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -44,16 +45,19 @@ public class EditInfoActivity extends AppCompatActivity {
     EditText editDescInfoUpload;
     EditText editJudulUploadInfo;
     ImageView editInfoBack;
+    ProgressDialog spinner;
 
 
     Bitmap bmp;
-    String upload1;
+    String upload1="";
     String sToken;
     String mTitle;
     String image;
     String status;
     String description;
     String id;
+    long time;
+    String times;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,21 +68,29 @@ public class EditInfoActivity extends AppCompatActivity {
         id=intent.getStringExtra("id");
         Log.e("dsa",id);
         EditItem(id);
+        spinner=new ProgressDialog(EditInfoActivity.this);
+        spinner.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         editImgKosong=(ImageView)findViewById(R.id.editImgKosong);
         editDescInfoUpload= (EditText)findViewById(R.id.editDescInfoUpload);
         editButtonUploadInfo=(FancyButton) findViewById(R.id.editButtonUploadInfo);
         editJudulUploadInfo=(EditText)findViewById(R.id.editJudulUploadInfo);
         editInfoBack=(ImageView) findViewById(R.id.editInfoBack);
+        time=System.currentTimeMillis();
+        times=String.valueOf(time);
         editInfoBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                Intent intent=new Intent(EditInfoActivity.this,MainActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                EditInfoActivity.this.finish();
+                startActivity(intent);
             }
         });
         editButtonUploadInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 editItemMenu();
+
             }
         });
 
@@ -170,24 +182,35 @@ public class EditInfoActivity extends AppCompatActivity {
                 Response.Listener successResp = new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Response",response.toString());
+                        spinner.dismiss();
                         JSONObject object=response;
                         try {
                             String code=object.getString("code");
                             if(code.equals("0")){
-                                onBackPressed();
+                                if (upload1.equals("")){
+                                    Intent intent=new Intent(EditInfoActivity.this,MainActivity.class)
+                                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    EditInfoActivity.this.finish();
+                                    startActivity(intent);
+                                }else{
+                                    uploadPhoto();
+                                }
+
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                 };
-                Response.ErrorListener errorResp = RestHelper.generalErrorResponse(" ",null);
-                JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.UPDATE_INFO,payload,successResp,errorResp);
+                Response.ErrorListener errorResp = RestHelper.generalErrorResponse(" ",spinner);
+                JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.UPDATE_INFO),payload,successResp,errorResp);
                 myReq.setRetryPolicy(new DefaultRetryPolicy(
                         10000,
                         0,
                         DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                spinner.setMessage("Loading.....");
+                spinner.show();
                 AppController.getRest().addToReqq(myReq," ");
             }else {
                 Toast.makeText(EditInfoActivity.this, "Input Choice 1 first", Toast.LENGTH_LONG).show();
@@ -199,12 +222,46 @@ public class EditInfoActivity extends AppCompatActivity {
         }
     }
 
+    public void uploadPhoto() {
+        JSONObject payload=new JSONObject();
+        JsonHelper.put(payload,"token",sToken);
+        JsonHelper.put(payload,"image",upload1);
+        JsonHelper.put(payload,"id",id);
+
+
+                Response.Listener successResp = new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        JSONObject object=response;
+                        try {
+                            String code=object.getString("code");
+                            if(code.equals("0")){
+                                Intent intent=new Intent(EditInfoActivity.this,MainActivity.class)
+                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                EditInfoActivity.this.finish();
+                                startActivity(intent);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                Response.ErrorListener errorResp = RestHelper.generalErrorResponse(" ",null);
+                JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.UPDATE_PIC_INFO),payload,successResp,errorResp);
+                myReq.setRetryPolicy(new DefaultRetryPolicy(
+                        10000,
+                        0,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                AppController.getRest().addToReqq(myReq," ");
+            }
+
+
+
 
     private void  EditVote(JSONObject payload){
         Response.Listener<JSONObject> successResp = new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.d(TAG,response.toString());
                 if(!RestHelper.validateResponse(response)){
                     Log.w(TAG,"Response not valid");
                     return;
@@ -216,7 +273,7 @@ public class EditInfoActivity extends AppCompatActivity {
             }
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse(TAG, null);
-        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.UPDATE_INFO,payload,successResp,errorResp);
+        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.UPDATE_INFO),payload,successResp,errorResp);
         AppController.getRest().addToReqq(myReq,TAG);
     }
     private void  EditItem(String id){
@@ -226,7 +283,7 @@ public class EditInfoActivity extends AppCompatActivity {
         Response.Listener<JSONObject> successResp = new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.d(TAG,response.toString());
+
                 if(!RestHelper.validateResponse(response)){
                     Log.w(TAG,"Response not valid");
                     return;
@@ -238,7 +295,7 @@ public class EditInfoActivity extends AppCompatActivity {
                             JSONObject item=result.getJSONObject(i);
                             editJudulUploadInfo.setText(item.getString("judul"));
                             editDescInfoUpload.setText(item.getString("description"));
-                            String url=RestUrl.IMAGE_URL_INFO+item.getString("image");
+                            String url=RestUrl.getImgBase(RestUrl.IMAGE_URL_INFO)+item.getString("image")+"?time="+times;
                             Picasso.get().load(url).placeholder(R.drawable.placeholder).into(editImgKosong);
 
                         }
@@ -251,7 +308,8 @@ public class EditInfoActivity extends AppCompatActivity {
             }
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse(TAG, null);
-        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.AMBIL_SATU_INFO,payload,successResp,errorResp);
+        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.AMBIL_SATU_INFO),payload,successResp,errorResp);
+
         AppController.getRest().addToReqq(myReq,TAG);
     }
 }

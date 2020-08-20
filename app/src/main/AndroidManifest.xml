@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".EditInfoActivity"></activity>
+        <activity android:name=".EditNimActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".EditInfoActivity" />
         <activity android:name=".DetailHasilVoteActivity" />
         <activity android:name=".EditVotingActivity" />
         <activity android:name=".AddInfoActivity" />

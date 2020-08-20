@@ -19,9 +19,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.android.volley.Response;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.coba.activity_hasilv.HasilFragment;
 import com.example.coba.activity_hasilv.SemuaFragment;
 import com.example.coba.activity_home.HomeFragment;
@@ -29,20 +33,34 @@ import com.example.coba.activity_info.InfoFragment;
 import com.example.coba.database.Database;
 import com.example.coba.model.ExpandableListView.ExpandableNavigationListView;
 import com.example.coba.model.ExpandableListView.Model.HeaderModel;
+import com.example.coba.model.Json.JsonHelper;
+import com.example.coba.model.Rest.RestHelper;
 import com.example.coba.model.activerecords.UserInfos;
 import com.example.coba.utils.SessionManajer;
 import com.example.mylibrary.Models.UserInfo;
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 ExpandableNavigationListView navigationExpandableListView;
 DrawerLayout drawer;
 NavigationView navigationView;
+RelativeLayout signOutDrawer;
+TextView userName, email;
 Toolbar toolbar;
 SessionManajer session;
 View navHeader;
-ImageView imageView;
+    CircleImageView imageView;
 String sToken;
+    long time;
+    String times;
+
 int colorMenu=R.color.colorAccent;
 
     @Override
@@ -53,10 +71,15 @@ int colorMenu=R.color.colorAccent;
         setSupportActionBar(toolbar);
         navigationExpandableListView=(ExpandableNavigationListView) findViewById(R.id.expandable_navigation);
         drawer=(DrawerLayout) findViewById(R.id.drawer_layout);
+        signOutDrawer=(RelativeLayout) findViewById(R.id.signOutDrawer);
         navigationView=(NavigationView) findViewById(R.id.nav_view);
         navHeader=navigationView.inflateHeaderView(R.layout.nav_header_main);
-        imageView=(ImageView) navHeader.findViewById(R.id.imageHeader);
-        imageView.setImageResource(R.drawable.elektro);
+        userName=(TextView)navHeader.findViewById(R.id.nav_username);
+        email=(TextView)navHeader.findViewById(R.id.nav_email);
+        imageView=(CircleImageView) navHeader.findViewById(R.id.imageHeader);
+        imageView.setImageResource(R.drawable.ic_account_circle_black_24dp);
+        time=System.currentTimeMillis();
+        times=String.valueOf(time);
         sToken = UserInfos.getFromDatabase(Database.db).token;
         if (sToken==null || sToken.equals("")){
             Log.d("mainActivity", "no token");
@@ -64,14 +87,47 @@ int colorMenu=R.color.colorAccent;
             MainActivity.this.finish();
         }
 
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+        userName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+        lihatProfil();
+
         navCon();
         ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(
                 this,drawer,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close
 
         );
+        signOutDrawer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displaySelectedScreen("SIGNOUT");
+
+                //Categories Menu
+                //Common.showToast(MainActivity.this, "Categories  Select");
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        displaySelectedScreen("HOME");
+        displaySelectedScreen("INFO");
 
 
 
@@ -82,15 +138,14 @@ int colorMenu=R.color.colorAccent;
         navigationExpandableListView
                 .init(this)
                 .addHeaderModel(new HeaderModel(R.drawable.ic_info_orange_24dp,"INFO FTEK",colorMenu))
-                .addHeaderModel(new HeaderModel(R.mipmap.ic_launcher,"INFO VOTING",colorMenu))
-                .addHeaderModel(new HeaderModel(R.drawable.ic_archive_orange_24dp,"HASIL VOTING",colorMenu))
+//                .addHeaderModel(new HeaderModel(R.mipmap.ic_launcher,"INFO VOTING",colorMenu))
+//                .addHeaderModel(new HeaderModel(R.drawable.ic_archive_orange_24dp,"HASIL VOTING",colorMenu))
 
 //                .addHeaderModel(
 //                        new HeaderModel(R.drawable.ic_action_attach_money,getString(R.string.transaction), R.drawable.add,colorMenu, true,false, false)
 //                                .addChildModel(new ChildModel(getString(R.string.on_going),colorMenu,false))
 //                                .addChildModel(new ChildModel(getString(R.string.history),colorMenu,false))
 //                )
-                .addHeaderModel(new HeaderModel(R.mipmap.ic_logout,"SIGNOUT",colorMenu))
                 .build()
                 .addOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
                     @Override
@@ -139,6 +194,40 @@ int colorMenu=R.color.colorAccent;
                     }
                 });
         navigationExpandableListView.expandGroup(0);
+    }
+    public void lihatProfil (){
+        JSONObject payload = new JSONObject();
+        JsonHelper.put(payload,"token", sToken);
+
+        Response.Listener successResp = new Response.Listener<JSONObject>(){
+            @Override
+            public void onResponse(JSONObject response){
+//                Log.e(" ", response.toString());
+                if(!RestHelper.validateResponse(response)){
+                    Log.w(" ", "Cannot login");
+                }
+                else {
+                    try {
+                        JSONObject result= response.getJSONObject("result");
+                            String imgName=result.getString("pictures");
+                            String url=RestUrl.getImgBase(RestUrl.IMAGE_URL_PROFILE)+imgName+"?time="+times;
+//                            Log.e(" ",url);
+                            Picasso.get()
+                                    .load(url)
+                                    .placeholder(R.drawable.fotokosong)
+                                    .into(imageView);
+                            userName.setText(result.getString("full_name"));
+                            email.setText(result.getString("email"));
+                    }
+                    catch (JSONException ex){
+                        ex.printStackTrace();
+                    }
+
+                }
+            }};
+        Response.ErrorListener errorResp = RestHelper.generalErrorResponse("", null);
+        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.PROFILE),payload,successResp,errorResp);
+        AppController.getRest().addToReqq(myReq,"");
     }
     private void displaySelectedScreen(String itemName) {
 

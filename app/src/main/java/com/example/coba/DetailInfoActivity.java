@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -37,15 +38,18 @@ public class DetailInfoActivity extends AppCompatActivity {
     String id;
     ZoomInImageView imgDtlInf;
     ProgressDialog spinner;
-
+    long time;
+    String times;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_info);
-        Details=(RelativeLayout)findViewById(R.id.Details);
+        Details=(RelativeLayout) findViewById(R.id.Details);
         background=(ImageView)findViewById(R.id.imgDtlInf);
         jdlDtl=(TextView)findViewById(R.id.jdlDtl);
         descDtl=(TextView)findViewById(R.id.descDtl);
+        time=System.currentTimeMillis();
+        times=String.valueOf(time);
         spinner=new ProgressDialog(DetailInfoActivity.this);
         spinner.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         sToken = UserInfos.getFromDatabase(Database.db).token;
@@ -53,9 +57,13 @@ public class DetailInfoActivity extends AppCompatActivity {
         detailsInfoBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                Intent intent=new Intent(DetailInfoActivity.this,MainActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                DetailInfoActivity.this.finish();
+                startActivity(intent);
             }
         });
+
 
         imgDtlInf=(ZoomInImageView) findViewById(R.id.imgDtlInf);
 
@@ -86,7 +94,7 @@ public class DetailInfoActivity extends AppCompatActivity {
                         for(int i = 0; i < result.length(); i++){
                             JSONObject item = result.getJSONObject(i);
                             String imgName=item.getString("image");
-                            String url="http://167.71.199.106:8001/common/uploads/InfoListMenuPic/low/"+imgName;
+                            String url=RestUrl.getImgBase(RestUrl.IMAGE_URL_INFO)+imgName+"?time="+times;
                             Log.e(" ",url);
                             Picasso.get()
                                     .load(url)
@@ -107,7 +115,7 @@ public class DetailInfoActivity extends AppCompatActivity {
                 }
             }};
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse("", spinner);
-        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.AMBIL_SATU_INFO,payload,successResp,errorResp);
+        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.AMBIL_SATU_INFO),payload,successResp,errorResp);
         spinner.setMessage("Loading.....");
         spinner.show();
         AppController.getRest().addToReqq(myReq,"");

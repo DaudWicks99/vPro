@@ -3,6 +3,7 @@ package com.example.coba;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -15,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,8 +45,8 @@ public class AddInfoActivity extends AppCompatActivity {
     ImageView imgKosong;
     EditText descInfoUpload;
     EditText judulUploadInfo;
-    ImageView infoBack;
-
+    ImageButton infoBack;
+    ProgressDialog spinner;
 
     Bitmap bmp;
     String upload1;
@@ -63,7 +65,9 @@ public class AddInfoActivity extends AppCompatActivity {
         descInfoUpload= (EditText)findViewById(R.id.descInfoUpload);
         buttonUploadInfo=(FancyButton) findViewById(R.id.buttonUploadInfo);
         judulUploadInfo=(EditText)findViewById(R.id.judulUploadInfo);
-        infoBack=(ImageView) findViewById(R.id.InfoBack);
+        spinner=new ProgressDialog(AddInfoActivity.this);
+        spinner.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        infoBack=(ImageButton) findViewById(R.id.InfoBack);
         infoBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,7 +172,7 @@ public class AddInfoActivity extends AppCompatActivity {
                 Response.Listener successResp = new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Response",response.toString());
+                        spinner.dismiss();
                         JSONObject object=response;
                         try {
                             String code=object.getString("code");
@@ -180,12 +184,14 @@ public class AddInfoActivity extends AppCompatActivity {
                         }
                     }
                 };
-                Response.ErrorListener errorResp = RestHelper.generalErrorResponse(" ",null);
-                JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.ADD_INFO_MENU,payload,successResp,errorResp);
+                Response.ErrorListener errorResp = RestHelper.generalErrorResponse(" ",spinner);
+                JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.ADD_INFO_MENU),payload,successResp,errorResp);
                 myReq.setRetryPolicy(new DefaultRetryPolicy(
                         10000,
                         0,
                         DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                spinner.setMessage("Loading. . . ");
+                spinner.show();
                 AppController.getRest().addToReqq(myReq," ");
             }else {
                 Toast.makeText(AddInfoActivity.this, "Input Choice 1 first", Toast.LENGTH_LONG).show();

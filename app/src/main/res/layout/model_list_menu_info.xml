@@ -57,6 +57,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp"
+            android:visibility="gone"
             app:cardCornerRadius="15dp">
             <RelativeLayout
                 android:layout_width="match_parent"

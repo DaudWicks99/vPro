@@ -21,27 +21,49 @@
         android:id="@+id/nav_view"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        android:background="#707070" >
+        android:background="#fff" >
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             >
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="176dp"
+                android:id="@+id/relativeDrawer"
                 >
             </RelativeLayout>
             <com.example.coba.model.ExpandableListView.ExpandableNavigationListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/expandable_navigation"
+                android:layout_below="@+id/relativeDrawer"
                 android:layout_gravity="left"
                 android:divider="@null"
                 android:groupIndicator="@null"
                 android:scrollbars="vertical"/>
-        </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/signOutDrawer">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@mipmap/ic_logout"
+                    android:layout_centerVertical="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_centerVertical="true"
+                    android:textSize="14dp"
+                    android:textColor="@color/orange"
+                    android:text="SIGNOUT"/>
+            </RelativeLayout>
+        </RelativeLayout>
     </com.google.android.material.navigation.NavigationView>
 
 

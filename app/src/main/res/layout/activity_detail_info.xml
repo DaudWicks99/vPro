@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#fff"
     tools:context=".DetailInfoActivity">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,6 +21,7 @@
             android:layout_marginLeft="4dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
+            android:layout_centerVertical="true"
             android:background="@null"
             android:src="@drawable/back" />
 
@@ -30,36 +32,49 @@
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
-
         android:id="@+id/Details"
         >
-
         <com.zolad.zoominimageview.ZoomInImageView
             android:id="@+id/imgDtlInf"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/placeholder" />
-
-            />
-
-
+             />
     </RelativeLayout>
 
     <TextView
         android:id="@+id/jdlDtl"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="JUDUL"
-        android:textSize="25dp"
+        android:text=" "
+        android:textSize="20dp"
         android:textStyle="bold"
-        android:layout_marginLeft="15dp"/>
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:layout_marginTop="13dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/orange"/>
     <TextView
         android:id="@+id/descDtl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cerita mengikuti siswa SMA Saki Miyanaga (Minami Hamabe) dan teman sekelasnya saat mereka terlarut dalam permainan mahjong. Mereka menargetkan kompetisi nasional yang akan datang."
+        android:background="@drawable/speech_bubble"
+        android:autoLink="web"
+        android:paddingLeft="20dp"
+        android:paddingTop="4dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:linksClickable="true"
+        android:textColor="@color/black"
+        android:text=" "
         android:layout_marginRight="15dp"
+        android:layout_marginTop="13dp"
         android:layout_marginLeft="15dp"/>
 
 </LinearLayout>

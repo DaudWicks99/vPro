@@ -7,30 +7,30 @@
     android:orientation="vertical"
     tools:context=".AddInfoActivity">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
 
-        <ImageView
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/orange"
+        >
+
+        <ImageButton
             android:id="@+id/InfoBack"
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="14dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_centerVertical="true"
             android:background="@null"
-            android:src="@mipmap/ic_launcher_back" />
-
+            android:src="@drawable/back" />
         <TextView
-            android:id="@+id/textUpload"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_toEndOf="@+id/InfoBack"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:text="UPLOAD"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="20dp"
+            android:textColor="#fff"
+            android:text="Add Info"/>
     </RelativeLayout>
 
     <LinearLayout

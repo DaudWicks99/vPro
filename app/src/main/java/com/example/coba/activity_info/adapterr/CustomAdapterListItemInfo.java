@@ -1,7 +1,9 @@
 package com.example.coba.activity_info.adapterr;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,15 +13,19 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.coba.AddInfoActivity;
 import com.example.coba.AppController;
 import com.example.coba.DetailHasilVoteActivity;
 import com.example.coba.DetailInfoActivity;
 import com.example.coba.EditInfoActivity;
 import com.example.coba.EditVotingActivity;
+import com.example.coba.LoginActivity;
+import com.example.coba.MainActivity;
 import com.example.coba.R;
 import com.example.coba.RestUrl;
 import com.example.coba.activity_home.AllFragment;
@@ -31,6 +37,8 @@ import com.example.coba.database.Database;
 import com.example.coba.model.Json.JsonHelper;
 import com.example.coba.model.Rest.RestHelper;
 import com.example.coba.model.activerecords.UserInfos;
+import com.example.mylibrary.Models.UserInfo;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
@@ -45,12 +53,16 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
     ArrayList<InfoMenu> items;
     ArrayList<InfoMenu> filterList;
     InfoFragment fragment;
+    long time;
+    String times;
 
     public CustomAdapterListItemInfo(Context c,ArrayList<InfoMenu> items,InfoFragment AllFragment){
         this.ctx= c;
         this.items=items;
         this.fragment=AllFragment;
         sToken = UserInfos.getFromDatabase(Database.db).token;
+        time=System.currentTimeMillis();
+        times=String.valueOf(time);
 
     }
 
@@ -84,7 +96,7 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
         }
         String rawUrl=items.get(i).getUrl();
         final String id=items.get(i).getId();
-        String url= "http://167.71.199.106:8001/common/uploads/InfoListMenuPic/low/"+rawUrl;
+        String url= RestUrl.getImgBase(RestUrl.IMAGE_URL_INFO)+rawUrl+"?time="+times;
         Holders holders=new Holders(view);
         holders.title.setText(items.get(i).getTitle());
         Picasso.get()
@@ -113,7 +125,26 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
         holders.hapusInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteInfo(id);
+
+                AlertDialog.Builder ab= new AlertDialog.Builder(ctx);
+                ab.setTitle("Delete Info");
+                ab.setMessage("Are you sure?");
+                ab.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        deleteInfo(id);
+
+                    }
+                });
+                ab.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                ab.show();
+
+
             }
         });
 
@@ -129,7 +160,6 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
         Response.Listener successResp = new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.e("response", response.toString());
                 if (!RestHelper.validateResponse(response)){
                     Log.w("adapter", "invalid response");
                     return;
@@ -151,9 +181,11 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
             }
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse(null,null);
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.CHECK_ADMIN,payload,successResp,errorResp);
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.getUrl(RestUrl.CHECK_ADMIN),payload,successResp,errorResp);
         AppController.getRest().addToReqq(jsonObjectRequest,"");
     }
+
+
 
     public void deleteInfo(String id){
         JSONObject payload = new JSONObject();
@@ -172,7 +204,7 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
             }
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse(null,null);
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.DELETE_INFO,payload,successResp,errorResp);
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.getUrl(RestUrl.DELETE_INFO),payload,successResp,errorResp);
         AppController.getRest().addToReqq(jsonObjectRequest,"");
     }
 
@@ -188,6 +220,7 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
         CardView menuInfoFtek;
 
 
+
         public Holders(View v){
             layout=(RelativeLayout) v.findViewById(R.id.clickInfo);
             background=(ImageView) v.findViewById(R.id.imageInfo);
@@ -196,6 +229,7 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
             hapusInfo=(ImageView) v.findViewById(R.id.hapusInfo);
             shareInfo=(ImageView) v.findViewById(R.id.shareInfo);
             menuInfoFtek=(CardView)v.findViewById(R.id.menuInfoFtek);
+
 
         }
     }

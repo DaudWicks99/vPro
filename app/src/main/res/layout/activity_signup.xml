@@ -77,6 +77,10 @@
             android:hint="Email "
             android:inputType="textPersonName"
             android:textColor="#707070" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
 
         <EditText
             android:id="@+id/password"
@@ -88,7 +92,32 @@
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword" />
+            <ImageButton
+                android:id="@+id/visibilitySignup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:background="#FFF"
+                android:src="@drawable/ic_visibility_black_24dp" />
 
+            <ImageButton
+                android:id="@+id/visibilityOffSignup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:background="#FFF"
+                android:src="@drawable/ic_visibility_off_black_24dp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
         <EditText
             android:id="@+id/confirmPassword"
             android:layout_width="match_parent"
@@ -99,6 +128,27 @@
             android:ems="10"
             android:hint="Confrim Password"
             android:inputType="textPassword" />
+            <ImageButton
+                android:id="@+id/visibilitySignup2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:background="#FFF"
+                android:src="@drawable/ic_visibility_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/visibilityOffSignup2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:background="#FFF"
+                android:src="@drawable/ic_visibility_off_black_24dp"
+                android:visibility="gone" />
+        </RelativeLayout>
 
         <mehdi.sakout.fancybuttons.FancyButton
             android:id="@+id/btnSignUp"

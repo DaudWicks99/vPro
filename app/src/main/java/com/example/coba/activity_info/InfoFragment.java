@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -154,7 +155,41 @@ public class InfoFragment extends Fragment {
                 }
             }
         });
+        checkAdmin();
         return view;
+    }
+    public void checkAdmin(){
+        JSONObject payload = new JSONObject();
+        JsonHelper.put(payload,"token", sToken);
+
+        Response.Listener successResp = new Response.Listener<JSONObject>() {
+            @SuppressLint("RestrictedApi")
+            @Override
+            public void onResponse(JSONObject response) {
+//                Log.e("response", response.toString());
+                if (!RestHelper.validateResponse(response)){
+                    Log.w("adapter", "invalid response");
+                    return;
+                }else {
+                    try {
+                        String mag=response.getString("msg");
+//                        Log.e("pesan",mag);
+                        if (mag.equals("You are admin")){
+                            floatingactionbutton.setVisibility(View.VISIBLE);
+
+                        }else {
+                            floatingactionbutton.setVisibility(View.GONE);
+
+                        }
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        Response.ErrorListener errorResp = RestHelper.generalErrorResponse(null,null);
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.getUrl(RestUrl.CHECK_ADMIN),payload,successResp,errorResp);
+        AppController.getRest().addToReqq(jsonObjectRequest,"");
     }
 
 
@@ -166,7 +201,7 @@ public class InfoFragment extends Fragment {
         Response.Listener successResp= new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.e("namama",response.toString());
+//                Log.e("namama",response.toString());
                 if(!RestHelper.validateResponse(response)){
                     Log.w("jashkbfjas","Not a valid response" );
                     return;
@@ -198,7 +233,7 @@ public class InfoFragment extends Fragment {
                                 return data2.compareTo(data1);
                             }
                         });
-                        Log.e("dsad",transactions.toString());
+//                        Log.e("dsad",transactions.toString());
                         LsVi.setAdapter(adapterr);
                         adapterr.reload(transactions);
                         adapterr.notifyDataSetChanged();
@@ -211,7 +246,7 @@ public class InfoFragment extends Fragment {
             }
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse("sdad", null);
-        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.AMBIL_INFO,payload,successResp,errorResp);
+        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.AMBIL_INFO),payload,successResp,errorResp);
         AppController.getRest().addToReqq(myReq,"sda");
 
     }
@@ -220,6 +255,11 @@ public class InfoFragment extends Fragment {
         getTransactions();
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        onReload();
+    }
 
 
     public static Date toDate(String value) throws ParseException{

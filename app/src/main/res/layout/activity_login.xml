@@ -43,9 +43,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
+            android:drawableLeft="@drawable/ic_person_black_24dp"
             android:ems="10"
-            android:hint="Username"
-            android:inputType="textPersonName" />
+            android:hint="Email"
+            android:textColorHint="#F0E9E9"
+            android:inputType="textEmailAddress" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,16 +58,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
+                android:drawableLeft="@drawable/ic_lock_black_24dp"
                 android:ems="10"
                 android:hint="Password"
+                android:textColorHint="#F0E9E9"
                 android:inputType="textPassword" />
 
             <ImageButton
                 android:id="@+id/visibility"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="290dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginRight="45dp"
+                android:layout_alignParentRight="true"
                 android:background="#FFF"
                 android:src="@drawable/ic_visibility_black_24dp" />
 
@@ -73,7 +78,8 @@
                 android:id="@+id/visibilityOff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="290dp"
+                android:layout_marginRight="45dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginTop="5dp"
                 android:background="#FFF"
                 android:src="@drawable/ic_visibility_off_black_24dp"
@@ -81,11 +87,11 @@
         </RelativeLayout>
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Forgot Password ?"
-            android:textColor="#707070" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Forgot Password ?"-->
+<!--            android:textColor="#707070" />-->
 
         <mehdi.sakout.fancybuttons.FancyButton
             android:id="@+id/btnLogin"
