@@ -155,69 +155,92 @@ public class EditNimActivity extends AppCompatActivity {
         nTlp=editTlp.getText().toString();
         nTempat=editTempat.getText().toString();
         nDob=editDob.getText().toString();
-        if (!nFlname.isEmpty()||!nFlname.equals(" ")){
-            if (!nNim.isEmpty()||!nNim.equals(" ")){
-                if (!nAlamat.isEmpty()||!nAlamat.equals(" ")){
-                    if (!nTlp.isEmpty()||!nTlp.equals(" ")){
-                        if (!cat.equals(" ")){
-                            if (!nTempat.isEmpty()||!nTempat.equals(" ")){
-                                if (!nDob.isEmpty()||!nDob.equals(" ")){
-                                    JSONObject payload=new JSONObject();
-                                    JsonHelper.put(payload,"token",sToken);
-                                    JsonHelper.put(payload,"flname",nFlname);
-                                    JsonHelper.put(payload,"nim",nNim);
-                                    JsonHelper.put(payload,"alamat",nAlamat);
-                                    JsonHelper.put(payload,"nomerTelpon",nTlp);
-                                    JsonHelper.put(payload,"gender",cat);
-                                    JsonHelper.put(payload,"tempat",nTempat);
-                                    JsonHelper.put(payload,"tanggalLahir",nDob);
-                                    Response.Listener successResp = new Response.Listener<JSONObject>(){
-                                        @Override
-                                        public void onResponse(JSONObject response){
-                                            spinner.dismiss();
-                                            JSONObject object=response;
-                                            try {
-                                                String code=object.getString("code");
-                                                if(code.equals("0")){
-                                                    Intent intent=new Intent(EditNimActivity.this,ProfileActivity.class)
+        if (!nFlname.isEmpty()){
+            if(!nFlname.equals(" ")){
+                if (!nNim.isEmpty()){
+                    if (!nNim.equals(" ")){
+                        if (!nAlamat.isEmpty()){
+                            if (!nAlamat.equals(" ")){
+                                if (!nTlp.isEmpty()){
+                                    if (!nTlp.equals(" ")){
+                                        if (!cat.equals(" ")){
+                                            if (!nTempat.isEmpty()){
+                                                if (!nTempat.equals(" ")){
+                                                    if (!nDob.isEmpty()){
+                                                        if (!nDob.equals(" ")){
+                                                            JSONObject payload=new JSONObject();
+                                                            JsonHelper.put(payload,"token",sToken);
+                                                            JsonHelper.put(payload,"flname",nFlname);
+                                                            JsonHelper.put(payload,"nim",nNim);
+                                                            JsonHelper.put(payload,"alamat",nAlamat);
+                                                            JsonHelper.put(payload,"nomerTelpon",nTlp);
+                                                            JsonHelper.put(payload,"gender",cat);
+                                                            JsonHelper.put(payload,"tempat",nTempat);
+                                                            JsonHelper.put(payload,"tanggalLahir",nDob);
+                                                            Response.Listener successResp = new Response.Listener<JSONObject>(){
+                                                            @Override
+                                                            public void onResponse(JSONObject response){
+                                                            spinner.dismiss();
+                                                            JSONObject object=response;
+                                                            try {
+                                                            String code=object.getString("code");
+                                                            if(code.equals("0")){
+                                                            Intent intent=new Intent(EditNimActivity.this,ProfileActivity.class)
                                                             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                                    startActivity(intent);
+                                                            startActivity(intent);
+                                                            }
+                                                            }
+                                                                catch (JSONException ex){
+                                                                ex.printStackTrace();
+                                                                }
+
+
+                                                            }};
+                                                            Response.ErrorListener errorResp = RestHelper.generalErrorResponse("", spinner);
+                                                            JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.ADD_PROFILE),payload,successResp,errorResp);
+                                                            myReq.setRetryPolicy(new DefaultRetryPolicy(
+                                                               10000,
+                                                               0,
+                                                               DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                                                            spinner.setMessage("Upload Photo. . . ");
+                                                            spinner.show();
+                                                            AppController.getRest().addToReqq(myReq,"");
+
+                                                        }else {
+                                                            Toast.makeText(EditNimActivity.this, "Input Date Of Birth", Toast.LENGTH_LONG).show();
+                                                        }
+                                                    }else {
+                                                        Toast.makeText(EditNimActivity.this, "Input Date Of Birth", Toast.LENGTH_LONG).show();
+                                                    }
+                                                }else {
+                                                    Toast.makeText(EditNimActivity.this, "Input Place Of Birth", Toast.LENGTH_LONG).show();
                                                 }
-
+                                            }else {
+                                                Toast.makeText(EditNimActivity.this, "Input Place Of Birth", Toast.LENGTH_LONG).show();
                                             }
-                                            catch (JSONException ex){
-                                                ex.printStackTrace();
-                                            }
-
-
-                                        }};
-                                    Response.ErrorListener errorResp = RestHelper.generalErrorResponse("", spinner);
-                                    JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.ADD_PROFILE),payload,successResp,errorResp);
-                                    myReq.setRetryPolicy(new DefaultRetryPolicy(
-                                            10000,
-                                            0,
-                                            DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-                                    spinner.setMessage("Upload Photo. . . ");
-                                    spinner.show();
-                                    AppController.getRest().addToReqq(myReq,"");
-
+                                        }else {
+                                            Toast.makeText(EditNimActivity.this, "Select Gender", Toast.LENGTH_LONG).show();
+                                        }
+                                    }else {
+                                        Toast.makeText(EditNimActivity.this, "Input Phone Number", Toast.LENGTH_LONG).show();
+                                    }
                                 }else {
-                                    Toast.makeText(EditNimActivity.this, "Input Date Of Birth", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(EditNimActivity.this, "Input Phone Number", Toast.LENGTH_LONG).show();
                                 }
                             }else {
-                                Toast.makeText(EditNimActivity.this, "Input Place Of Birth", Toast.LENGTH_LONG).show();
+                                Toast.makeText(EditNimActivity.this, "Input Address", Toast.LENGTH_LONG).show();
                             }
                         }else {
-                            Toast.makeText(EditNimActivity.this, "Select Gender", Toast.LENGTH_LONG).show();
+                            Toast.makeText(EditNimActivity.this, "Input Address", Toast.LENGTH_LONG).show();
                         }
                     }else {
-                        Toast.makeText(EditNimActivity.this, "Input Phone Number", Toast.LENGTH_LONG).show();
+                        Toast.makeText(EditNimActivity.this, "Input Nim", Toast.LENGTH_LONG).show();
                     }
                 }else {
-                    Toast.makeText(EditNimActivity.this, "Input Address", Toast.LENGTH_LONG).show();
+                    Toast.makeText(EditNimActivity.this, "Input Nim", Toast.LENGTH_LONG).show();
                 }
             }else {
-                Toast.makeText(EditNimActivity.this, "Input Nim", Toast.LENGTH_LONG).show();
+                Toast.makeText(EditNimActivity.this, "Input Full Name", Toast.LENGTH_LONG).show();
             }
         }else {
             Toast.makeText(EditNimActivity.this, "Input Full Name", Toast.LENGTH_LONG).show();

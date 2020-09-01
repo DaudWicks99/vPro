@@ -108,6 +108,7 @@ int colorMenu=R.color.colorAccent;
                 startActivity(intent);
             }
         });
+        cekToken();
         lihatProfil();
 
         navCon();
@@ -229,6 +230,50 @@ int colorMenu=R.color.colorAccent;
         JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.PROFILE),payload,successResp,errorResp);
         AppController.getRest().addToReqq(myReq,"");
     }
+    public void cekToken (){
+        JSONObject payload = new JSONObject();
+        JsonHelper.put(payload,"token", sToken);
+
+        Response.Listener successResp = new Response.Listener<JSONObject>(){
+            @Override
+            public void onResponse(JSONObject response){
+                if(!RestHelper.validateResponse(response)){
+                    try {
+                        String code = response.getString("code");
+                        if (code.equals("1")){
+                            AlertDialog.Builder ab = new AlertDialog.Builder(MainActivity.this);
+                            ab.setMessage("Your token is expire, please login again");
+                            ab.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                    UserInfo.deleteAll(new UserInfo(Database.db));
+                                    Database.clear();
+                                    startActivity(new Intent(MainActivity.this,LoginActivity.class)
+                                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                                }
+                            });
+                            ab.show();
+                        }
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                    }
+
+                }
+                else {
+                    try {
+                        String code = response.getString("code");
+                    }
+                    catch (JSONException ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        };
+        Response.ErrorListener errorResp = RestHelper.generalErrorResponse("", null);
+        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.CHECK_TOKEN),payload,successResp,errorResp);
+        AppController.getRest().addToReqq(myReq,"");
+    }
     private void displaySelectedScreen(String itemName) {
 
         //creating fragment object
@@ -295,6 +340,7 @@ int colorMenu=R.color.colorAccent;
 
     }
 
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         displaySelectedScreen(String.valueOf(menuItem.getItemId()));
@@ -311,7 +357,7 @@ int colorMenu=R.color.colorAccent;
             drawer.closeDrawer(GravityCompat.START);
         }
 
-        if(f instanceof HomeFragment){
+        if(f instanceof InfoFragment){
             if (back_pressed + 2000 > System.currentTimeMillis()){
                 FragmentManager fm = this.getSupportFragmentManager();
                 for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {

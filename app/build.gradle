@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -7,13 +8,13 @@ android {
         applicationId "com.ftek.coba"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.0.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            lintOptions{
+            lintOptions {
                 disable 'MissingTranslation'
                 checkReleaseBuilds false
                 abortOnError false
@@ -22,6 +23,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/NOTICE'
+    }
+}
+android {
+    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
@@ -30,6 +39,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.github.medyo:fancybuttons:1.9.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
@@ -44,5 +54,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.10.0'
     implementation 'com.github.BlackBoxVision:datetimepicker-edittext:v0.3.3'
+    implementation 'com.google.code.gson:gson:2.8.0'
+    implementation 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
     implementation project(path: ':mylibrary')
 }

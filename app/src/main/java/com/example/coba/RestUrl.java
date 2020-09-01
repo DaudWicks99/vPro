@@ -20,6 +20,7 @@ public class RestUrl {
     public static final String DELETE_VOTE ="/v-project/delete-vote";
     public static final String HASIL_VOTE ="/v-project/hasil-vote";
     public static final String CHECK_ADMIN ="/v-project/check-admin";
+    public static final String CHECK_TOKEN ="/v-project/check-token";
     public static final String ADD_INFO_MENU ="/v-project/add-info-menu";
     public static final String AMBIL_INFO ="/v-project/ambil-info";
     public static final String AMBIL_SATU_INFO ="/v-project/ambil-satu-info";
@@ -38,18 +39,18 @@ public class RestUrl {
         if (name!=null){
 
             if (BuildConfig.DEBUG){
-                return "http://167.71.199.106:3000/v1"+name;
+                return "http://167.71.199.106:3000/dev"+name;
             }
-            return "http://167.71.199.106:3000/dev"+name;
+            return "http://167.71.199.106:3000/v1"+name;
         }
         return "";
     }
 
     public static String getImgBase(String name){
         if (BuildConfig.DEBUG){
-            return "http://167.71.199.106:3000/common/uploads/prod/"+name;
+            return "http://167.71.199.106:3000/common/uploads/dev/"+name;
         }
-        return "http://167.71.199.106:3000/common/uploads/dev/"+name;
+        return "http://167.71.199.106:3000/common/uploads/prod/"+name;
     }
 
 

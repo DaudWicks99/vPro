@@ -84,19 +84,21 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = usnme.getText().toString();
                 String password = uspass.getText().toString();
-                if (password.isEmpty()){
-                    Toast.makeText(LoginActivity.this,"Tolong isi password terlebih dahulu", Toast.LENGTH_LONG).show();
-                }
-                else if(username.isEmpty()){
-                    Toast.makeText(LoginActivity.this,"Tolong masukkan username terlebih dahulu", Toast.LENGTH_LONG).show();
-                }
-                else if(password.isEmpty()||username.isEmpty()){
-                    Toast.makeText(LoginActivity.this,"Tolong isi password dan username terlebih dahulu", Toast.LENGTH_LONG).show();
-                }
-                else{
-                    loginRest(username, password);
+                if (password.isEmpty() || username.isEmpty()) {
+                    Toast.makeText(LoginActivity.this, "Tolong isi email dan password terlebih dahulu", Toast.LENGTH_LONG).show();
+                } else {
+                    if (!username.isEmpty()) {
+                        if (!password.isEmpty()) {
+                            loginRest(username, password);
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Tolong isi passsword terlebih dahulu", Toast.LENGTH_LONG).show();
+                        }
+                    }else {
+                        Toast.makeText(LoginActivity.this,"Tolong isi email terlebih dahulu", Toast.LENGTH_LONG).show();
                     }
                 }
+
+            }
 
         });
     }
@@ -112,6 +114,14 @@ public class LoginActivity extends AppCompatActivity {
                 //Toast.makeText(LoginActivity.this,response.toString(), Toast.LENGTH_LONG).show();
                 if(!RestHelper.validateResponse(response)){
                     Log.w(" ", "Cannot login");
+                    try {
+                        String msg = response.getString("msg");
+                        if (msg.contains("Incorrect")){
+                            Toast.makeText(LoginActivity.this,msg, Toast.LENGTH_LONG).show();
+                        }
+                    } catch (JSONException e){
+                        e.printStackTrace();
+                    }
                 }
                 else {
                     try {
