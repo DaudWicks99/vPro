@@ -39,6 +39,7 @@ import com.example.coba.model.activerecords.UserInfos;
 import com.example.coba.utils.SessionManajer;
 import com.example.mylibrary.Models.UserInfo;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -310,6 +311,7 @@ int colorMenu=R.color.colorAccent;
                         dialogInterface.dismiss();
                         UserInfo.deleteAll(new UserInfo(Database.db));
                         Database.clear();
+                        FirebaseMessaging.getInstance().unsubscribeFromTopic("admin");
                         startActivity(new Intent(MainActivity.this, LoginActivity.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         MainActivity.this.finish();

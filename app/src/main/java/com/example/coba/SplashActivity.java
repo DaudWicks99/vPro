@@ -24,6 +24,7 @@ ImageView logoanim;
                 Intent intent=new Intent(SplashActivity.this,MainActivity.class);
                 startActivity(intent);
                 SplashActivity.this.finish();
+                overridePendingTransition(R.anim.push_up_in,R.anim.push_up_out);
             }
         }, 2000);
     }

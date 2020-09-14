@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
@@ -29,11 +30,16 @@ import com.example.coba.database.Database;
 import com.example.coba.model.Json.JsonHelper;
 import com.example.coba.model.Rest.RestHelper;
 import com.example.coba.model.activerecords.UserInfos;
+import com.example.coba.service.ServiceFirebase.MessageService;
+import com.example.coba.service.Util.FCMHelper;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.gson.JsonObject;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 import mehdi.sakout.fancybuttons.FancyButton;
@@ -74,10 +80,12 @@ public class AddInfoActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        spinner.setMessage("Loading. . . ");
         buttonUploadInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addItemMenu();
+
+                sendNotif();
             }
         });
 
@@ -157,6 +165,59 @@ public class AddInfoActivity extends AppCompatActivity {
             }
         }
     }
+    public void sendNotif() {
+        spinner.show();
+        mTitle=judulUploadInfo.getText().toString();
+        description=descInfoUpload.getText().toString();
+        if(!mTitle.isEmpty()){
+            if (!description.isEmpty()){
+                    new AsyncTask<Void, Void, Void>(){
+                    JsonObject notificationObject;
+                    JsonObject dataObject;
+
+                    Boolean success;
+
+                protected void onPreExecute(){
+                    notificationObject=new JsonObject();
+                    notificationObject.addProperty("title","INFO");
+                    notificationObject.addProperty("body",mTitle);
+                    notificationObject.addProperty("click_action", MessageService.ACTION_NEED_INFO);
+
+                    dataObject=new JsonObject();
+                    dataObject.addProperty("id","1");
+
+
+                }
+                @Override
+                protected Void doInBackground(Void... voids) {
+                    FCMHelper helper= FCMHelper.getInstance();
+                    try {
+                        helper.sendTopicNotificationAndData("admin",notificationObject,dataObject);
+                        success=true;
+                    }catch (IOException e){
+                        e.printStackTrace();
+                        success=false;
+                    }
+                    return null;
+                }
+                protected void onPostExecute(Void unused){
+                    if (success){
+                        addItemMenu();
+                    }else {
+                        spinner.dismiss();
+                        Toast.makeText(AddInfoActivity.this,"Upload Failed",Toast.LENGTH_LONG).show();
+                    }
+                }
+            }.execute();
+                }else {
+                    Toast.makeText(AddInfoActivity.this, "Input Description first", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            else {
+                Toast.makeText(AddInfoActivity.this, "Input Title first", Toast.LENGTH_LONG).show();
+            }
+    }
     public void addItemMenu() {
         mTitle=judulUploadInfo.getText().toString();
         description=descInfoUpload.getText().toString();
@@ -184,14 +245,12 @@ public class AddInfoActivity extends AppCompatActivity {
                         }
                     }
                 };
-                Response.ErrorListener errorResp = RestHelper.generalErrorResponse(" ",spinner);
+                Response.ErrorListener errorResp = RestHelper.generalErrorResponse(" ",null);
                 JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.ADD_INFO_MENU),payload,successResp,errorResp);
                 myReq.setRetryPolicy(new DefaultRetryPolicy(
                         10000,
                         0,
                         DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-                spinner.setMessage("Loading. . . ");
-                spinner.show();
                 AppController.getRest().addToReqq(myReq," ");
             }else {
                 Toast.makeText(AddInfoActivity.this, "Input Choice 1 first", Toast.LENGTH_LONG).show();

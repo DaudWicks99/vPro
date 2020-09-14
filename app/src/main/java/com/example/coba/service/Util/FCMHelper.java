@@ -2,14 +2,14 @@ package com.example.coba.service.Util;
 
 import com.google.gson.JsonObject;
 
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.BasicResponseHandler;
-import org.apache.http.impl.client.HttpClientBuilder;
-
 
 import java.io.IOException;
+
+import cz.msebera.android.httpclient.client.HttpClient;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
+import cz.msebera.android.httpclient.entity.StringEntity;
+import cz.msebera.android.httpclient.impl.client.BasicResponseHandler;
+import cz.msebera.android.httpclient.impl.client.HttpClientBuilder;
 
 public class FCMHelper {
 
@@ -33,7 +33,7 @@ public class FCMHelper {
     /**
      * Your SECRET server key
      */
-    private static final String FCM_SERVER_KEY = "AAAAUCobwUg:APA91bE257ecW2_zj4JUFaCODHWsvWlILYL0zZYx7izoX19804tjXsR82nDjtn28DHdVfBflBkRcJSlbacRHopZeNlnoaT5y3DldUD9XItW10Cl7F9f-qHjPCUdGLbgJZIUlI7BJmshK";
+    private static final String FCM_SERVER_KEY = "AAAAUCobwUg:APA91bHj1X1ogfk2o6t8OnsKbF6NHWdyjG_8okcsp8n0PR5HXsBaJCRzfYFwqjxguJBm7haIUuVt8GddclfZB3-5xbkrEI-MGT0Ls-XyDEQA3OT2ZgmGWPeu7Nr_vOeuHqNzyiHMVnGK";
 
     public static FCMHelper getInstance() {
         if (instance == null) instance = new FCMHelper();
@@ -129,7 +129,8 @@ public class FCMHelper {
      * @throws IOException
      */
     private String sendFcmMessage(JsonObject sendObject, JsonObject notificationObject, JsonObject dataObject) throws IOException {
-        HttpPost httpPost = new HttpPost(URL_SEND);
+        HttpPost httpPost;
+        httpPost = new HttpPost(URL_SEND);
 
         // Header setzen
         httpPost.setHeader("Content-Type", "application/json");

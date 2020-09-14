@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/rlRoot"
     tools:context=".LoginActivity">
 
 
@@ -34,57 +35,43 @@
         android:layout_below="@id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/usnme"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tl_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:drawableLeft="@drawable/ic_person_black_24dp"
-            android:ems="10"
             android:hint="Email"
-            android:textColorHint="#F0E9E9"
-            android:inputType="textEmailAddress" />
-        <RelativeLayout
+            app:boxStrokeColor="@color/color_yellow"
+            app:errorEnabled="true"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usnme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tl_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
-            <EditText
+            android:hint="password"
+            app:boxStrokeColor="@color/color_yellow"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/uspass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:drawableLeft="@drawable/ic_lock_black_24dp"
-                android:ems="10"
-                android:hint="Password"
-                android:textColorHint="#F0E9E9"
-                android:inputType="textPassword" />
+                android:singleLine="true" />
 
-            <ImageButton
-                android:id="@+id/visibility"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="45dp"
-                android:layout_alignParentRight="true"
-                android:background="#FFF"
-                android:src="@drawable/ic_visibility_black_24dp" />
-
-            <ImageButton
-                android:id="@+id/visibilityOff"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="45dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="5dp"
-                android:background="#FFF"
-                android:src="@drawable/ic_visibility_off_black_24dp"
-                android:visibility="gone" />
-        </RelativeLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
 <!--        <TextView-->

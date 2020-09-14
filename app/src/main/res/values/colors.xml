@@ -11,7 +11,7 @@
     <color name="black">#000</color>
     <color name="circleBorder">#50FFFFFF</color>
     <color name="solidCircle">#AAFFFFFF</color>
-
+    <color name="color_yellow">#FFA611</color>
 
 </resources>
 
