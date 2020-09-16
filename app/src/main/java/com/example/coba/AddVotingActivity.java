@@ -314,7 +314,7 @@ public class AddVotingActivity extends AppCompatActivity {
                     }
                 };
                 Response.ErrorListener errorResp = RestHelper.generalErrorResponse(TAG,null);
-                JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.ADD_LIST_MENU,payload,successResp,errorResp);
+                JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.ADD_LIST_MENU),payload,successResp,errorResp);
                 myReq.setRetryPolicy(new DefaultRetryPolicy(
                         10000,
                         0,
@@ -345,7 +345,7 @@ public class AddVotingActivity extends AppCompatActivity {
             }
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse(TAG, null);
-        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.ADD_VOTE,payload,successResp,errorResp);
+        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.ADD_VOTE),payload,successResp,errorResp);
         AppController.getRest().addToReqq(myReq,TAG);
     }
 

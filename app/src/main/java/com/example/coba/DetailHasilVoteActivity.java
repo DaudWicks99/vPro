@@ -40,6 +40,9 @@ public class DetailHasilVoteActivity extends AppCompatActivity {
     String hasil="";
     ProgressDialog spinner;
 
+    long time;
+    String times;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +90,7 @@ public class DetailHasilVoteActivity extends AppCompatActivity {
                                 total.setText(item.getString("opsiVoting")+" : "+item.getString("total"));
                                 JSONObject object2 = item.getJSONObject("listMenu");
                                 String imgName=object2.getString("pictures");
-                                String url="http://167.71.199.106:8001/common/uploads/ListMenuPic/low/"+imgName;
+                                String url=RestUrl.getImgBase(RestUrl.IMAGE_URL_VOTING)+imgName+"?time="+times;
                                 Picasso.get()
                                         .load(url)
                                         .placeholder(R.drawable.placeholder)
@@ -98,7 +101,7 @@ public class DetailHasilVoteActivity extends AppCompatActivity {
                                 NoAlreadyVote.setVisibility(View.VISIBLE);
                                 JSONObject item = response.getJSONObject("result");
                                 String imgName=item.getString("pictures");
-                                String url="http://167.71.199.106:8001/common/uploads/ListMenuPic/low/"+imgName;
+                                String url=RestUrl.getImgBase(RestUrl.IMAGE_URL_VOTING)+imgName+"?time="+times;
                                 Picasso.get()
                                         .load(url)
                                         .placeholder(R.drawable.placeholder)
@@ -117,7 +120,7 @@ public class DetailHasilVoteActivity extends AppCompatActivity {
                 }
             }};
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse("", spinner);
-        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.AMBIL_SATU_HASIL,payload,successResp,errorResp);
+        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.AMBIL_SATU_HASIL),payload,successResp,errorResp);
         spinner.setMessage("Loading.....");
         spinner.show();
         AppController.getRest().addToReqq(myReq,"");

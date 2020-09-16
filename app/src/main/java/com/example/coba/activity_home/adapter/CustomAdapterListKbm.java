@@ -82,7 +82,7 @@ public class CustomAdapterListKbm extends BaseAdapter {
         String rawUrl=items.get(i).getUrl();
         final String id=items.get(i).getId();
         final String idVote=items.get(i).getIdVote();
-        String url="http://167.71.199.106:8001/common/uploads/ListMenuPic/low/"+rawUrl;
+        String url=RestUrl.getImgBase(RestUrl.IMAGE_URL_VOTING)+rawUrl;
         Log.e("token",sToken);
         Holders holders=new Holders(view);
         holders.hapusVoting.setOnClickListener(new View.OnClickListener() {

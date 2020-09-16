@@ -306,7 +306,7 @@ public class EditVotingActivity extends AppCompatActivity {
                     }
                 };
                 Response.ErrorListener errorResp = RestHelper.generalErrorResponse(TAG,null);
-                JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.UPDATE_LIST_MENU,payload,successResp,errorResp);
+                JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.UPDATE_LIST_MENU),payload,successResp,errorResp);
                 myReq.setRetryPolicy(new DefaultRetryPolicy(
                         10000,
                         0,
@@ -337,7 +337,7 @@ public class EditVotingActivity extends AppCompatActivity {
             }
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse(TAG, null);
-        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.UPDATE_VOTE,payload,successResp,errorResp);
+        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.UPDATE_VOTE),payload,successResp,errorResp);
         AppController.getRest().addToReqq(myReq,TAG);
     }
     private void  EditItem(String id){
@@ -359,7 +359,7 @@ public class EditVotingActivity extends AppCompatActivity {
                             JSONObject item=result.getJSONObject(i);
                             JSONObject object=item.getJSONObject("listMenu");
                             judulEditVoting.setText(object.getString("nama"));
-                            String url=RestUrl.IMAGE_URL_VOTING+object.getString("pictures");
+                            String url=RestUrl.getImgBase(RestUrl.IMAGE_URL_VOTING)+object.getString("pictures");
                             Picasso.get().load(url).placeholder(R.drawable.placeholder).into(imgEditKosongVoting);
                             cat=object.getString("group_id");
                             JSONObject group=object.getJSONObject("groupMenu");
@@ -374,7 +374,7 @@ public class EditVotingActivity extends AppCompatActivity {
             }
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse(TAG, null);
-        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.AMBIL_SATU_VOTE,payload,successResp,errorResp);
+        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.AMBIL_SATU_VOTE),payload,successResp,errorResp);
         AppController.getRest().addToReqq(myReq,TAG);
     }
 

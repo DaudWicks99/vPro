@@ -46,6 +46,9 @@ public class VoteActivity extends AppCompatActivity {
     String id;
     String hasil="";
     ProgressDialog spinner;
+
+    long time;
+    String times;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,7 +100,7 @@ public class VoteActivity extends AppCompatActivity {
                             final String idVote= item.getString("id");
                             JSONObject object2 = item.getJSONObject("listMenu");
                             String imgName=object2.getString("pictures");
-                            String url="http://167.71.199.106:8001/common/uploads/ListMenuPic/low/"+imgName;
+                            String url=RestUrl.getImgBase(RestUrl.IMAGE_URL_VOTING)+imgName+"?time="+times;
                             Picasso.get()
                                     .load(url)
                                     .placeholder(R.drawable.placeholder)
@@ -184,7 +187,7 @@ public class VoteActivity extends AppCompatActivity {
             }
         }};
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse("", spinner);
-        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.AMBIL_SATU_VOTE,payload,successResp,errorResp);
+        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.AMBIL_SATU_VOTE),payload,successResp,errorResp);
         spinner.setMessage("Loading.....");
         spinner.show();
         AppController.getRest().addToReqq(myReq,"");
@@ -217,7 +220,7 @@ public class VoteActivity extends AppCompatActivity {
                 }
             }};
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse("", spinner);
-        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.SUBMIT_VOTE,payload,successResp,errorResp);
+        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.SUBMIT_VOTE),payload,successResp,errorResp);
         spinner.setMessage("Loading.....");
         spinner.show();
         AppController.getRest().addToReqq(myReq,"");

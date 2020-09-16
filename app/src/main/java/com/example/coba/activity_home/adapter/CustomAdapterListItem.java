@@ -88,6 +88,7 @@ public class CustomAdapterListItem extends BaseAdapter {
         String rawUrl=items.get(i).getUrl();
         final String id=items.get(i).getId();
         final String idVote=items.get(i).getIdVote();
+
         String url="http://167.71.199.106:8001/common/uploads/ListMenuPic/low/"+rawUrl;
         Log.e("token",sToken);
         Holders holders=new Holders(view);

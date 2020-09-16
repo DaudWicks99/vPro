@@ -140,8 +140,8 @@ int colorMenu=R.color.colorAccent;
         navigationExpandableListView
                 .init(this)
                 .addHeaderModel(new HeaderModel(R.drawable.ic_info_orange_24dp,"INFO FTEK",colorMenu))
-//                .addHeaderModel(new HeaderModel(R.mipmap.ic_launcher,"INFO VOTING",colorMenu))
-//                .addHeaderModel(new HeaderModel(R.drawable.ic_archive_orange_24dp,"HASIL VOTING",colorMenu))
+                .addHeaderModel(new HeaderModel(R.mipmap.ic_launcher,"INFO VOTING",colorMenu))
+                .addHeaderModel(new HeaderModel(R.drawable.ic_archive_orange_24dp,"HASIL VOTING",colorMenu))
 
 //                .addHeaderModel(
 //                        new HeaderModel(R.drawable.ic_action_attach_money,getString(R.string.transaction), R.drawable.add,colorMenu, true,false, false)

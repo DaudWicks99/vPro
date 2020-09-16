@@ -100,7 +100,7 @@ public class SMFFragment extends Fragment {
             }
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse("sdad", null);
-        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.AMBIL_MENU,payload,successResp,errorResp);
+        JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.AMBIL_MENU),payload,successResp,errorResp);
         AppController.getRest().addToReqq(myReq,"sda");
 
         return transactions;
