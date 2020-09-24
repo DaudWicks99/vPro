@@ -1,6 +1,5 @@
 package com.example.coba.activity_home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.Response;
@@ -17,9 +15,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.coba.AppController;
 import com.example.coba.R;
 import com.example.coba.RestUrl;
-import com.example.coba.VoteActivity;
-import com.example.coba.activity_home.adapter.AdapterListMenu;
-import com.example.coba.activity_home.adapter.CustomAdapterListItem;
 import com.example.coba.activity_home.adapter.CustomAdapterListKbm;
 import com.example.coba.activity_home.model.listItem;
 import com.example.coba.database.Database;

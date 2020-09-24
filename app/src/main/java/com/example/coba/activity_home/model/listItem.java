@@ -6,6 +6,15 @@ public class listItem {
     String title;
     String group;
     String url;
+    String date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getIdVote(){
         return idVote;

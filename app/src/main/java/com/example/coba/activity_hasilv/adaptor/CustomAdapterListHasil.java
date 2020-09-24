@@ -8,29 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.volley.Response;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.coba.AppController;
-import com.example.coba.DetailHasilVoteActivity;
-import com.example.coba.EditVotingActivity;
+import com.example.coba.activity_home.DetailHasilVoteActivity;
 import com.example.coba.R;
-import com.example.coba.RestUrl;
-import com.example.coba.VoteActivity;
 import com.example.coba.activity_hasilv.SemuaFragment;
-import com.example.coba.activity_home.AllFragment;
 import com.example.coba.activity_home.model.listItem;
-import com.example.coba.activity_info.adapterr.CustomAdapterListItemInfo;
 import com.example.coba.database.Database;
-import com.example.coba.model.Json.JsonHelper;
-import com.example.coba.model.Rest.RestHelper;
 import com.example.coba.model.activerecords.UserInfos;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 

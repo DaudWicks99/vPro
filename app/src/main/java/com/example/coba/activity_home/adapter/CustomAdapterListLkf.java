@@ -17,7 +17,7 @@ import com.example.coba.AppController;
 import com.example.coba.EditVotingActivity;
 import com.example.coba.R;
 import com.example.coba.RestUrl;
-import com.example.coba.VoteActivity;
+import com.example.coba.activity_home.VoteActivity;
 import com.example.coba.activity_home.SMFFragment;
 import com.example.coba.activity_home.model.listItem;
 import com.example.coba.database.Database;

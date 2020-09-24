@@ -1,4 +1,4 @@
-package com.example.coba;
+package com.example.coba.activity_home;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,15 +7,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.coba.AppController;
+import com.example.coba.R;
+import com.example.coba.RestUrl;
 import com.example.coba.database.Database;
 import com.example.coba.model.Json.JsonHelper;
 import com.example.coba.model.Rest.RestHelper;
@@ -23,7 +23,6 @@ import com.example.coba.model.activerecords.UserInfos;
 import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -90,7 +89,7 @@ public class DetailHasilVoteActivity extends AppCompatActivity {
                                 total.setText(item.getString("opsiVoting")+" : "+item.getString("total"));
                                 JSONObject object2 = item.getJSONObject("listMenu");
                                 String imgName=object2.getString("pictures");
-                                String url=RestUrl.getImgBase(RestUrl.IMAGE_URL_VOTING)+imgName+"?time="+times;
+                                String url= RestUrl.getImgBase(RestUrl.IMAGE_URL_VOTING)+imgName+"?time="+times;
                                 Picasso.get()
                                         .load(url)
                                         .placeholder(R.drawable.placeholder)

@@ -1,10 +1,9 @@
-package com.example.coba;
+package com.example.coba.activity_home;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +15,9 @@ import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.coba.AppController;
+import com.example.coba.R;
+import com.example.coba.RestUrl;
 import com.example.coba.database.Database;
 import com.example.coba.model.Json.JsonHelper;
 import com.example.coba.model.Rest.RestHelper;
@@ -100,7 +102,7 @@ public class VoteActivity extends AppCompatActivity {
                             final String idVote= item.getString("id");
                             JSONObject object2 = item.getJSONObject("listMenu");
                             String imgName=object2.getString("pictures");
-                            String url=RestUrl.getImgBase(RestUrl.IMAGE_URL_VOTING)+imgName+"?time="+times;
+                            String url="http://167.71.199.106:8001/common/uploads/ListMenuPic/low/"+imgName+"?time="+times;
                             Picasso.get()
                                     .load(url)
                                     .placeholder(R.drawable.placeholder)

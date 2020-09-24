@@ -1,57 +1,51 @@
 package com.example.coba.activity_home.adapter;
 
-import android.app.LauncherActivity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.coba.AddInfoActivity;
 import com.example.coba.AppController;
 import com.example.coba.EditVotingActivity;
 import com.example.coba.R;
 import com.example.coba.RestUrl;
-import com.example.coba.VoteActivity;
+import com.example.coba.activity_home.ShowAllActivity;
+import com.example.coba.activity_home.VoteActivity;
 import com.example.coba.activity_home.AllFragment;
 import com.example.coba.activity_home.model.listItem;
 import com.example.coba.database.Database;
 import com.example.coba.model.Json.JsonHelper;
 import com.example.coba.model.Rest.RestHelper;
 import com.example.coba.model.activerecords.UserInfos;
-import com.example.coba.model.picasso.PicassoClient;
-import com.example.coba.utils.SessionManajer;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class CustomAdapterListItem extends BaseAdapter {
     LayoutInflater inflater;
     Context ctx;
     ArrayList<listItem> items;
     ArrayList<listItem> filterList;
-    AllFragment fragment;
+    ShowAllActivity activity;
 
     String sToken;
 
 
-    public CustomAdapterListItem(Context c,ArrayList<listItem> items, AllFragment fragment){
+    public CustomAdapterListItem(Context c,ArrayList<listItem> items,ShowAllActivity activity){
         this.ctx= c;
         this.items=items;
-        this.fragment=fragment;
+        this.activity=activity;
         sToken = UserInfos.getFromDatabase(Database.db).token;
 
     }
@@ -83,14 +77,14 @@ public class CustomAdapterListItem extends BaseAdapter {
             inflater=(LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
         if (view==null){
-            view=inflater.inflate(R.layout.model_list_menu,viewGroup, false);
+            view=inflater.inflate(R.layout.model_list_show_all,viewGroup, false);
         }
         String rawUrl=items.get(i).getUrl();
         final String id=items.get(i).getId();
         final String idVote=items.get(i).getIdVote();
 
         String url="http://167.71.199.106:8001/common/uploads/ListMenuPic/low/"+rawUrl;
-        Log.e("token",sToken);
+        Log.e("token",idVote);
         Holders holders=new Holders(view);
         holders.hapusVoting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,7 +113,7 @@ public class CustomAdapterListItem extends BaseAdapter {
                 ctx.startActivity(Intent.createChooser(myIntent, "Share using"));
             }
         });
-        holders.layout.setOnClickListener(new View.OnClickListener() {
+        holders.background.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(ctx, VoteActivity.class);
@@ -179,12 +173,12 @@ public class CustomAdapterListItem extends BaseAdapter {
                     Log.w("adapter", "invalid response");
                 }else {
                     deleteVote(idVote);
-                    fragment.onReload();
+                    activity.onReload();
                 }
             }
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse(null,null);
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.DELETE_LIST_MENU,payload,successResp,errorResp);
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.getUrl(RestUrl.DELETE_LIST_MENU),payload,successResp,errorResp);
         AppController.getRest().addToReqq(jsonObjectRequest,"");
     }
 
@@ -204,7 +198,7 @@ public class CustomAdapterListItem extends BaseAdapter {
             }
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse(null,null);
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.DELETE_VOTE,payload,successResp,errorResp);
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.getUrl(RestUrl.DELETE_VOTE),payload,successResp,errorResp);
         AppController.getRest().addToReqq(jsonObjectRequest,"");
     }
 
@@ -213,7 +207,6 @@ public class CustomAdapterListItem extends BaseAdapter {
 
 
     public class Holders{
-        RelativeLayout layout;
         ImageView background;
         TextView title;
         ImageView editVoting;
@@ -221,12 +214,11 @@ public class CustomAdapterListItem extends BaseAdapter {
         ImageView shareVoting;
 
         public Holders(View v){
-            layout=(RelativeLayout) v.findViewById(R.id.clickInfo);
-            background=(ImageView) v.findViewById(R.id.imgInfo);
-            title=(TextView) v.findViewById(R.id.txtV);
-            editVoting=(ImageView)v.findViewById(R.id.editVoting);
-            hapusVoting=(ImageView)v.findViewById(R.id.hapusVoting);
-            shareVoting=(ImageView)v.findViewById(R.id.shareVoting);
+            background=(ImageView) v.findViewById(R.id.imageShowAll);
+            title=(TextView) v.findViewById(R.id.jdlShowAll);
+            editVoting=(ImageView)v.findViewById(R.id.editShowAll);
+            hapusVoting=(ImageView)v.findViewById(R.id.hapusShowAll);
+            shareVoting=(ImageView)v.findViewById(R.id.shareShowAll);
         }
     }
 }

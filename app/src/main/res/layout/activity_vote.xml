@@ -6,17 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".VoteActivity">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="310dp">
-    <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
-        android:layout_width="match_parent"
-        android:id="@+id/imgVote"
-        android:layout_height="300dp"
-        android:layout_marginBottom="10dp"
-        android:src="@drawable/basket"
-        app:siShape="@drawable/shape_raunded_rectangle"/>
+    tools:context=".activity_home.VoteActivity">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,6 +16,19 @@
         android:elevation="1dp"
         android:background="@drawable/myrect"
         android:src="@drawable/back"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="310dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp">
+    <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+        android:layout_width="match_parent"
+        android:id="@+id/imgVote"
+        android:layout_height="300dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/placeholder"
+        app:siShape="@drawable/shape_raunded_rectangle"/>
+
 
     <TextView
         android:id="@+id/txtVw"

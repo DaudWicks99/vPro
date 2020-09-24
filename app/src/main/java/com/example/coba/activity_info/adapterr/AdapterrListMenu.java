@@ -14,8 +14,6 @@ import androidx.cardview.widget.CardView;
 
 import com.example.coba.DetailInfoActivity;
 import com.example.coba.R;
-import com.example.coba.VoteActivity;
-import com.example.coba.activity_home.adapter.AdapterListMenu;
 
 public class AdapterrListMenu extends BaseAdapter {
     Context context;
@@ -104,7 +102,6 @@ public class AdapterrListMenu extends BaseAdapter {
 
         public Holderss(View v){
             layout=(CardView) v.findViewById(R.id.info);
-            layout1=(RelativeLayout) v.findViewById(R.id.clckInf);
             background=(ImageView) v.findViewById(R.id.imageInfo);
             title=(TextView) v.findViewById(R.id.txtVie);
 

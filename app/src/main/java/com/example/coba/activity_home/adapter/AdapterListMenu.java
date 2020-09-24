@@ -10,10 +10,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.cardview.widget.CardView;
-
 import com.example.coba.R;
-import com.example.coba.VoteActivity;
+import com.example.coba.activity_home.VoteActivity;
 
 public class AdapterListMenu extends BaseAdapter {
     Context context;

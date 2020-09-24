@@ -24,12 +24,12 @@
             >
             <LinearLayout
                 android:layout_width="match_parent"
-                android:id="@+id/clckInf"
+                android:id="@+id/LlShowAll"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtVie"
+                    android:id="@+id/jdlShowAll"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
@@ -43,60 +43,41 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="160dp">
-                <ImageView
-                    android:id="@+id/imageInfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/basket"/>
-                    <mehdi.sakout.fancybuttons.FancyButton
-                        android:id="@+id/btnShowInfo"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="10dp"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
-                        android:paddingTop="10dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_alignParentBottom="true"
-                        app:fb_borderColor="@color/black"
-                        app:fb_borderWidth="1dp"
-                        app:fb_defaultColor="@color/orange"
-                        app:fb_focusColor="@color/orange"
-                        app:fb_radius="30dp"
-                        app:fb_text="Show More"
-                        app:fb_textColor="#FFFFFF" />
+                    <ImageView
+                        android:id="@+id/imageShowAll"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/placeholder"/>
+
                 </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/menuInfoFtek"
+                    android:id="@+id/menuShowAll"
                     android:orientation="horizontal"
                     >
 
                     <ImageView
-                        android:id="@+id/shareInfo"
+                        android:id="@+id/shareShowAll"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@mipmap/ic_share"/>
                     <ImageView
-                        android:id="@+id/editInfo"
+                        android:id="@+id/editShowAll"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@mipmap/ic_editv2"/>
                     <ImageView
-                        android:id="@+id/hapusInfo"
+                        android:id="@+id/hapusShowAll"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@mipmap/ic_deletev2"/>
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-        </androidx.cardview.widget.CardView>
-
-
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

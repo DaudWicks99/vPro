@@ -1,10 +1,8 @@
 package com.example.coba.activity_home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.SurfaceControl;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -16,26 +14,20 @@ import androidx.fragment.app.Fragment;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.coba.AppController;
-import com.example.coba.LoginActivity;
-import com.example.coba.MainActivity;
 import com.example.coba.R;
 import com.example.coba.RestUrl;
-import com.example.coba.VoteActivity;
-import com.example.coba.activity_home.adapter.AdapterListMenu;
 import com.example.coba.activity_home.adapter.CustomAdapterListItem;
 import com.example.coba.activity_home.model.listItem;
 import com.example.coba.database.Database;
 import com.example.coba.model.Json.JsonHelper;
 import com.example.coba.model.Rest.RestHelper;
 import com.example.coba.model.activerecords.UserInfos;
-import com.example.coba.utils.SessionManajer;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class AllFragment extends Fragment {
@@ -64,7 +56,6 @@ public class AllFragment extends Fragment {
         sToken = UserInfos.getFromDatabase(Database.db).token;
         infoAll=(ListView)view.findViewById(R.id.infoALL);
         //adapter=new AdapterListMenu(getContext(),title,images,vote);
-        adapter=new CustomAdapterListItem(getContext(),transactions,AllFragment.this);
         infoAll.setAdapter(adapter);
         infoAll.setEmptyView(data);
         transactions=loadMenu();

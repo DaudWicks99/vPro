@@ -16,13 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".EditNimActivity"></activity>
+        <activity android:name=".activity_home.ShowAllActivity"></activity>
+        <activity android:name=".EditNimActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".EditInfoActivity" />
-        <activity android:name=".DetailHasilVoteActivity" />
+        <activity android:name=".activity_home.DetailHasilVoteActivity" />
         <activity android:name=".EditVotingActivity" />
         <activity android:name=".AddInfoActivity" />
-        <activity android:name=".AddVotingActivity" />
+        <activity android:name=".activity_home.AddVotingActivity" />
         <activity android:name=".DetailInfoActivity" />
         <activity android:name=".LogoActivity" />
         <activity android:name=".SplashActivity">
@@ -32,10 +33,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VoteActivity" />
+        <activity android:name=".activity_home.VoteActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="com.example.coba.INFO" />
 
@@ -64,6 +65,5 @@
             </intent-filter>
         </service>
     </application>
-
 
 </manifest>

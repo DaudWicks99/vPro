@@ -20,6 +20,7 @@ import com.example.coba.model.Json.JsonHelper;
 import com.example.coba.model.Rest.RestHelper;
 import com.example.coba.model.activerecords.UserInfos;
 import com.example.coba.utils.SessionManajer;
+import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,7 +37,9 @@ public class SignupActivity extends AppCompatActivity {
     FancyButton btnSignUp;
     SessionManajer session;
     ImageButton signUpBack;
-    String mUname,mFname,mEmail,mPass,mPassCon;
+    MaterialSpinner kategori;
+    String mUname,mFname,mEmail,mPass,mPassCon,mKategori;
+    String role=" ";
     ProgressDialog spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,7 @@ public class SignupActivity extends AppCompatActivity {
         password=(EditText)findViewById(R.id.password);
         fullname=(EditText)findViewById(R.id.fullname);
         email=(EditText)findViewById(R.id.email);
+        kategori=(MaterialSpinner)findViewById(R.id.kategoriSignUp);
         confirmPassword=(EditText)findViewById(R.id.confirmPassword);
         mataOn=(ImageButton)findViewById(R.id.visibilitySignup);
         mataOff=(ImageButton)findViewById(R.id.visibilityOffSignup);
@@ -94,33 +98,57 @@ public class SignupActivity extends AppCompatActivity {
                 confirmPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
         });
+        kategori.setItems("SELECT ROLE","MAHASISWA","DOSEN","ALUMNI");
+        kategori.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                if (item.equals("SELECT ROLE")){
+                    role=" ";
+                }
+                else if(item.equals("MAHASISWA")){
+                    role="1";
+                }
+                else if(item.equals("DOSEN")){
+                    role="2";
+                }
+                else if(item.equals("ALUMNI")){
+                    role="3";
+                }
+
+            }
+        });
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mUname = username.getText().toString();
                 mFname = fullname.getText().toString();
+                mKategori = kategori.getText().toString();
                 mEmail = email.getText().toString();
                 mPass = password.getText().toString();
                 mPassCon = confirmPassword.getText().toString();
 
                 if (!mUname.isEmpty()) {
                     if (!mFname.isEmpty()) {
-                        if (!mEmail.isEmpty()) {
-                            if (!mPass.isEmpty()) {
-                                if (!mPassCon.isEmpty()) {
-                                    if (mPass.equals(mPassCon)) {
-                                        register();
+                        if (!mKategori.isEmpty()) {
+                            if (!mEmail.isEmpty()) {
+                                if (!mPass.isEmpty()) {
+                                    if (!mPassCon.isEmpty()) {
+                                        if (mPass.equals(mPassCon)) {
+                                            register();
+                                        } else {
+                                            Toast.makeText(SignupActivity.this, "Password Tidak Sama", Toast.LENGTH_LONG).show();
+                                        }
                                     } else {
-                                        Toast.makeText(SignupActivity.this, "Password Tidak Sama", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(SignupActivity.this, "Tolong isi Confirm Password", Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    Toast.makeText(SignupActivity.this, "Tolong isi Confirm Password", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(SignupActivity.this, "Tolong isi Password", Toast.LENGTH_LONG).show();
                                 }
                             } else {
-                                Toast.makeText(SignupActivity.this, "Tolong isi Password", Toast.LENGTH_LONG).show();
+                                Toast.makeText(SignupActivity.this, "Tolong isi Email", Toast.LENGTH_LONG).show();
                             }
                         } else {
-                            Toast.makeText(SignupActivity.this, "Tolong isi Email", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignupActivity.this, "Tolong isi Kategori", Toast.LENGTH_LONG).show();
                         }
                     } else {
                         Toast.makeText(SignupActivity.this, "Tolong isi Fullname", Toast.LENGTH_LONG).show();
@@ -138,6 +166,7 @@ public class SignupActivity extends AppCompatActivity {
         JsonHelper.put(payload,"flname",mFname);
         JsonHelper.put(payload,"email",mEmail);
         JsonHelper.put(payload,"pass",mPass);
+        JsonHelper.put(payload,"role",mKategori);
 
         Response.Listener successResp = new Response.Listener<JSONObject>() {
             @Override

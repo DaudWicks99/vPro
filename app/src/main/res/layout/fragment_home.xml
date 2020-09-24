@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:gravity="center"
-            android:text="INFO VOTING"
+            android:text="VOTING"
+            android:fontFamily="@font/arialbd"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -46,6 +47,7 @@
         android:layout_below="@+id/rlHome">
     <ScrollView
         android:layout_below="@+id/rlHome"
+        android:id="@+id/svHome"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <LinearLayout
@@ -78,6 +80,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
             <TextView
+                android:id="@+id/saAll"
                 android:layout_width="80dp"
                 android:layout_height="25dp"
                 android:layout_weight="1"
@@ -85,6 +88,7 @@
                 android:layout_marginRight="5dp"
                 android:paddingStart="5dp"
                 android:text="Show All"
+                android:visibility="gone"
                 android:layout_gravity="bottom|left"
                 android:textColor="@color/black"
                 android:textSize="18sp"/>
@@ -94,7 +98,7 @@
             android:layout_height="wrap_content">
             <com.example.mylibrary.Views.EmptyRecycleView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="202dp"
                 android:id="@+id/VotingAll"
                 android:orientation="horizontal"
                 android:visibility="visible"/>
@@ -128,6 +132,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
             <TextView
+                android:id="@+id/saLkf"
                 android:layout_width="80dp"
                 android:layout_height="25dp"
                 android:layout_weight="1"
@@ -135,6 +140,7 @@
                 android:layout_marginRight="5dp"
                 android:paddingStart="5dp"
                 android:text="Show All"
+                android:visibility="gone"
                 android:layout_gravity="bottom|left"
                 android:textColor="@color/black"
                 android:textSize="18sp"/>
@@ -144,7 +150,7 @@
             android:layout_height="wrap_content">
             <com.example.mylibrary.Views.EmptyRecycleView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="202dp"
                 android:id="@+id/VotingLKF"
                 android:orientation="horizontal"
                 android:visibility="visible"/>
@@ -179,6 +185,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
             <TextView
+                android:id="@+id/saKuliah"
                 android:layout_width="80dp"
                 android:layout_height="25dp"
                 android:layout_weight="1"
@@ -186,6 +193,7 @@
                 android:layout_marginRight="5dp"
                 android:paddingStart="5dp"
                 android:text="Show All"
+                android:visibility="gone"
                 android:layout_gravity="bottom|left"
                 android:textColor="@color/black"
                 android:textSize="18sp"/>
@@ -195,7 +203,7 @@
             android:layout_height="wrap_content">
             <com.example.mylibrary.Views.EmptyRecycleView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="202dp"
                 android:id="@+id/VotingKULIAH"
                 android:orientation="horizontal"
                 android:visibility="visible"/>
@@ -230,6 +238,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
             <TextView
+                android:id="@+id/saKbm"
                 android:layout_width="80dp"
                 android:layout_height="25dp"
                 android:layout_weight="1"
@@ -237,6 +246,7 @@
                 android:layout_marginRight="5dp"
                 android:paddingStart="5dp"
                 android:text="Show All"
+                android:visibility="gone"
                 android:layout_gravity="bottom|left"
                 android:textColor="@color/black"
                 android:textSize="18sp"/>
@@ -246,7 +256,7 @@
             android:layout_height="wrap_content">
             <com.example.mylibrary.Views.EmptyRecycleView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="202dp"
                 android:id="@+id/VotingKBM"
                 android:orientation="horizontal"
                 android:visibility="visible"/>
@@ -263,6 +273,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/llKbm"
+        android:layout_marginBottom="10dp"
         android:orientation="vertical"
         >
         <LinearLayout
@@ -280,6 +291,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
             <TextView
+                android:id="@+id/saPanitia"
                 android:layout_width="80dp"
                 android:layout_height="25dp"
                 android:layout_weight="1"
@@ -287,6 +299,7 @@
                 android:layout_marginRight="5dp"
                 android:paddingStart="5dp"
                 android:text="Show All"
+                android:visibility="gone"
                 android:layout_gravity="bottom|left"
                 android:textColor="@color/black"
                 android:textSize="18sp"/>
@@ -296,7 +309,7 @@
             android:layout_height="wrap_content">
             <com.example.mylibrary.Views.EmptyRecycleView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="202dp"
                 android:id="@+id/VotingPANITIA"
                 android:orientation="horizontal"
                 android:visibility="visible"/>

@@ -1,6 +1,7 @@
 package com.example.coba.activity_home.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coba.R;
+import com.example.coba.activity_home.VoteActivity;
 import com.example.coba.activity_home.model.MenuHome;
 import com.example.coba.database.Database;
 import com.example.coba.model.activerecords.UserInfos;
@@ -39,10 +41,19 @@ public class AdapterPanitiaCategory extends RecyclerView.Adapter<AdapterPanitiaC
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        final String id=menuHomes.get(position).getId();
         holder.judulPANITIA.setText(menuHomes.get(position).getTitle());
         String url= "http://167.71.199.106:8001/common/uploads/ListMenuPic/low/"+menuHomes.get(position).getUrl();
         Log.e("image",url);
         Picasso.get().load(url).placeholder(R.drawable.placeholder).into(holder.imagePANITIA);
+        holder.imagePANITIA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, VoteActivity.class);
+                intent.putExtra("id",id);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

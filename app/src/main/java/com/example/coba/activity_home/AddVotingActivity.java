@@ -1,4 +1,4 @@
-package com.example.coba;
+package com.example.coba.activity_home;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +13,6 @@ import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -23,11 +22,13 @@ import android.widget.Toast;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.coba.AppController;
+import com.example.coba.R;
+import com.example.coba.RestUrl;
 import com.example.coba.database.Database;
 import com.example.coba.model.Json.JsonHelper;
 import com.example.coba.model.Rest.RestHelper;
 import com.example.coba.model.activerecords.UserInfos;
-import com.example.coba.utils.SessionManajer;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import org.json.JSONException;
@@ -35,7 +36,6 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.util.HashMap;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 

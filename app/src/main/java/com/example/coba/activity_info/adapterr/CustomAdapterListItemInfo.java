@@ -3,48 +3,39 @@ package com.example.coba.activity_info.adapterr;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.cardview.widget.CardView;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.coba.AddInfoActivity;
 import com.example.coba.AppController;
-import com.example.coba.DetailHasilVoteActivity;
 import com.example.coba.DetailInfoActivity;
 import com.example.coba.EditInfoActivity;
-import com.example.coba.EditVotingActivity;
-import com.example.coba.LoginActivity;
-import com.example.coba.MainActivity;
 import com.example.coba.R;
 import com.example.coba.RestUrl;
-import com.example.coba.activity_home.AllFragment;
-import com.example.coba.activity_home.adapter.CustomAdapterListItem;
-import com.example.coba.activity_home.model.listItem;
 import com.example.coba.activity_info.InfoFragment;
 import com.example.coba.activity_info.model.InfoMenu;
 import com.example.coba.database.Database;
 import com.example.coba.model.Json.JsonHelper;
 import com.example.coba.model.Rest.RestHelper;
 import com.example.coba.model.activerecords.UserInfos;
-import com.example.mylibrary.Models.UserInfo;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import mehdi.sakout.fancybuttons.FancyButton;
 
 public class CustomAdapterListItemInfo extends BaseAdapter {
     LayoutInflater inflater;
@@ -113,7 +104,7 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
             }
         });
 
-        holders.background.setOnClickListener(new View.OnClickListener() {
+        holders.showInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(ctx, DetailInfoActivity.class);
@@ -153,7 +144,7 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
         Picasso.get().load(url).placeholder(R.drawable.placeholder).into(holders.background);
         return view;
     }
-    public void checkAdmin(final CardView menu){
+    public void checkAdmin(final LinearLayout menu){
         JSONObject payload = new JSONObject();
         JsonHelper.put(payload,"token", sToken);
 
@@ -217,7 +208,8 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
         ImageView editInfo;
         ImageView hapusInfo;
         ImageView shareInfo;
-        CardView menuInfoFtek;
+        LinearLayout menuInfoFtek;
+        FancyButton showInfo;
 
 
 
@@ -228,8 +220,8 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
             editInfo=(ImageView) v.findViewById(R.id.editInfo);
             hapusInfo=(ImageView) v.findViewById(R.id.hapusInfo);
             shareInfo=(ImageView) v.findViewById(R.id.shareInfo);
-            menuInfoFtek=(CardView)v.findViewById(R.id.menuInfoFtek);
-
+            menuInfoFtek=(LinearLayout) v.findViewById(R.id.menuInfoFtek);
+            showInfo=(FancyButton) v.findViewById(R.id.btnShowInfo);
 
         }
     }
