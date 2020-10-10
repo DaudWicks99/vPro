@@ -35,8 +35,12 @@
                     android:layout_marginBottom="5dp"
                     android:text="PEMILIHAN KETUA SMF"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:textSize="20dp"
                     android:textColor="#000"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
                     android:fontFamily="@font/arialbd">
 
                 </TextView>

@@ -5,8 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
-
     >
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -20,9 +18,6 @@
             android:layout_marginTop="15dp"
             android:background="@null"
             android:src="@drawable/ic_menu_black_24dp" />
-
-
-
         <TextView
             android:id="@+id/txtVw2"
             android:layout_width="match_parent"
@@ -32,133 +27,512 @@
             android:text="HASIL VOTING"
             android:textSize="15sp"
             android:textStyle="bold" />
-
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/orange"/>
     </RelativeLayout>
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/HasilVoting"/>
     <RelativeLayout
+        android:id="@+id/RlSemuaAll"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="15dp">
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp">
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="30dp"
             >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:scaleType="center"
-                android:src="@drawable/basket1"
-                >
-            </ImageView>
-            <RelativeLayout
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            app:cardCornerRadius="30dp"
+            >
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                >
+                android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="KBM BASKET"
-                    android:layout_marginTop="100dp"
-                    android:layout_marginLeft="15dp"
-                    android:textSize="32dp"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    >
-                </TextView>
-
-
-            </RelativeLayout>
+                    android:layout_height="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="ALL"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/arialbd"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/itemAllMenuHasil"
+                    android:text=" "
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:fontFamily="@font/arialbd"/>
+            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="62dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="50dp"
+            >
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginLeft="1dp"
+            app:cardCornerRadius="50dp"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/all_logo"/>
+        </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="25dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="50dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            app:cardCornerRadius="50dp"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/CiAll"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#cacaca"
+                android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
+        </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/RlSemuaLkf"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="15dp">
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp">
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="30dp"
             >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:scaleType="center"
-                android:src="@drawable/makrab"
-                >
-            </ImageView>
-            <RelativeLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                app:cardCornerRadius="30dp"
                 >
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="PANITIA MAKRAB"
-                    android:layout_marginTop="100dp"
-                    android:layout_marginLeft="15dp"
-                    android:textSize="32dp"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    >
-                </TextView>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="5dp"
+                        android:text="LKF"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/arialbd"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/itemLkfMenuHasil"
+                        android:text=" "
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:fontFamily="@font/arialbd"/>
+                </LinearLayout>
 
-
-            </RelativeLayout>
-
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="62dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="50dp"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginLeft="1dp"
+                app:cardCornerRadius="50dp"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/all_logo"/>
+            </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="25dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="50dp">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                app:cardCornerRadius="50dp"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/CiLkf"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="#cacaca"
+                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/RlSemuaKuliah"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="15dp">
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp">
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="30dp"
             >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:scaleType="center"
-                android:src="@drawable/smf"
-                >
-            </ImageView>
-            <RelativeLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                app:cardCornerRadius="30dp"
                 >
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="PEMILIHAN KETUA SMF"
-                    android:layout_marginTop="100dp"
-                    android:layout_marginLeft="15dp"
-                    android:textSize="28dp"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    >
-                </TextView>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="5dp"
+                        android:text="KULIAH"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/arialbd"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/itemKuliahMenuHasil"
+                        android:text=" "
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:fontFamily="@font/arialbd"/>
+                </LinearLayout>
 
-
-            </RelativeLayout>
-
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="62dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="50dp"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginLeft="1dp"
+                app:cardCornerRadius="50dp"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/all_logo"/>
+            </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="25dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="50dp">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                app:cardCornerRadius="50dp"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/CiKuliah"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="#cacaca"
+                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/RlSemuaKbm"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="30dp"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                app:cardCornerRadius="30dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="5dp"
+                        android:text="KBM"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/arialbd"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/itemKbmMenuHasil"
+                        android:text=" "
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:fontFamily="@font/arialbd"/>
+                </LinearLayout>
 
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="62dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="50dp"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginLeft="1dp"
+                app:cardCornerRadius="50dp"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/all_logo"/>
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="25dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="50dp">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                app:cardCornerRadius="50dp"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/CiKbm"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="#cacaca"
+                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/RlSemuaPanitia"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="30dp"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                app:cardCornerRadius="30dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="5dp"
+                        android:text="PANITIA"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/arialbd"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/itemPanitiaMenuHasil"
+                        android:text=" "
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:fontFamily="@font/arialbd"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="62dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="50dp"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginLeft="1dp"
+                app:cardCornerRadius="50dp"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/all_logo"/>
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="25dp"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="50dp">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                app:cardCornerRadius="50dp"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/CiPanitia"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="#cacaca"
+                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
 
 </LinearLayout>
 

@@ -19,9 +19,6 @@
             android:layout_marginTop="15dp"
             android:background="@null"
             android:src="@drawable/ic_menu_black_24dp" />
-
-
-
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
@@ -32,7 +29,6 @@
             android:fontFamily="@font/arialbd"
             android:textSize="15sp"
             android:textStyle="bold" />
-
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -96,6 +92,31 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/SfVotingAll"
+                app:duration="800">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+            <ImageView
+                android:id="@+id/noDataAll"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/nodata"
+                android:visibility="gone"/>
             <com.example.mylibrary.Views.EmptyRecycleView
                 android:layout_width="match_parent"
                 android:layout_height="202dp"
@@ -148,6 +169,31 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/SfVotingLkf"
+                app:duration="800">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+            <ImageView
+                android:id="@+id/noDataLkf"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/nodata"
+                android:visibility="gone"/>
             <com.example.mylibrary.Views.EmptyRecycleView
                 android:layout_width="match_parent"
                 android:layout_height="202dp"
@@ -201,6 +247,31 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/SfVotingKuliah"
+                app:duration="800">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+            <ImageView
+                android:id="@+id/noDataKuliah"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/nodata"
+                android:visibility="gone"/>
             <com.example.mylibrary.Views.EmptyRecycleView
                 android:layout_width="match_parent"
                 android:layout_height="202dp"
@@ -254,6 +325,31 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/SfVotingKbm"
+                app:duration="800">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+            <ImageView
+                android:id="@+id/noDataKbm"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/nodata"
+                android:visibility="gone"/>
             <com.example.mylibrary.Views.EmptyRecycleView
                 android:layout_width="match_parent"
                 android:layout_height="202dp"
@@ -307,6 +403,31 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/SfVotingPanitia"
+                app:duration="800">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                    <include layout="@layout/model_skeleton_list_voting"/>
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+            <ImageView
+                android:id="@+id/noDataPanitia"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/nodata"
+                android:visibility="gone"/>
             <com.example.mylibrary.Views.EmptyRecycleView
                 android:layout_width="match_parent"
                 android:layout_height="202dp"

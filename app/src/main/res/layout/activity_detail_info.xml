@@ -1,80 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#fff"
+    android:background="#d1e0d5"
     tools:context=".DetailInfoActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/orange"
-        >
-
-        <ImageButton
-            android:id="@+id/detailsInfoBack"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_centerVertical="true"
-            android:background="@null"
-            android:src="@drawable/back" />
-
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:id="@+id/Details"
-        >
-        <com.zolad.zoominimageview.ZoomInImageView
-            android:id="@+id/imgDtlInf"
+        android:layout_height="match_parent">
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_centerHorizontal="true"
-             />
+            android:layout_height="220dp"
+            android:id="@+id/IvDetailInfo"
+            android:src="@drawable/placeholder"
+            android:scaleType="centerCrop"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/IvDetailInfo"
+        android:layout_marginTop="-20dp"
+        android:layout_marginRight="12sp"
+        android:layout_marginLeft="12sp"
+        app:cardCornerRadius="8dp"
+        android:outlineSpotShadowColor="@color/black">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <TextView
+            android:id="@+id/jdlDtl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="13dp" />
+
+        <TextView
+            android:id="@+id/descDtl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:paddingBottom="10dp"
+            android:linksClickable="true"
+            android:textColor="@color/black"
+            android:text=" "
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"/>
+            <com.zolad.zoominimageview.ZoomInImageView
+                android:id="@+id/imgDtlInf"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
     </RelativeLayout>
-
-    <TextView
-        android:id="@+id/jdlDtl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=" "
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:layout_marginTop="13dp" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@color/orange"/>
-    <TextView
-        android:id="@+id/descDtl"
+    </ScrollView>
+    <ImageButton
+        android:id="@+id/detailsInfoBack"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/speech_bubble"
-        android:autoLink="web"
-        android:paddingLeft="20dp"
-        android:paddingTop="4dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:linksClickable="true"
-        android:textColor="@color/black"
-        android:text=" "
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginLeft="15dp"/>
+        android:layout_height="30dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@null"
+        android:src="@drawable/back" />
 
-</LinearLayout>
+
+</RelativeLayout>

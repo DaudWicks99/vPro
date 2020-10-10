@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity_home.ShowAllActivity"></activity>
+        <activity android:name=".activity_hasilv.HasilVotingActivity"></activity>
+        <activity android:name=".activity_hasilv.ShowHasilVotingActivity" />
+        <activity android:name=".activity_home.ShowAllActivity" />
         <activity android:name=".EditNimActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".EditInfoActivity" />

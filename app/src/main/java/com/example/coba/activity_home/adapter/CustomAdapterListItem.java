@@ -1,15 +1,22 @@
 package com.example.coba.activity_home.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.TranslateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -79,17 +86,43 @@ public class CustomAdapterListItem extends BaseAdapter {
         if (view==null){
             view=inflater.inflate(R.layout.model_list_show_all,viewGroup, false);
         }
+        TranslateAnimation translateAnimation = new TranslateAnimation(300,0,0,0);
+        Animation alphaAnimation = new AlphaAnimation(0,1);
+        translateAnimation.setDuration(500);
+        alphaAnimation.setDuration(1300);
+        AnimationSet animation= new AnimationSet(true);
+        animation.addAnimation(translateAnimation);
+        animation.addAnimation(alphaAnimation);
+        view.setAnimation(animation);
         String rawUrl=items.get(i).getUrl();
         final String id=items.get(i).getId();
         final String idVote=items.get(i).getIdVote();
 
-        String url="http://167.71.199.106:8001/common/uploads/ListMenuPic/low/"+rawUrl;
+        String url=RestUrl.getImgBase(RestUrl.IMAGE_URL_VOTING)+rawUrl;
         Log.e("token",idVote);
         Holders holders=new Holders(view);
+        holders.title.setSelected(true);
         holders.hapusVoting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteMenu(id,idVote);
+                AlertDialog.Builder ab= new AlertDialog.Builder(ctx);
+                ab.setTitle("Delete Info");
+                ab.setMessage("Are you sure?");
+                ab.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        deleteMenu(id,idVote);
+
+                    }
+                });
+                ab.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                ab.show();
             }
         });
         holders.editVoting.setOnClickListener(new View.OnClickListener() {
@@ -158,7 +191,7 @@ public class CustomAdapterListItem extends BaseAdapter {
             }
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse(null,null);
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.CHECK_ADMIN,payload,successResp,errorResp);
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.getUrl(RestUrl.CHECK_ADMIN),payload,successResp,errorResp);
         AppController.getRest().addToReqq(jsonObjectRequest,"");
     }
     public void deleteMenu(String id, final String idVote){

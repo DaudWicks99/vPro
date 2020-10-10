@@ -102,7 +102,7 @@ public class VoteActivity extends AppCompatActivity {
                             final String idVote= item.getString("id");
                             JSONObject object2 = item.getJSONObject("listMenu");
                             String imgName=object2.getString("pictures");
-                            String url="http://167.71.199.106:8001/common/uploads/ListMenuPic/low/"+imgName+"?time="+times;
+                            String url=RestUrl.getImgBase(RestUrl.IMAGE_URL_VOTING)+imgName+"?time="+times;
                             Picasso.get()
                                     .load(url)
                                     .placeholder(R.drawable.placeholder)

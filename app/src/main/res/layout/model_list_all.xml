@@ -28,9 +28,13 @@
                 android:id="@+id/judulAll"
                 android:text="PEMILIHAN KETUA"
                 android:fontFamily="@font/arialbd"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:textColor="@color/black"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:ellipsize="marquee"
                 android:textStyle="bold"/>
             <ImageView
                 android:layout_width="match_parent"
@@ -51,11 +55,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/editAll"
+                    android:visibility="gone"
                     android:src="@mipmap/ic_editv2"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/deleteAll"
+                    android:visibility="gone"
                     android:src="@mipmap/ic_deletev2"/>
             </LinearLayout>
 

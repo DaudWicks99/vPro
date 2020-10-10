@@ -106,13 +106,13 @@ public class SignupActivity extends AppCompatActivity {
                     role=" ";
                 }
                 else if(item.equals("MAHASISWA")){
-                    role="1";
+                    role="MAHASISWA";
                 }
                 else if(item.equals("DOSEN")){
-                    role="2";
+                    role="DOSEN";
                 }
                 else if(item.equals("ALUMNI")){
-                    role="3";
+                    role="ALUMNI";
                 }
 
             }
@@ -122,14 +122,14 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mUname = username.getText().toString();
                 mFname = fullname.getText().toString();
-                mKategori = kategori.getText().toString();
+                mKategori = role;
                 mEmail = email.getText().toString();
                 mPass = password.getText().toString();
                 mPassCon = confirmPassword.getText().toString();
 
                 if (!mUname.isEmpty()) {
                     if (!mFname.isEmpty()) {
-                        if (!mKategori.isEmpty()) {
+                        if (!mKategori.equals(" ")) {
                             if (!mEmail.isEmpty()) {
                                 if (!mPass.isEmpty()) {
                                     if (!mPassCon.isEmpty()) {
@@ -171,19 +171,25 @@ public class SignupActivity extends AppCompatActivity {
         Response.Listener successResp = new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                Log.e("response",response.toString());
                 spinner.dismiss();
-                if (!RestHelper.validateResponse(response)){
-                    Log.w("", "not Valid Response");
-                    Toast.makeText(SignupActivity.this, "not Response", Toast.LENGTH_LONG).show();
-                    return;
-                }else {
-                    try{
-                        String msg = response.getString("msg");
+                try {
+                    int code = Integer.parseInt(response.getString("code"));
+                    if (code == 0) {
                         onBackPressed();
-                        //login();
-                    } catch (JSONException e){
-                        Log.w("","not a valid payload");
+                    } else if (code == 1) {
+                        String msg = response.getString("msg");
+                        if (msg.equals("Data Not Valid")) {
+                            Toast.makeText(SignupActivity.this, "Registration failed, Please try again...", Toast.LENGTH_LONG).show();
+                        } else if (msg.equals("Data is Already Used")) {
+                            Toast.makeText(SignupActivity.this, "Data is exist", Toast.LENGTH_LONG).show();
+                            onBackPressed();
+                        }
+                    }else if (code==2){
+                        Toast.makeText(SignupActivity.this, "Registration failed, Please try again...", Toast.LENGTH_LONG).show();
                     }
+                } catch (JSONException e){
+                    e.printStackTrace();
                 }
             }
         };

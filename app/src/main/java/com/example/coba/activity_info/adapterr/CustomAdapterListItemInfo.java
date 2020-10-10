@@ -7,6 +7,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.TranslateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -85,10 +89,19 @@ public class CustomAdapterListItemInfo extends BaseAdapter {
         if (view==null){
             view=inflater.inflate(R.layout.model_list_menu_info,viewGroup, false);
         }
+        TranslateAnimation translateAnimation = new TranslateAnimation(300,0,0,0);
+        Animation alphaAnimation = new AlphaAnimation(0,1);
+        translateAnimation.setDuration(500);
+        alphaAnimation.setDuration(1300);
+        AnimationSet animation= new AnimationSet(true);
+        animation.addAnimation(translateAnimation);
+        animation.addAnimation(alphaAnimation);
+        view.setAnimation(animation);
         String rawUrl=items.get(i).getUrl();
         final String id=items.get(i).getId();
         String url= RestUrl.getImgBase(RestUrl.IMAGE_URL_INFO)+rawUrl+"?time="+times;
         Holders holders=new Holders(view);
+        holders.title.setSelected(true);
         holders.title.setText(items.get(i).getTitle());
         Picasso.get()
                 .load(url)

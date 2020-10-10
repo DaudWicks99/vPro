@@ -12,6 +12,8 @@
     <color name="circleBorder">#50FFFFFF</color>
     <color name="solidCircle">#AAFFFFFF</color>
     <color name="color_yellow">#FFA611</color>
+    <color name="grey">#ff8b8b8b</color>
+    <color name="dark_grey">#ff717171</color>
 
 </resources>
 

@@ -167,7 +167,7 @@ public class LoginActivity extends AppCompatActivity {
                             LoginActivity.this.finish();
 
                         }else {
-                            FirebaseMessaging.getInstance().subscribeToTopic("admin");
+                            FirebaseMessaging.getInstance().subscribeToTopic(RestUrl.getSubscribtion());
                             Intent i = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(i);
                             LoginActivity.this.finish();

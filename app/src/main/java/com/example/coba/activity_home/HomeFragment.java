@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -34,6 +35,7 @@ import com.example.coba.model.Json.JsonHelper;
 import com.example.coba.model.Rest.RestHelper;
 import com.example.coba.model.activerecords.UserInfos;
 import com.example.mylibrary.Views.EmptyRecycleView;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
@@ -67,7 +69,9 @@ public class HomeFragment extends Fragment {
     AdapterKuliahCategory kuliahCategory;
     AdapterKbmCategory kbmCategory;
     AdapterPanitiaCategory panitiaCategory;
+    ShimmerFrameLayout shimmerAll, shimmerLkf, shimmerKbm, shimmerKuliah, shimmerPanitia;
     TextView saAll, saKbm, saLkf, saPanitia, saKuliah;
+    ImageView noDataAll,noDataLkf,noDataKuliah,noDataKbm,noDataPanitia;
     String sToken;
 
 
@@ -97,6 +101,16 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        noDataAll=(ImageView)view.findViewById(R.id.noDataAll);
+        noDataLkf=(ImageView)view.findViewById(R.id.noDataLkf);
+        noDataKuliah=(ImageView)view.findViewById(R.id.noDataKuliah);
+        noDataKbm=(ImageView)view.findViewById(R.id.noDataKbm);
+        noDataPanitia=(ImageView)view.findViewById(R.id.noDataPanitia);
+        shimmerAll=(ShimmerFrameLayout)view.findViewById(R.id.SfVotingAll);
+        shimmerLkf=(ShimmerFrameLayout)view.findViewById(R.id.SfVotingLkf);
+        shimmerKbm=(ShimmerFrameLayout)view.findViewById(R.id.SfVotingKbm);
+        shimmerKuliah=(ShimmerFrameLayout)view.findViewById(R.id.SfVotingKuliah);
+        shimmerPanitia=(ShimmerFrameLayout)view.findViewById(R.id.SfVotingPanitia);
         votingAll=(EmptyRecycleView)view.findViewById(R.id.VotingAll);
         votingLkf=(EmptyRecycleView)view.findViewById(R.id.VotingLKF);
         votingKuliah=(EmptyRecycleView)view.findViewById(R.id.VotingKULIAH);
@@ -113,10 +127,10 @@ public class HomeFragment extends Fragment {
         votingKbm.setLayoutManager(linearLayoutManager3);
         votingPanitia.setLayoutManager(linearLayoutManager4);
         allCategory=new AdapterAllCategory(getContext(),menuHomes,HomeFragment.this);
-        lkfCategory=new AdapterLkfCategory(getContext(),menuHomes1);
-        kuliahCategory=new AdapterKuliahCategory(getContext(),menuHomes2);
-        kbmCategory= new AdapterKbmCategory(getContext(),menuHomes3);
-        panitiaCategory= new AdapterPanitiaCategory(getContext(),menuHomes4);
+        lkfCategory=new AdapterLkfCategory(getContext(),menuHomes1,HomeFragment.this);
+        kuliahCategory=new AdapterKuliahCategory(getContext(),menuHomes2,HomeFragment.this);
+        kbmCategory= new AdapterKbmCategory(getContext(),menuHomes3,HomeFragment.this);
+        panitiaCategory= new AdapterPanitiaCategory(getContext(),menuHomes4,HomeFragment.this);
         loadMenu();
         loadMenu1();
         loadMenu2();
@@ -195,6 +209,8 @@ public class HomeFragment extends Fragment {
         Response.Listener successResp= new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                shimmerAll.stopShimmerAnimation();
+                shimmerAll.setVisibility(View.GONE);
                 Log.e("namama",response.toString());
                 if(!RestHelper.validateResponse(response)){
                     Log.w("jashkbfjas","Not a valid response" );
@@ -217,6 +233,7 @@ public class HomeFragment extends Fragment {
                                 menuHomes.add(transaction);
                             }
                             votingAll.setAdapter(allCategory);
+                            votingAll.setEmptyView(noDataAll);
                             allCategory.notifyDataSetChanged();
                         }
                         else {
@@ -232,6 +249,7 @@ public class HomeFragment extends Fragment {
                                 menuHomes.add(transaction);
                             }
                             votingAll.setAdapter(allCategory);
+                            votingAll.setEmptyView(noDataAll);
                             allCategory.notifyDataSetChanged();
                         }
 
@@ -255,6 +273,8 @@ public class HomeFragment extends Fragment {
         Response.Listener successResp= new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                shimmerLkf.stopShimmerAnimation();
+                shimmerLkf.setVisibility(View.GONE);
                 if(!RestHelper.validateResponse(response)){
                     Log.w("jashkbfjas","Not a valid response" );
                     return;
@@ -262,6 +282,7 @@ public class HomeFragment extends Fragment {
                 else {
                     try{
                         JSONArray results = response.getJSONArray("result");
+                        menuHomes1.clear();
                         if (results.length()<4){
                             saLkf.setVisibility(View.GONE);
                             for (int i = 0; i < results.length(); i++){
@@ -279,6 +300,7 @@ public class HomeFragment extends Fragment {
 
                             }
                             votingLkf.setAdapter(lkfCategory);
+                            votingLkf.setEmptyView(noDataLkf);
                             lkfCategory.notifyDataSetChanged();
                         }else {
                             saLkf.setVisibility(View.VISIBLE);
@@ -297,6 +319,7 @@ public class HomeFragment extends Fragment {
 
                             }
                             votingLkf.setAdapter(lkfCategory);
+                            votingLkf.setEmptyView(noDataLkf);
                             lkfCategory.notifyDataSetChanged();
                         }
 
@@ -320,6 +343,8 @@ public class HomeFragment extends Fragment {
         Response.Listener successResp= new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                shimmerKuliah.stopShimmerAnimation();
+                shimmerKuliah.setVisibility(View.GONE);
                 if(!RestHelper.validateResponse(response)){
                     Log.w("jashkbfjas","Not a valid response" );
                     return;
@@ -327,6 +352,7 @@ public class HomeFragment extends Fragment {
                 else {
                     try{
                         JSONArray results = response.getJSONArray("result");
+                        menuHomes2.clear();
                         if (results.length()<4){
                             saKuliah.setVisibility(View.GONE);
                             for (int i = 0; i < results.length(); i++){
@@ -344,6 +370,7 @@ public class HomeFragment extends Fragment {
 
                             }
                             votingKuliah.setAdapter(kuliahCategory);
+                            votingKuliah.setEmptyView(noDataKuliah);
                             kuliahCategory.notifyDataSetChanged();
                         }else {
                             saKuliah.setVisibility(View.VISIBLE);
@@ -362,6 +389,7 @@ public class HomeFragment extends Fragment {
 
                             }
                             votingKuliah.setAdapter(kuliahCategory);
+                            votingKuliah.setEmptyView(noDataKuliah);
                             kuliahCategory.notifyDataSetChanged();
                         }
 
@@ -385,6 +413,8 @@ public class HomeFragment extends Fragment {
         Response.Listener successResp= new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                shimmerKbm.stopShimmerAnimation();
+                shimmerKbm.setVisibility(View.GONE);
                 if(!RestHelper.validateResponse(response)){
                     Log.w("jashkbfjas","Not a valid response" );
                     return;
@@ -392,6 +422,7 @@ public class HomeFragment extends Fragment {
                 else {
                     try{
                         JSONArray results = response.getJSONArray("result");
+                        menuHomes3.clear();
                         if (results.length()<4){
                             saKbm.setVisibility(View.GONE);
                             for (int i = 0; i < results.length(); i++){
@@ -409,6 +440,7 @@ public class HomeFragment extends Fragment {
 
                             }
                             votingKbm.setAdapter(kbmCategory);
+                            votingKbm.setEmptyView(noDataKbm);
                             kbmCategory.notifyDataSetChanged();
                         }else {
                             saKbm.setVisibility(View.VISIBLE);
@@ -427,6 +459,7 @@ public class HomeFragment extends Fragment {
 
                             }
                             votingKbm.setAdapter(kbmCategory);
+                            votingKbm.setEmptyView(noDataKbm);
                             kbmCategory.notifyDataSetChanged();
                         }
 
@@ -449,6 +482,8 @@ public class HomeFragment extends Fragment {
         Response.Listener successResp= new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                shimmerPanitia.stopShimmerAnimation();
+                shimmerPanitia.setVisibility(View.GONE);
                 if(!RestHelper.validateResponse(response)){
                     Log.w("jashkbfjas","Not a valid response" );
                     return;
@@ -456,6 +491,7 @@ public class HomeFragment extends Fragment {
                 else {
                     try{
                         JSONArray results = response.getJSONArray("result");
+                        menuHomes4.clear();
                         if (results.length()<4){
                             saPanitia.setVisibility(View.GONE);
                             for (int i = 0; i < results.length(); i++){
@@ -473,6 +509,7 @@ public class HomeFragment extends Fragment {
 
                             }
                             votingPanitia.setAdapter(panitiaCategory);
+                            votingPanitia.setEmptyView(noDataPanitia);
                             panitiaCategory.notifyDataSetChanged();
                         }else {
                             saPanitia.setVisibility(View.VISIBLE);
@@ -491,6 +528,7 @@ public class HomeFragment extends Fragment {
 
                             }
                             votingPanitia.setAdapter(panitiaCategory);
+                            votingPanitia.setEmptyView(noDataPanitia);
                             panitiaCategory.notifyDataSetChanged();
                         }
 
@@ -518,5 +556,24 @@ public class HomeFragment extends Fragment {
         loadMenu2();
         loadMenu3();
         loadMenu4();
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        shimmerAll.startShimmerAnimation();
+        shimmerLkf.startShimmerAnimation();
+        shimmerKbm.startShimmerAnimation();
+        shimmerKuliah.startShimmerAnimation();
+        shimmerPanitia.startShimmerAnimation();
+        onReload();
+    }
+    @Override
+    public void onPause(){
+        shimmerAll.stopShimmerAnimation();
+        shimmerLkf.stopShimmerAnimation();
+        shimmerKuliah.stopShimmerAnimation();
+        shimmerKbm.stopShimmerAnimation();
+        shimmerPanitia.stopShimmerAnimation();
+        super.onPause();
     }
 }

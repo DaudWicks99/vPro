@@ -2,18 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.coba.activity_home.ShowAllActivity">
+    tools:context="com.example.coba.activity_hasilv.HasilVotingActivity">
     <RelativeLayout
-        android:id="@+id/rlShowAll"
+        android:id="@+id/rlHasilVoting"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         >
 
         <ImageButton
-            android:id="@+id/opDrawerShowAll"
+            android:id="@+id/backHasilVoting"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginLeft="6dp"
@@ -32,8 +32,8 @@
     <com.facebook.shimmer.ShimmerFrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rlShowAll"
-        android:id="@+id/SfShowAll"
+        android:layout_below="@+id/rlHasilVoting"
+        android:id="@+id/SfHasilVoting"
         app:duration="800">
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,8 +48,8 @@
         </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/refreshShowAll"
-        android:layout_below="@+id/rlShowAll"
+        android:id="@+id/refreshHasilVoting"
+        android:layout_below="@+id/rlHasilVoting"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
@@ -59,10 +59,8 @@
 
         <ListView
 
-            android:id="@+id/LsViShowAll"
+            android:id="@+id/LsViHasilVoting"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-
 </RelativeLayout>

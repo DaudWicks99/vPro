@@ -250,6 +250,7 @@ int colorMenu=R.color.colorAccent;
                                     dialog.dismiss();
                                     UserInfo.deleteAll(new UserInfo(Database.db));
                                     Database.clear();
+                                    FirebaseMessaging.getInstance().unsubscribeFromTopic(RestUrl.getSubscribtion());
                                     startActivity(new Intent(MainActivity.this,LoginActivity.class)
                                             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                                 }
@@ -311,7 +312,7 @@ int colorMenu=R.color.colorAccent;
                         dialogInterface.dismiss();
                         UserInfo.deleteAll(new UserInfo(Database.db));
                         Database.clear();
-                        FirebaseMessaging.getInstance().unsubscribeFromTopic("admin");
+                        FirebaseMessaging.getInstance().unsubscribeFromTopic(RestUrl.getSubscribtion());
                         startActivity(new Intent(MainActivity.this, LoginActivity.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         MainActivity.this.finish();

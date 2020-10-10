@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.core.view.GravityCompat;
@@ -31,6 +32,7 @@ import com.example.coba.database.Database;
 import com.example.coba.model.Json.JsonHelper;
 import com.example.coba.model.Rest.RestHelper;
 import com.example.coba.model.activerecords.UserInfos;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
@@ -67,6 +69,7 @@ public class InfoFragment extends Fragment {
     DrawerLayout drawerLayout;
     ViewPager viewPager;
     SwipeRefreshLayout infSwip;
+    ShimmerFrameLayout shimmer;
 
     Date data1;
     Date data2;
@@ -95,6 +98,7 @@ public class InfoFragment extends Fragment {
             }
         });
         infSwip=(SwipeRefreshLayout)view.findViewById(R.id.infSwip);
+        shimmer=(ShimmerFrameLayout)view.findViewById(R.id.SfInfo);
 
 
 
@@ -185,6 +189,8 @@ public class InfoFragment extends Fragment {
         Response.Listener successResp= new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                shimmer.stopShimmerAnimation();
+                shimmer.setVisibility(View.GONE);
 //                Log.e("namama",response.toString());
                 if(!RestHelper.validateResponse(response)){
                     Log.w("jashkbfjas","Not a valid response" );
@@ -242,7 +248,13 @@ public class InfoFragment extends Fragment {
     @Override
     public void onResume(){
         super.onResume();
+        shimmer.startShimmerAnimation();
         onReload();
+    }
+    @Override
+    public void onPause(){
+        shimmer.stopShimmerAnimation();
+        super.onPause();
     }
 
 

@@ -32,7 +32,7 @@ public class DetailInfoActivity extends AppCompatActivity {
     TextView jdlDtl;
     TextView descDtl;
     RelativeLayout Details;
-    ImageView detailsInfoBack;
+    ImageView detailsInfoBack,IvDetailInfo;
 
     String sToken;
     String id;
@@ -44,8 +44,8 @@ public class DetailInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_info);
-        Details=(RelativeLayout) findViewById(R.id.Details);
-        background=(ImageView)findViewById(R.id.imgDtlInf);
+        IvDetailInfo=(ImageView)findViewById(R.id.IvDetailInfo);
+        background=(ImageView)findViewById(R.id.IvDetailInfo);
         jdlDtl=(TextView)findViewById(R.id.jdlDtl);
         descDtl=(TextView)findViewById(R.id.descDtl);
         time=System.currentTimeMillis();
@@ -96,6 +96,10 @@ public class DetailInfoActivity extends AppCompatActivity {
                             String imgName=item.getString("image");
                             String url=RestUrl.getImgBase(RestUrl.IMAGE_URL_INFO)+imgName+"?time="+times;
                             Log.e(" ",url);
+                            Picasso.get()
+                                    .load(url)
+                                    .placeholder(R.drawable.placeholder)
+                                    .into(imgDtlInf);
                             Picasso.get()
                                     .load(url)
                                     .placeholder(R.drawable.placeholder)

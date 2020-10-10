@@ -97,25 +97,41 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <TextView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="17dp"
-            android:textColor="@color/orange"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:text="NIM :"/>
-        <TextView
-            android:id="@+id/profile_nim"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="17dp"
-            android:textColor="@color/orange"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:text=""/>
+            app:cardBackgroundColor="#fff"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            app:cardCornerRadius="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="NIM"
+                android:textSize="18dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="17dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="15sp"
+                android:layout_marginRight="55dp"
+                android:id="@+id/profile_nim"
+                android:text=" "
+                android:textSize="15dp" />
+
+            <ImageView
+                android:id="@+id/editNim"
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="5sp"
+                android:src="@drawable/ic_chevron_right_black_24dp" />
+        </androidx.cardview.widget.CardView>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -124,25 +140,41 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@color/orange"/>
-        <TextView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="17dp"
-            android:textColor="@color/orange"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:text="ADDRESS :"/>
-        <TextView
-            android:id="@+id/profile_alamat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="17dp"
-            android:textColor="@color/orange"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:text=""/>
+            app:cardBackgroundColor="#fff"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            app:cardCornerRadius="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="ADDRESS"
+                android:textSize="18dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="17dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="15sp"
+                android:layout_marginRight="55dp"
+                android:id="@+id/profile_alamat"
+                android:text=" "
+                android:textSize="15dp" />
+
+            <ImageView
+                android:id="@+id/editAddress"
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="5sp"
+                android:src="@drawable/ic_chevron_right_black_24dp" />
+        </androidx.cardview.widget.CardView>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -151,25 +183,41 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@color/orange"/>
-        <TextView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="17dp"
-            android:textColor="@color/orange"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:text="PHONE NUMBER :"/>
-        <TextView
-            android:id="@+id/profile_noTlp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="17dp"
-            android:textColor="@color/orange"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:text=""/>
+            app:cardBackgroundColor="#fff"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            app:cardCornerRadius="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="PHONE"
+                android:textSize="18dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="17dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="15sp"
+                android:layout_marginRight="55dp"
+                android:id="@+id/profile_noTlp"
+                android:text=" "
+                android:textSize="15dp" />
+
+            <ImageView
+                android:id="@+id/editPhone"
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="5sp"
+                android:src="@drawable/ic_chevron_right_black_24dp" />
+        </androidx.cardview.widget.CardView>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -178,25 +226,41 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@color/orange"/>
-        <TextView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="17dp"
-            android:textColor="@color/orange"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:text="GENDER :"/>
-        <TextView
-            android:id="@+id/profile_gender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="17dp"
-            android:textColor="@color/orange"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:text=""/>
+            app:cardBackgroundColor="#fff"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            app:cardCornerRadius="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="GENDER"
+                android:textSize="18dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="17dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="15sp"
+                android:layout_marginRight="55dp"
+                android:id="@+id/profile_gender"
+                android:text=" "
+                android:textSize="15dp" />
+
+            <ImageView
+                android:id="@+id/editGender"
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="5sp"
+                android:src="@drawable/ic_chevron_right_black_24dp" />
+        </androidx.cardview.widget.CardView>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -206,25 +270,41 @@
             android:layout_marginRight="10dp"
             android:background="@color/orange"/>
 
-        <TextView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="17dp"
-            android:textColor="@color/orange"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:text="DATE OF BIRTH :"/>
-        <TextView
-            android:id="@+id/profile_dob"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="17dp"
-            android:textColor="@color/orange"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:text=""/>
+            app:cardBackgroundColor="#fff"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            app:cardCornerRadius="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="DOB"
+                android:textSize="18dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="17dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="15sp"
+                android:layout_marginRight="55dp"
+                android:id="@+id/profile_dob"
+                android:text=" "
+                android:textSize="15dp" />
+
+            <ImageView
+                android:id="@+id/editTtl"
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="5sp"
+                android:src="@drawable/ic_chevron_right_black_24dp" />
+        </androidx.cardview.widget.CardView>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"

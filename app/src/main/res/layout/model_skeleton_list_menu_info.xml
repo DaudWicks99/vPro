@@ -24,17 +24,15 @@
             >
             <LinearLayout
                 android:layout_width="match_parent"
-                android:id="@+id/LlShowAll"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/jdlShowAll"
+                <View
+                    android:background="@color/grey"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:layout_marginBottom="5dp"
                     android:text="PEMILIHAN KETUA SMF"
-                    android:layout_marginLeft="15dp"
                     android:textSize="20dp"
                     android:textColor="#000"
                     android:marqueeRepeatLimit="marquee_forever"
@@ -42,47 +40,55 @@
                     android:ellipsize="marquee"
                     android:fontFamily="@font/arialbd">
 
-                </TextView>
+                </View>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="160dp">
-                    <ImageView
-                        android:id="@+id/imageShowAll"
+                    <View
+                        android:background="@color/dark_grey"
                         android:layout_width="match_parent"
                         android:layout_height="160dp"
                         android:layout_gravity="center"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/placeholder"/>
-
+                        android:scaleType="centerCrop"/>
+                    <View
+                        android:background="@color/grey"
+                        android:layout_width="150dp"
+                        android:layout_height="35dp"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignParentBottom="true"/>
                 </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/menuShowAll"
                     android:orientation="horizontal"
                     >
 
-                    <ImageView
-                        android:id="@+id/shareShowAll"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_share"/>
-                    <ImageView
-                        android:id="@+id/editShowAll"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:src="@mipmap/ic_editv2"/>
-                    <ImageView
-                        android:id="@+id/hapusShowAll"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:src="@mipmap/ic_deletev2"/>
+                    <View
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="15dp"
+                        android:background="@color/grey"/>
+                    <View
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@color/grey"/>
+                    <View
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="@color/grey"/>
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
+
+
 
 </LinearLayout>

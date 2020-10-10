@@ -3,7 +3,7 @@ package com.example.coba;
 public class RestUrl {
 
     public static final String BASE_IMAGE_URL ="/common/uploads/";
-    public static final String IMAGE_URL_VOTING ="ListMenuPic/Low/";
+    public static final String IMAGE_URL_VOTING ="ListMenuPic/low/";
     public static final String IMAGE_URL_INFO = "InfoListMenuPic/low/";
     public static final String IMAGE_URL_PROFILE = "ProfilePic/low/";
     public static final String REGISTER ="/v-project/register";
@@ -52,7 +52,12 @@ public class RestUrl {
         }
         return "http://167.71.199.106:3000/common/uploads/prod/"+name;
     }
-
+    public static String getSubscribtion(){
+        if (BuildConfig.DEBUG){
+            return "admindev";
+        }
+        return "admin";
+    }
 
 
 }

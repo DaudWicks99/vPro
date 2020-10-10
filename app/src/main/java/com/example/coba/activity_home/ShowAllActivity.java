@@ -24,6 +24,7 @@ import com.example.coba.database.Database;
 import com.example.coba.model.Json.JsonHelper;
 import com.example.coba.model.Rest.RestHelper;
 import com.example.coba.model.activerecords.UserInfos;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,8 +49,9 @@ public class ShowAllActivity extends AppCompatActivity {
     ArrayList <listItem> transactions=new ArrayList<>();
     String sToken;
     String id;
-    Date data1;
-    Date data2;
+    Integer data1;
+    Integer data2;
+    ShimmerFrameLayout shimmer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +59,7 @@ public class ShowAllActivity extends AppCompatActivity {
         LsViShowAll=(ListView)findViewById(R.id.LsViShowAll);
         opDrawerShowAll=(ImageButton)findViewById(R.id.opDrawerShowAll);
         sToken = UserInfos.getFromDatabase(Database.db).token;
+        shimmer=(ShimmerFrameLayout)findViewById(R.id.SfShowAll);
         Intent intent= getIntent();
         id=intent.getStringExtra("id");
         adapter=new CustomAdapterListItem(ShowAllActivity.this,transactions,ShowAllActivity.this);
@@ -75,6 +78,8 @@ public class ShowAllActivity extends AppCompatActivity {
         Response.Listener successResp= new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                shimmer.stopShimmerAnimation();
+                shimmer.setVisibility(View.GONE);
                 Log.e("namama",response.toString());
                 if(!RestHelper.validateResponse(response)){
                     Log.w("jashkbfjas","Not a valid response" );
@@ -83,7 +88,7 @@ public class ShowAllActivity extends AppCompatActivity {
                 else {
                     try{
                         JSONArray results = response.getJSONArray("result");
-
+                        transactions.clear();
                             for (int i = 0; i < results.length(); i++){
                                 JSONObject item = results.getJSONObject(i);
                                 JSONObject object = item.getJSONObject("listMenu");
@@ -92,15 +97,14 @@ public class ShowAllActivity extends AppCompatActivity {
                                 transaction.setTitle(object.getString("nama"));
                                 transaction.setUrl(object.getString("pictures"));
                                 transaction.setIdVote(item.getString("id"));
-                                transaction.setDate(item.getString("create_at"));
                                 transactions.add(transaction);
                             }
                         Collections.sort(transactions, new Comparator<listItem>() {
                             @Override
                             public int compare(listItem o1, listItem o2) {
                                 try {
-                                    data1=toDate(o1.getDate());
-                                    data2=toDate(o2.getDate());
+                                    data1=Integer.parseInt(o1.getId());
+                                    data2=Integer.parseInt(o2.getId());
                                 } catch (Exception e){
                                     e.printStackTrace();
                                 }
@@ -126,6 +130,17 @@ public class ShowAllActivity extends AppCompatActivity {
     public void onReload(){
         transactions.clear();
         loadMenu(id);
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        shimmer.startShimmerAnimation();
+        onReload();
+    }
+    @Override
+    public void onPause(){
+        shimmer.stopShimmerAnimation();
+        super.onPause();
     }
 
     public static Date toDate(String value) throws ParseException {

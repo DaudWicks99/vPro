@@ -192,7 +192,7 @@ public class AddInfoActivity extends AppCompatActivity {
                 protected Void doInBackground(Void... voids) {
                     FCMHelper helper= FCMHelper.getInstance();
                     try {
-                        helper.sendTopicNotificationAndData("admin",notificationObject,dataObject);
+                        helper.sendTopicNotificationAndData(RestUrl.getSubscribtion(),notificationObject,dataObject);
                         success=true;
                     }catch (IOException e){
                         e.printStackTrace();
