@@ -7,25 +7,19 @@
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/cancelEdit"
+        android:id="@+id/cancelEditGender"
         android:layout_gravity="right"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/ic_delete"/>
-    <EditText
-        android:id="@+id/editProfile"
+    <com.jaredrummler.materialspinner.MaterialSpinner
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginRight="20dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center"
-        android:ems="10"
-        android:hint=" "
-        android:inputType="textPersonName"
-        android:textColor="#707070" />
+        android:id="@+id/genderCat"/>
     <mehdi.sakout.fancybuttons.FancyButton
-        android:id="@+id/btnEnter"
+        android:id="@+id/btnEditGender"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"

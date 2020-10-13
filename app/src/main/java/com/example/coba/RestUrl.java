@@ -34,6 +34,13 @@ public class RestUrl {
     public static final String UPDATE_PIC_PROFILE ="/v-project/update-pic-profile";
     public static final String ADD_PROFILE ="/v-project/add-profile";
     public static final String BIODATA ="/v-project/biodata";
+    public static final String ADD_ALAMAT ="/v-project/add-alamat";
+    public static final String ADD_NIM ="/v-project/add-nim";
+    public static final String ADD_TELPON ="/v-project/add-telpon";
+    public static final String ADD_GENDER ="/v-project/add-gender";
+    public static final String ADD_TEMPAT_LAHIR ="/v-project/add-tempat-lahir";
+    public static final String ADD_TANGGAL_LAHIR ="/v-project/add-tanggal-lahir";
+    public static final String ADD_NAMA ="/v-project/add-nama";
 
     public static String getUrl(String name){
         if (name!=null){

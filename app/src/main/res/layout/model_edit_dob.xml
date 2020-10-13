@@ -13,7 +13,7 @@
         android:layout_marginTop="10dp"
         android:src="@drawable/ic_delete"/>
     <EditText
-        android:id="@+id/editProfile"
+        android:id="@+id/editTempat"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -21,11 +21,23 @@
         android:layout_marginRight="20dp"
         android:layout_gravity="center"
         android:ems="10"
-        android:hint=" "
+        android:hint="Temap Lahir"
         android:inputType="textPersonName"
         android:textColor="#707070" />
+    <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
+        android:id="@+id/editTanggal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="20dp"
+        android:hint="Enter DOB"
+        app:dateFormat="yyyy/MM/dd"
+        app:maxDate="01/01/2050"
+        app:minDate="01/01/1945"/>
     <mehdi.sakout.fancybuttons.FancyButton
-        android:id="@+id/btnEnter"
+        android:id="@+id/btnEditDob"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
