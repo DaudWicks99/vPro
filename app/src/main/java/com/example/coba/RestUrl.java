@@ -41,6 +41,7 @@ public class RestUrl {
     public static final String ADD_TEMPAT_LAHIR ="/v-project/add-tempat-lahir";
     public static final String ADD_TANGGAL_LAHIR ="/v-project/add-tanggal-lahir";
     public static final String ADD_NAMA ="/v-project/add-nama";
+    public static final String CHANGE_PASSWORD ="/v-project/change-password";
 
     public static String getUrl(String name){
         if (name!=null){

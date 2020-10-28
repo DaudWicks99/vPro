@@ -54,7 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
     ImageButton back, editProfile;
     TextView uName, email, flname, nim, alamat,noTlp, gender, dob;
     FloatingActionButton changeProfile;
-    ImageView editNim,editAddress,editPhone,editGender,editDob,editName;
+    ImageView editNim,editAddress,editPhone,editGender,editDob,editName,editPass;
     ProgressDialog spinner;
     Bitmap bmp;
     String sToken;
@@ -73,7 +73,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+        editPass=(ImageView)findViewById(R.id.editPass);
         photoProfile=(CircleImageView) findViewById(R.id.photoProfile);
         changeProfile=(FloatingActionButton) findViewById(R.id.changePhotoProfile);
         editProfile=(ImageButton)findViewById(R.id.ProfileEdit);
@@ -96,10 +96,16 @@ public class ProfileActivity extends AppCompatActivity {
         editGender=(ImageView)findViewById(R.id.editGender);
         editDob=(ImageView)findViewById(R.id.editTtl);
         editName=(ImageView)findViewById(R.id.ProfileEditName);
+        editPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogChangePassword();
+            }
+        });
         editName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogShow("name",restName,"NAME",nFlname);
+                dialogShow("flname",restName,"NAME",nFlname);
             }
         });
         editNim.setOnClickListener(new View.OnClickListener() {
@@ -132,6 +138,7 @@ public class ProfileActivity extends AppCompatActivity {
                 dialogShowDob(nTempat,nDob);
             }
         });
+
         lihatProfil();
         lihatBio();
 
@@ -290,8 +297,9 @@ public class ProfileActivity extends AppCompatActivity {
                                 .load(url)
                                 .placeholder(R.drawable.fotokosong)
                                 .into(photoProfile);
+
                         nFlname=result.getString("full_name");
-                        uName.setText(result.getString("full_name"));
+                        uName.setText(nFlname);
                         email.setText(result.getString("email"));
                     }
                     catch (JSONException ex){
@@ -338,6 +346,7 @@ public class ProfileActivity extends AppCompatActivity {
                         nTlp=result.getString("nomerTelpon");
                         noTlp.setText(nTlp);
                         nGender=result.getString("gender");
+
                         if (nGender.equals("1")) {
                             gender.setText("MALE");
                         }else if (nGender.equals("2")){
@@ -626,7 +635,80 @@ public class ProfileActivity extends AppCompatActivity {
         });
         d.show();
     }
+    public void dialogChangePassword(){
+        final Dialog d = new Dialog(ProfileActivity.this);
+        d.setCancelable(false);
+        d.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        d.setContentView(R.layout.model_change_pass);
+        final EditText oldPass=(EditText) d.findViewById(R.id.editPassOld);
+        final EditText oldNewPass=(EditText) d.findViewById(R.id.editPassNew);
+        final EditText oldNewPass2=(EditText) d.findViewById(R.id.editPassNew2);
+        final ImageView cancel=(ImageView) d.findViewById(R.id.cancelEditPass);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                d.dismiss();
+            }
+        });
+        FancyButton submit=(FancyButton) d.findViewById(R.id.btnEditPass);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String Old=oldPass.getText().toString();
+                String New1=oldNewPass.getText().toString();
+                String New2=oldNewPass2.getText().toString();
+                if (!Old.isEmpty()){
+                    if (!New1.isEmpty()){
+                        if (!New2.isEmpty()){
+                            if (New1.equals(New2)){
+                                JSONObject payload= new JSONObject();
+                                JsonHelper.put(payload,"token",sToken);
+                                JsonHelper.put(payload,"newPass",New1);
+                                JsonHelper.put(payload,"oldPass",Old);
+                                Response.Listener successResp = new Response.Listener<JSONObject>() {
+                                    @Override
+                                    public void onResponse(JSONObject response) {
+                                        spinner.dismiss();
+                                        JSONObject object=response;
+                                        try {
+                                            String code=object.getString("code");
+                                            if (code.equals("0")){
+                                                onReload();
+                                                d.dismiss();
+                                            }
+                                        }catch (JSONException ex){
+                                            ex.printStackTrace();
+                                        }
+                                    }
+                                };
+                                Response.ErrorListener errorResp = RestHelper.generalErrorResponse("",spinner);
+                                JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.CHANGE_PASSWORD),payload,successResp,errorResp);
+                                myReq.setRetryPolicy(new DefaultRetryPolicy(
+                                        10000,
+                                        0,
+                                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+                                ));
+                                spinner.setMessage("Upload....");
+                                spinner.show();
+                                AppController.getRest().addToReqq(myReq,"");
+                            }else {
+                                Toast.makeText(ProfileActivity.this,"New Password Not Match",Toast.LENGTH_LONG).show();
+                            }
+                        }else {
+                            Toast.makeText(ProfileActivity.this,"Please input Confirm New Password",Toast.LENGTH_LONG).show();
+                        }
+                    }else {
+                        Toast.makeText(ProfileActivity.this,"Please input New Password",Toast.LENGTH_LONG).show();
+                    }
+                }else {
+                    Toast.makeText(ProfileActivity.this,"Please input Old Password",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        d.show();
+    }
     public void onReload(){
+        nFlname="";
         lihatProfil();
         lihatBio();
     }

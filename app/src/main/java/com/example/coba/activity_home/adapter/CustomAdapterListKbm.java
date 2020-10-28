@@ -18,7 +18,7 @@ import com.example.coba.EditVotingActivity;
 import com.example.coba.R;
 import com.example.coba.RestUrl;
 import com.example.coba.activity_home.VoteActivity;
-import com.example.coba.activity_home.KBMFragment;
+import com.example.coba.activity_home.AboutUsFragment;
 import com.example.coba.activity_home.model.listItem;
 import com.example.coba.database.Database;
 import com.example.coba.model.Json.JsonHelper;
@@ -36,12 +36,12 @@ public class CustomAdapterListKbm extends BaseAdapter {
     Context ctx;
     ArrayList<listItem> items;
     ArrayList<listItem> filterList;
-    KBMFragment fragment;
+    AboutUsFragment fragment;
 
     String sToken;
 
 
-    public CustomAdapterListKbm(Context c, ArrayList<listItem> items, KBMFragment fragment){
+    public CustomAdapterListKbm(Context c, ArrayList<listItem> items, AboutUsFragment fragment){
         this.ctx= c;
         this.items=items;
         this.fragment=fragment;
@@ -171,7 +171,6 @@ public class CustomAdapterListKbm extends BaseAdapter {
                     Log.w("adapter", "invalid response");
                 }else {
                     deleteVote(idVote);
-                    fragment.onReload();
                 }
             }
         };

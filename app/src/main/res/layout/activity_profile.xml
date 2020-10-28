@@ -326,6 +326,41 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@color/orange"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#fff"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            app:cardCornerRadius="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Change Password"
+                android:textSize="18dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="17dp"/>
+
+
+            <ImageView
+                android:id="@+id/editPass"
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="5sp"
+                android:src="@drawable/ic_chevron_right_black_24dp" />
+        </androidx.cardview.widget.CardView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/orange"/>
 
 
     </LinearLayout>

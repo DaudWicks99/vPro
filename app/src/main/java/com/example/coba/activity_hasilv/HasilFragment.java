@@ -12,12 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.coba.R;
-import com.example.coba.activity_hasilv.adaptor.ViewPagerAdaptor;
-import com.example.coba.activity_home.AllFragment;
-import com.example.coba.activity_home.BPMFFragment;
-import com.example.coba.activity_home.KBMFragment;
-import com.example.coba.activity_home.KEPANITIAANFragment;
-import com.example.coba.activity_home.SMFFragment;
 import com.example.coba.activity_home.adapter.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 

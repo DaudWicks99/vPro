@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         uspass=(TextInputEditText) findViewById(R.id.uspass);
         try {
 
-            usnme.addTextChangedListener(textWatcherListener(tl_username, "Please Enter Email"));
+            usnme.addTextChangedListener(textWatcherListener(tl_username, "Please Enter Username"));
             uspass.addTextChangedListener(textWatcherListener(tl_password, "Please Enter Password"));
 
 
@@ -100,9 +100,9 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void  loginRest(final String email, String password){
+    public void  loginRest(final String uname, String password){
         JSONObject payload = new JSONObject();
-        JsonHelper.put(payload, "email", email);
+        JsonHelper.put(payload, "uname", uname);
         JsonHelper.put(payload, "pass", password);
         Response.Listener successResp = new Response.Listener<JSONObject>(){
             @Override
@@ -124,7 +124,7 @@ public class LoginActivity extends AppCompatActivity {
                     try {
                         UserInfos.getFromDatabase(Database.db)
                                 .setToken(response.getString("token"))
-                                .setUsername(email)
+                                .setUsername(uname)
                                 .save();
                         checkAdmin(response.getString("token"));
 
@@ -221,7 +221,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (username.equalsIgnoreCase("")) {
 
-                tl_username.setError("Please Enter Email");
+                tl_username.setError("Please Enter Username");
                 return false;
 
             } else if (password.equalsIgnoreCase("")) {

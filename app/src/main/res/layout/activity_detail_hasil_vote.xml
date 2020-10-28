@@ -31,7 +31,7 @@
     </RelativeLayout>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
         android:layout_below="@+id/IvDetailInfo"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20sp"
@@ -63,10 +63,9 @@
             android:textColor="@color/black"
             android:layout_marginLeft="25dp"
             android:textSize="20dp"
-            android:textStyle="bold"
             android:text="HASIL VOTE : "/>
         <TextView
-            android:id="@+id/total"
+            android:id="@+id/total1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -74,6 +73,12 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:text=" "/>
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChartHasilVote"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"/>
+
     </LinearLayout>
     <LinearLayout
         android:id="@+id/NoAlreadyVote"

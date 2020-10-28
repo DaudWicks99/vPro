@@ -44,7 +44,7 @@
             android:id="@+id/tl_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="Username"
             app:boxStrokeColor="@color/color_yellow"
             app:errorEnabled="true"
             app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
@@ -74,11 +74,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Forgot Password ?"-->
-<!--            android:textColor="#707070" />-->
+        <TextView
+            android:id="@+id/lupaPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="Forgot Password ?"
+            android:textColor="#707070" />
 
         <mehdi.sakout.fancybuttons.FancyButton
             android:id="@+id/btnLogin"

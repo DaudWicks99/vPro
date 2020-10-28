@@ -1,5 +1,6 @@
 package com.example.coba.activity_home;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -136,6 +137,7 @@ public class HomeFragment extends Fragment {
         loadMenu2();
         loadMenu3();
         loadMenu4();
+        checkAdmin();
         votingSwip.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -200,6 +202,39 @@ public class HomeFragment extends Fragment {
         });
         return view;
 
+    }
+    public void checkAdmin(){
+        JSONObject payload = new JSONObject();
+        JsonHelper.put(payload,"token", sToken);
+
+        Response.Listener successResp = new Response.Listener<JSONObject>() {
+            @SuppressLint("RestrictedApi")
+            @Override
+            public void onResponse(JSONObject response) {
+//                Log.e("response", response.toString());
+                if (!RestHelper.validateResponse(response)){
+                    Log.w("adapter", "invalid response");
+                    return;
+                }else {
+                    try {
+                        String mag=response.getString("msg");
+//                        Log.e("pesan",mag);
+                        if (mag.equals("You are admin")){
+                            floatingactionbutton.setVisibility(View.VISIBLE);
+
+                        }else {
+                            floatingactionbutton.setVisibility(View.GONE);
+
+                        }
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        Response.ErrorListener errorResp = RestHelper.generalErrorResponse(null,null);
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.getUrl(RestUrl.CHECK_ADMIN),payload,successResp,errorResp);
+        AppController.getRest().addToReqq(jsonObjectRequest,"");
     }
 
     public void loadMenu(){

@@ -28,6 +28,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.coba.activity_hasilv.HasilFragment;
 import com.example.coba.activity_hasilv.SemuaFragment;
+import com.example.coba.activity_home.AboutUsFragment;
 import com.example.coba.activity_home.HomeFragment;
 import com.example.coba.activity_info.InfoFragment;
 import com.example.coba.database.Database;
@@ -142,6 +143,7 @@ int colorMenu=R.color.colorAccent;
                 .addHeaderModel(new HeaderModel(R.drawable.ic_info_orange_24dp,"INFO FTEK",colorMenu))
                 .addHeaderModel(new HeaderModel(R.mipmap.ic_vote,"VOTING",colorMenu))
                 .addHeaderModel(new HeaderModel(R.drawable.ic_archive_orange_24dp,"HASIL VOTING",colorMenu))
+                .addHeaderModel(new HeaderModel(R.drawable.ic_archive_orange_24dp,"ABOUT US",colorMenu))
 
 //                .addHeaderModel(
 //                        new HeaderModel(R.drawable.ic_action_attach_money,getString(R.string.transaction), R.drawable.add,colorMenu, true,false, false)
@@ -169,7 +171,7 @@ int colorMenu=R.color.colorAccent;
                             //Common.showToast(MainActivity.this, "Cart Select");
                             drawer.closeDrawer(GravityCompat.START);
                         } else if (id == 3) {
-                            displaySelectedScreen("SIGNOUT");
+                            displaySelectedScreen("ABOUT US");
 
                             //Categories Menu
                             //Common.showToast(MainActivity.this, "Categories  Select");
@@ -301,6 +303,9 @@ int colorMenu=R.color.colorAccent;
                 break;
             case "PROFILE":
                 fragment = new SemuaFragment();
+                break;
+            case "ABOUT US":
+                fragment = new AboutUsFragment();
                 break;
             case "SIGNOUT":
                 AlertDialog.Builder ab= new AlertDialog.Builder(MainActivity.this);
