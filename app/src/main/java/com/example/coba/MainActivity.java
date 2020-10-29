@@ -143,7 +143,7 @@ int colorMenu=R.color.colorAccent;
                 .addHeaderModel(new HeaderModel(R.drawable.ic_info_orange_24dp,"INFO FTEK",colorMenu))
                 .addHeaderModel(new HeaderModel(R.mipmap.ic_vote,"VOTING",colorMenu))
                 .addHeaderModel(new HeaderModel(R.drawable.ic_archive_orange_24dp,"HASIL VOTING",colorMenu))
-                .addHeaderModel(new HeaderModel(R.drawable.ic_archive_orange_24dp,"ABOUT US",colorMenu))
+                .addHeaderModel(new HeaderModel(R.drawable.ic_priority_high_black_24dp,"ABOUT US",colorMenu))
 
 //                .addHeaderModel(
 //                        new HeaderModel(R.drawable.ic_action_attach_money,getString(R.string.transaction), R.drawable.add,colorMenu, true,false, false)

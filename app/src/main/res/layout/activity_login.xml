@@ -44,7 +44,7 @@
             android:id="@+id/tl_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="Email"
             app:boxStrokeColor="@color/color_yellow"
             app:errorEnabled="true"
             app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">

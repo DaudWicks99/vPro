@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
@@ -16,6 +17,7 @@ import android.text.method.PasswordTransformationMethod;
 import android.text.method.TransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -24,11 +26,13 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 
@@ -51,13 +55,16 @@ public class LoginActivity extends AppCompatActivity {
     TextInputLayout tl_username, tl_password;
     FancyButton login;
     ProgressDialog spinner;
+    String sToken;
     RelativeLayout rlRoot;
     private String username = "", password = "";
+    String restValidasi=RestUrl.getUrl(RestUrl.CHECK_VALIDASI);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         login=(FancyButton) findViewById(R.id.btnLogin);
+        sToken = UserInfos.getFromDatabase(Database.db).token;
         rlRoot = (RelativeLayout) findViewById(R.id.rlRoot);
         spinner=new ProgressDialog(LoginActivity.this);
         spinner.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -100,9 +107,9 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void  loginRest(final String uname, String password){
+    public void  loginRest(final String uname, final String password){
         JSONObject payload = new JSONObject();
-        JsonHelper.put(payload, "uname", uname);
+        JsonHelper.put(payload, "email", uname);
         JsonHelper.put(payload, "pass", password);
         Response.Listener successResp = new Response.Listener<JSONObject>(){
             @Override
@@ -122,16 +129,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else {
                     try {
-                        UserInfos.getFromDatabase(Database.db)
-                                .setToken(response.getString("token"))
-                                .setUsername(uname)
-                                .save();
-                        checkAdmin(response.getString("token"));
-
-                        Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(i);
-                        LoginActivity.this.finish();
-                        overridePendingTransition(R.anim.left_in, R.anim.left_out);
+                        dialogShow(uname,response.getString("token"));
                     }
                     catch (JSONException e){
                         e.printStackTrace();
@@ -141,6 +139,11 @@ public class LoginActivity extends AppCompatActivity {
         };
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse("", spinner);
         JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.LOGIN),payload,successResp,errorResp);
+        myReq.setRetryPolicy(new DefaultRetryPolicy(
+                10000,
+                0,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+        ));
         spinner.setMessage("Loading.....");
         spinner.show();
         AppController.getRest().addToReqq(myReq," ");
@@ -182,6 +185,71 @@ public class LoginActivity extends AppCompatActivity {
         Response.ErrorListener errorResp = RestHelper.generalErrorResponse(null,null);
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(RestUrl.getUrl(RestUrl.CHECK_ADMIN),payload,successResp,errorResp);
         AppController.getRest().addToReqq(jsonObjectRequest,"");
+    }
+    public void dialogShow(final String email, final String token){
+        final Dialog d = new Dialog(LoginActivity.this);
+        d.setCancelable(false);
+        d.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        d.setContentView(R.layout.model_check_validasi);
+        final EditText cmt=(EditText) d.findViewById(R.id.editValidasi);
+
+        final ImageView cancel=(ImageView) d.findViewById(R.id.cancelEdit);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                d.dismiss();
+            }
+        });
+        FancyButton submit=(FancyButton) d.findViewById(R.id.btnEnterValidasi);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String comment=cmt.getText().toString();
+                if (comment.isEmpty()){
+                    Toast.makeText(LoginActivity.this,"Tolong isi kolom",Toast.LENGTH_LONG).show();
+                }else {
+                    JSONObject payload= new JSONObject();
+                    JsonHelper.put(payload,"token",token);
+                    JsonHelper.put(payload,"kode",comment);
+                    Response.Listener successResp = new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            spinner.dismiss();
+                            JSONObject object=response;
+                            try {
+                                String code=object.getString("code");
+                                if (code.equals("0")){
+                                    UserInfos.getFromDatabase(Database.db)
+                                            .setToken(token)
+                                            .setUsername(email)
+                                            .save();
+                                    checkAdmin(token);
+
+                                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                                    startActivity(i);
+                                    LoginActivity.this.finish();
+                                    overridePendingTransition(R.anim.left_in, R.anim.left_out);
+                                    d.dismiss();
+                                }
+                            }catch (JSONException ex){
+                                ex.printStackTrace();
+                            }
+                        }
+                    };
+                    Response.ErrorListener errorResp = RestHelper.generalErrorResponse("",spinner);
+                    JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.CHECK_VALIDASI),payload,successResp,errorResp);
+                    myReq.setRetryPolicy(new DefaultRetryPolicy(
+                            10000,
+                            0,
+                            DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+                    ));
+                    spinner.setMessage("Upload....");
+                    spinner.show();
+                    AppController.getRest().addToReqq(myReq,"");
+                }
+            }
+        });
+        d.show();
     }
     private TextWatcher textWatcherListener(final View view, final String errorMessage) {
         return new TextWatcher() {

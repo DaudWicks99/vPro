@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/cancelEdit"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_delete"/>
+    <EditText
+        android:id="@+id/editValidasi"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:hint=" "
+        android:inputType="number"
+        android:textColor="#707070" />
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/btnEnterValidasi"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="15dp"
+        app:fb_borderColor="#FFFFFF"
+        app:fb_borderWidth="1dp"
+        app:fb_defaultColor="@color/orange"
+        app:fb_focusColor="@color/orange"
+        app:fb_radius="30dp"
+        app:fb_text="SUBMIT"
+        app:fb_textColor="#FFFFFF" />
+
+</LinearLayout>
