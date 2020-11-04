@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="176dp"
-    android:background="#F98637"
+    android:background="?attr/dark"
     android:gravity="bottom"
     android:paddingBottom="10dp"
     android:paddingLeft="10dp"
@@ -33,11 +33,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/nav_username"
+        android:textColor="?attr/text_light"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="?attr/text_light"
         android:id="@+id/nav_email"/>
 
 

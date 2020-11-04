@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="?attr/background_dark"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
@@ -11,6 +12,7 @@
         android:layout_gravity="right"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
+        android:tint="@color/icon_light"
         android:src="@drawable/ic_delete"/>
     <EditText
         android:id="@+id/editTempat"
@@ -23,7 +25,7 @@
         android:ems="10"
         android:hint="Temap Lahir"
         android:inputType="textPersonName"
-        android:textColor="#707070" />
+        android:textColor="?attr/text_light" />
     <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
         android:id="@+id/editTanggal"
         android:layout_width="300dp"
@@ -47,12 +49,12 @@
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="15dp"
-        app:fb_borderColor="#FFFFFF"
+        app:fb_borderColor="?attr/line_light"
         app:fb_borderWidth="1dp"
-        app:fb_defaultColor="@color/orange"
-        app:fb_focusColor="@color/orange"
+        app:fb_defaultColor="?attr/button_dark"
+        app:fb_focusColor="?button_dark"
         app:fb_radius="30dp"
         app:fb_text="SUBMIT"
-        app:fb_textColor="#FFFFFF" />
+        app:fb_textColor="?attr/text_light" />
 
 </LinearLayout>

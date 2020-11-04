@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:expandableTextView="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="?attr/background_dark"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ScrollView
@@ -16,7 +17,7 @@
             android:id="@+id/RlUs"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="@color/orange">
+            android:background="?attr/dark">
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="300dp"
@@ -24,6 +25,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
+                android:tint="?attr/icon_light"
                 app:srcCompat="@drawable/fteknew" />
         </RelativeLayout>
             <LinearLayout
@@ -45,6 +47,7 @@
                         android:fontFamily="@font/arialbd"
                         android:textSize="20dp"
                         android:paddingTop="10dp"
+                        android:textColor="?attr/text_light"
                         android:text="VISI : "/>
                     <TextView
                         android:id="@id/expandable_text"
@@ -53,13 +56,14 @@
                         android:layout_marginLeft="17dp"
                         android:layout_marginRight="10dp"
                         android:textSize="16sp"
-                        android:textColor="#666666" />
+                        android:textColor="?attr/text_light" />
                     <ImageButton
                         android:id="@id/expand_collapse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="16dp"
                         android:layout_gravity="right|bottom"
+                        android:tint="?attr/icon_light"
                         android:background="@android:color/transparent"/>
                 </com.ms.square.android.expandabletextview.ExpandableTextView>
                 <View
@@ -69,7 +73,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:background="@color/orange"/>
+                    android:background="?attr/line_dark"/>
                 <com.ms.square.android.expandabletextview.ExpandableTextView
                     xmlns:android="http://schemas.android.com/apk/res/android"
                     xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
@@ -85,6 +89,7 @@
                         android:fontFamily="@font/arialbd"
                         android:textSize="20dp"
                         android:paddingTop="10dp"
+                        android:textColor="?attr/text_light"
                         android:text="MISI : "/>
                     <TextView
                         android:id="@id/expandable_text"
@@ -93,13 +98,14 @@
                         android:layout_marginLeft="17dp"
                         android:layout_marginRight="10dp"
                         android:textSize="16sp"
-                        android:textColor="#666666" />
+                        android:textColor="?attr/text_light" />
                     <ImageButton
                         android:id="@id/expand_collapse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="16dp"
                         android:layout_gravity="right|bottom"
+                        android:tint="?attr/icon_light"
                         android:background="@android:color/transparent"/>
                 </com.ms.square.android.expandabletextview.ExpandableTextView>
                 <View
@@ -109,7 +115,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:background="@color/orange"/>
+                    android:background="?attr/line_dark"/>
                 <com.ms.square.android.expandabletextview.ExpandableTextView
                     xmlns:android="http://schemas.android.com/apk/res/android"
                     xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
@@ -125,6 +131,7 @@
                         android:fontFamily="@font/arialbd"
                         android:textSize="20dp"
                         android:paddingTop="10dp"
+                        android:textColor="?attr/text_light"
                         android:text="TUJUAN : "/>
                     <TextView
                         android:id="@id/expandable_text"
@@ -133,13 +140,14 @@
                         android:layout_marginLeft="17dp"
                         android:layout_marginRight="10dp"
                         android:textSize="16sp"
-                        android:textColor="#666666" />
+                        android:textColor="?attr/text_light" />
                     <ImageButton
                         android:id="@id/expand_collapse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="16dp"
                         android:layout_gravity="right|bottom"
+                        android:tint="?attr/icon_light"
                         android:background="@android:color/transparent"/>
                 </com.ms.square.android.expandabletextview.ExpandableTextView>
                 <View
@@ -149,12 +157,13 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:background="@color/orange"/>
+                    android:background="?attr/line_dark"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:text="Our Office"
                     android:textSize="25dp"
+                    android:textColor="?attr/text_light"
                     android:fontFamily="@font/arialbd"
                     android:layout_marginLeft="10dp"/>
                 <LinearLayout
@@ -169,13 +178,15 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5sp"
                         android:layout_marginLeft="10dp"
-                        android:src="@mipmap/ic_location2" />
+                        android:tint="?attr/icon_light"
+                        android:src="@mipmap/ic_location_new" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
                         android:fontFamily="@font/arialbd"
+                        android:textColor="?attr/text_light"
                         android:text="Alamat: "
                         android:textSize="20dp" />
                     <TextView
@@ -184,6 +195,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="@font/arial"
+                        android:textColor="?attr/text_light"
                         android:text="Gedung C Jalan Diponegoro 52-60 Salatiga "
                         android:textSize="15dp" />
 
@@ -200,7 +212,8 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5sp"
                         android:layout_marginLeft="10dp"
-                        android:src="@mipmap/ic_phone" />
+                        android:tint="?attr/icon_light"
+                        android:src="@mipmap/ic_phone_new" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -208,6 +221,7 @@
                         android:layout_marginLeft="10dp"
                         android:fontFamily="@font/arialbd"
                         android:text="Telepon: "
+                        android:textColor="?attr/text_light"
                         android:textSize="20dp" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -215,6 +229,7 @@
                         android:layout_gravity="center"
                         android:fontFamily="@font/arial"
                         android:text="0298-311884 "
+                        android:textColor="?attr/text_light"
                         android:textSize="15dp" />
 
                 </LinearLayout>
@@ -231,7 +246,8 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5sp"
                         android:layout_marginLeft="10dp"
-                        android:src="@mipmap/ic_mail" />
+                        android:tint="?attr/icon_light"
+                        android:src="@mipmap/ic_mail_new" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -239,6 +255,7 @@
                         android:layout_marginLeft="10dp"
                         android:fontFamily="@font/arialbd"
                         android:text="Email: "
+                        android:textColor="?attr/text_light"
                         android:textSize="20dp" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -246,6 +263,7 @@
                         android:layout_gravity="center"
                         android:fontFamily="@font/arial"
                         android:text="ftek@adm.uksw.edu"
+                        android:textColor="?attr/text_light"
                         android:textSize="15dp" />
 
                 </LinearLayout>
@@ -261,6 +279,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="@null"
+        android:tint="?attr/icon_light"
         android:src="@drawable/ic_menu_black_24dp" />
 
 

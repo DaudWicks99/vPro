@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ECE3E3"
+    android:background="?attr/background_dark"
     tools:context=".activity_home.VoteActivity">
     <ScrollView
         android:layout_width="match_parent"
@@ -22,7 +22,8 @@
         android:layout_marginTop="15dp"
         android:id="@+id/detailsVoteBack"
         android:elevation="1dp"
-        android:background="@drawable/myrect"
+        android:background="@null"
+        android:tint="?attr/icon_light"
         android:src="@drawable/back"/>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -43,8 +44,9 @@
         android:layout_below="@+id/IvDetailInfo"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20sp"
-        android:layout_marginLeft="-12sp"
+        android:layout_marginLeft="-18sp"
         app:cardCornerRadius="30dp"
+        app:cardBackgroundColor="?attr/background_light"
         android:outlineSpotShadowColor="@color/black">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -61,7 +63,7 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="?attr/text_dark"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="13dp"/>
@@ -75,30 +77,35 @@
             android:id="@+id/rdBtn1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="?attr/text_dark"
             android:text="ketua 1" />
 
         <RadioButton
             android:id="@+id/rdBtn2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="?attr/text_dark"
             android:text="ketua 2" />
 
         <RadioButton
             android:id="@+id/rdBtn3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="?attr/text_dark"
             android:text="ketua 3" />
 
         <RadioButton
             android:id="@+id/rdBtn4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="?attr/text_dark"
             android:text="ketua 4" />
 
         <RadioButton
             android:id="@+id/rdBtn5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="?attr/text_dark"
             android:text="ketua 5" />
     </RadioGroup>
 
@@ -116,13 +123,13 @@
                 android:paddingRight="20dp"
                 android:paddingBottom="10dp"
                 android:layout_gravity="center"
-                app:fb_borderColor="#FFFFFF"
+                app:fb_borderColor="?attr/line_light"
                 app:fb_borderWidth="1dp"
-                app:fb_defaultColor="@color/orange"
-                app:fb_focusColor="@color/orange"
+                app:fb_defaultColor="?attr/button_dark"
+                app:fb_focusColor="?attr/button_dark"
                 app:fb_radius="30dp"
                 app:fb_text="SUBMIT"
-                app:fb_textColor="#FFFFFF" />
+                app:fb_textColor="?attr/text_light" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
     </LinearLayout>

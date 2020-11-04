@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?attr/background_dark"
     tools:context=".SignupActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/orange"
         >
 
         <ImageButton
@@ -20,6 +20,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:background="@null"
+            android:tint="?attr/icon_light"
             android:src="@drawable/back" />
         <TextView
             android:id="@+id/textView5"
@@ -30,7 +31,7 @@
             android:layout_marginTop="10dp"
             android:text="SignUp"
             android:textAlignment="center"
-            android:textColor="#fff"
+            android:textColor="?attr/text_light"
             android:textSize="24dp"
             android:textStyle="bold" />
 
@@ -53,7 +54,8 @@
             android:ems="10"
             android:hint="Username"
             android:inputType="textPersonName"
-            android:textColor="#707070" />
+            android:textColorHint="?attr/text_light"
+            android:textColor="?attr/text_light" />
 
         <EditText
             android:id="@+id/fullname"
@@ -65,13 +67,17 @@
             android:ems="10"
             android:hint="Full Name"
             android:inputType="textPersonName"
-            android:textColor="#707070" />
+            android:textColorHint="?attr/text_light"
+            android:textColor="?attr/text_light" />
         <com.jaredrummler.materialspinner.MaterialSpinner
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
+            app:ms_text_color="?attr/text_light"
+            app:ms_hint_color="?attr/text_light"
+            app:ms_background_color="?attr/background_dark"
             android:id="@+id/kategoriSignUp"/>
 
         <EditText
@@ -84,7 +90,8 @@
             android:ems="10"
             android:hint="Email "
             android:inputType="textPersonName"
-            android:textColor="#707070" />
+            android:textColorHint="?attr/text_light"
+            android:textColor="?attr/text_light"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,7 +106,9 @@
             android:layout_marginRight="40dp"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColorHint="?attr/text_light"
+            android:textColor="?attr/text_light" />
             <ImageButton
                 android:id="@+id/visibilitySignup"
                 android:layout_width="wrap_content"
@@ -107,7 +116,8 @@
                 android:layout_marginRight="45dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="30dp"
-                android:background="#FFF"
+                android:background="@null"
+                android:tint="?attr/icon_light"
                 android:src="@drawable/ic_visibility_black_24dp" />
 
             <ImageButton
@@ -117,7 +127,8 @@
                 android:layout_marginRight="45dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="30dp"
-                android:background="#FFF"
+                android:background="@null"
+                android:tint="?attr/icon_light"
                 android:src="@drawable/ic_visibility_off_black_24dp"
                 android:visibility="gone" />
         </RelativeLayout>
@@ -135,7 +146,9 @@
             android:layout_marginRight="40dp"
             android:ems="10"
             android:hint="Confrim Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColorHint="?attr/text_light"
+            android:textColor="?attr/text_light"/>
             <ImageButton
                 android:id="@+id/visibilitySignup2"
                 android:layout_width="wrap_content"
@@ -143,7 +156,8 @@
                 android:layout_marginRight="45dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="30dp"
-                android:background="#FFF"
+                android:background="@null"
+                android:tint="?attr/icon_light"
                 android:src="@drawable/ic_visibility_black_24dp" />
 
             <ImageButton
@@ -153,7 +167,8 @@
                 android:layout_marginRight="45dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="30dp"
-                android:background="#FFF"
+                android:background="@null"
+                android:tint="?attr/icon_light"
                 android:src="@drawable/ic_visibility_off_black_24dp"
                 android:visibility="gone" />
         </RelativeLayout>
@@ -168,13 +183,13 @@
             android:paddingTop="10dp"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            app:fb_borderColor="#FFFFFF"
+            app:fb_borderColor="?attr/line_light"
             app:fb_borderWidth="1dp"
-            app:fb_defaultColor="@color/orange"
-            app:fb_focusColor="@color/orange"
+            app:fb_defaultColor="?attr/button_dark"
+            app:fb_focusColor="?attr/button_dark"
             app:fb_radius="30dp"
             app:fb_text="SIGN UP"
-            app:fb_textColor="#FFFFFF" />
+            app:fb_textColor="?attr/text_light" />
     </LinearLayout>
 </RelativeLayout>
 

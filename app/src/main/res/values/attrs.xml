@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="line_dark" format="reference"/>
+    <attr name="line_light" format="reference"/>
+    <attr name="background_dark" format="reference"/>
+    <attr name="background_light" format="reference"/>
+    <attr name="text_dark" format="reference"/>
+    <attr name="text_light" format="reference"/>
+    <attr name="button_light" format="reference"/>
+    <attr name="button_dark" format="reference"/>
+    <attr name="dark" format="reference"/>
+    <attr name="light" format="reference"/>
+    <attr name="icon_light" format="reference"/>
+    <attr name="icon_dark" format="reference"/>
+    <attr name="nav_bar" format="reference"/>
+</resources>

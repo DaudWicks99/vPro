@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/background_dark"
     tools:context="com.example.coba.activity_home.ShowAllActivity">
     <RelativeLayout
         android:id="@+id/rlShowAll"
@@ -20,14 +21,14 @@
             android:layout_marginTop="15dp"
             android:background="@null"
             android:src="@mipmap/ic_launcher_back"
-            android:tint="@color/black"/>
+            android:tint="?attr/icon_light"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="10dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/orange"/>
+            android:background="?attr/line_dark"/>
     </RelativeLayout>
     <com.facebook.shimmer.ShimmerFrameLayout
         android:layout_width="wrap_content"

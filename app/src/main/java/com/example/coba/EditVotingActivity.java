@@ -37,6 +37,8 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
+import mehdi.sakout.fancybuttons.FancyButton;
+
 import static android.view.View.GONE;
 public class EditVotingActivity extends AppCompatActivity {
     final int TAKE_PICTURE = 1;
@@ -56,7 +58,7 @@ public class EditVotingActivity extends AppCompatActivity {
     ImageButton deletePlus4;
     ImageButton deletePlus5;
     ImageView imgEditKosongVoting;
-    Button buttonEditVoting;
+    FancyButton buttonEditVoting;
     EditText judulEditVoting;
     ImageView EditVoteBack;
     MaterialSpinner kategoriEdit;
@@ -82,7 +84,7 @@ public class EditVotingActivity extends AppCompatActivity {
         id=intent.getStringExtra("id");
         EditItem(id);
         imgEditKosongVoting=(ImageView)findViewById(R.id.imgEditKosongVoting);
-        buttonEditVoting=(Button)findViewById(R.id.buttonEditVoting);
+        buttonEditVoting=(FancyButton) findViewById(R.id.buttonEditVoting);
         judulEditVoting=(EditText)findViewById(R.id.judulEditVoting);
         kategoriEdit=(MaterialSpinner) findViewById(R.id.kategoriEdit);
         EdtPlus1=(ImageButton)findViewById(R.id.EdtPlus1);

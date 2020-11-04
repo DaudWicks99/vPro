@@ -17,6 +17,7 @@
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="8dp"
+        android:tint="?attr/icon_light"
         android:layout_marginStart="8dp"/>
 
     <TextView
@@ -29,7 +30,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
-        android:textColor="#000"
+        android:textColor="?attr/text_light"
          />
 
     <ImageView
@@ -37,6 +38,7 @@
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:visibility="gone"
+        android:tint="?attr/icon_light"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true" />

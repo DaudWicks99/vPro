@@ -11,7 +11,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        app:cardBackgroundColor="@color/orange"
+        app:cardBackgroundColor="?attr/background_dark"
         app:cardCornerRadius="30dp"
         >
         <androidx.cardview.widget.CardView
@@ -20,6 +20,7 @@
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
             android:layout_marginTop="1dp"
+            app:cardBackgroundColor="?attr/background_light"
             app:cardCornerRadius="30dp"
             >
             <LinearLayout
@@ -36,7 +37,7 @@
                     android:text="PEMILIHAN KETUA SMF"
                     android:layout_marginLeft="15dp"
                     android:textSize="20dp"
-                    android:textColor="#000"
+                    android:textColor="?attr/text_dark"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:singleLine="true"
                     android:ellipsize="marquee"
@@ -67,18 +68,21 @@
                         android:id="@+id/shareShowAll"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:tint="?attr/icon_dark"
                         android:src="@mipmap/ic_share"/>
                     <ImageView
                         android:id="@+id/editShowAll"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="gone"
+                        android:tint="?attr/icon_dark"
                         android:src="@mipmap/ic_editv2"/>
                     <ImageView
                         android:id="@+id/hapusShowAll"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="gone"
+                        android:tint="?attr/icon_dark"
                         android:src="@mipmap/ic_deletev2"/>
                 </LinearLayout>
             </LinearLayout>

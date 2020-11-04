@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.SBbluegreem" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/castletonGreen</item>
+        <item name="colorAccent">@color/castletonGreen</item>
+        <item name="line_dark" >@color/brancosnavy</item>
+        <item name="line_light" >@color/cyan</item>
+        <item name="background_dark" >@color/castletonGreen</item>
+        <item name="background_light" >@color/cyan</item>
+        <item name="text_dark" >@color/brancosnavy</item>
+        <item name="text_light" >@color/cyan</item>
+        <item name="button_light" >@color/cyan</item>
+        <item name="button_dark" >@color/brancosnavy</item>
+        <item name="dark" >@color/brancosnavy</item>
+        <item name="light" >@color/cyan</item>
+        <item name="icon_light" >@color/cyan</item>
+        <item name="icon_dark" >@color/brancosnavy</item>
+        <item name="nav_bar" >@color/castletonGreen</item>
+    </style>
+
+    <style name="AppTheme.bamboo96" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/orangeBambo86</item>
+        <item name="colorAccent">@color/orangeBambo86</item>
+        <item name="line_dark" >@color/orangered</item>
+        <item name="line_light" >@color/white</item>
+        <item name="background_dark" >@color/grayBambo96</item>
+        <item name="background_light" >@color/white</item>
+        <item name="text_dark" >@color/grayBambo96</item>
+        <item name="text_light" >@color/white</item>
+        <item name="button_light" >@color/white</item>
+        <item name="button_dark" >@color/orangered</item>
+        <item name="dark" >@color/orangered</item>
+        <item name="light" >@color/white</item>
+        <item name="icon_light" >@color/white</item>
+        <item name="icon_dark" >@color/orangered</item>
+        <item name="nav_bar" >@color/orangeBambo86</item>
+    </style>
+</resources>

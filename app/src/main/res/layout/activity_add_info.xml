@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/background_dark"
     tools:context=".AddInfoActivity">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/orange"
         >
 
         <ImageButton
@@ -23,13 +23,14 @@
             android:layout_marginBottom="5dp"
             android:layout_centerVertical="true"
             android:background="@null"
+            android:tint="?attr/button_light"
             android:src="@drawable/back" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="20dp"
-            android:textColor="#fff"
+            android:textColor="?attr/text_light"
             android:text="Add Info"/>
     </RelativeLayout>
 
@@ -50,6 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Judul"
+            android:textColor="?attr/text_light"
             android:id="@+id/judulUploadInfo"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"/>
@@ -61,6 +63,7 @@
             android:hint="Description"
             android:lines="5"
             android:gravity="top|left"
+            android:textColor="?attr/text_light"
             android:inputType="textMultiLine"
             android:id="@+id/descInfoUpload"
             android:scrollHorizontally="false"/>
@@ -74,13 +77,13 @@
             android:paddingRight="20dp"
             android:paddingBottom="10dp"
             android:layout_gravity="center"
-            app:fb_borderColor="#FFFFFF"
+            app:fb_borderColor="?attr/line_light"
             app:fb_borderWidth="1dp"
-            app:fb_defaultColor="@color/orange"
-            app:fb_focusColor="@color/orange"
+            app:fb_defaultColor="?attr/button_dark"
+            app:fb_focusColor="?attr/button_light"
             app:fb_radius="30dp"
             app:fb_text="SUBMIT"
-            app:fb_textColor="#FFFFFF" />
+            app:fb_textColor="?attr/text_light" />
 
     </LinearLayout>
 

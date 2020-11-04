@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#F98637</color>
-    <color name="colorAccent">#F98637</color>
+
     <color name="colorHolder">#F98637</color>
     <color name="orange">#F98637</color>
-    <color name="colorButton">#F98637</color>
     <color name="colorDrawer">#707070</color>
     <color name="colorBackground">#FFF</color>
     <color name="black">#000</color>
@@ -14,6 +11,57 @@
     <color name="color_yellow">#FFA611</color>
     <color name="grey">#ff8b8b8b</color>
     <color name="dark_grey">#ff717171</color>
-
+    //ColorIF
+    <color name="colorButtonIF">#F98637</color>
+    <color name="garisIF">#F98637</color>
+    <color name="BackgroundChardViewIF">#F98637</color>
+    <color name="BackgroundChardViewWhiteIF">#fff</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#F98637</color>
+    <color name="colorAccent">#F98637</color>
+    <color name="TextBlack">#000</color>
+    <color name="TextGrey">#666666</color>
+    <color name="TextButtonWhite">#fff</color>
+    <color name="background">#ECE3E3</color>
+    //apps_SBbluegreen
+    <color name="line_dark">#002134</color>
+    <color name="line_light">#b4fbf8</color>
+    <color name="background_dark">#006076</color>
+    <color name="background_light">#b4fbf8</color>
+    <color name="text_dark">#002134</color>
+    <color name="text_light">#b4fbf8</color>
+    <color name="button_light">#b4fbf8</color>
+    <color name="button_dark">#002134</color>
+    <color name="dark">#002134</color>
+    <color name="light">#b4fbf8</color>
+    <color name="icon_light">#b4fbf8</color>
+    <color name="icon_dark">#002134</color>
+    <color name="nav_bar">#006076</color>
+    //apps_Bamboo96
+<!--    <color name="line_dark">#ff6700</color>-->
+<!--    <color name="line_light">#ffffff</color>-->
+<!--    <color name="background_dark">#aaaaaa</color>-->
+<!--    <color name="background_light">#ffffff</color>-->
+<!--    <color name="text_dark">#aaaaaa</color>-->
+<!--    <color name="text_light">#ffffff</color>-->
+<!--    <color name="button_light">#ffffff</color>-->
+<!--    <color name="button_dark">#ff6700</color>-->
+<!--    <color name="dark">#ff6700</color>-->
+<!--    <color name="light">#ffffff</color>-->
+<!--    <color name="icon_light">#ffffff</color>-->
+<!--    <color name="icon_dark">#ff6700</color>-->
+<!--    <color name="nav_bar">#ff8d00</color>-->
+    //SBbluegreen
+    <color name="navy">#003f63</color>
+    <color name="seaGreen">#02908b</color>
+    <color name="castletonGreen">#006076</color>
+    <color name="cyan">#b4fbf8</color>
+    <color name="brancosnavy">#002134</color>
+    //Bamboo96
+    <color name="orangered">#ff6700</color>
+    <color name="orangeBambo86">#ff8d00</color>
+    <color name="lightGray">#cccccc</color>
+    <color name="white">#ffffff</color>
+    <color name="grayBambo96">#aaaaaa</color>
 </resources>
 

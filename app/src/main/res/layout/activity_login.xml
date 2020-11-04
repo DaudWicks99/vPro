@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/rlRoot"
+    android:background="?attr/background_dark"
     tools:context=".LoginActivity">
 
 
@@ -17,7 +18,7 @@
         android:layout_below="@id/imageView"
         android:fontFamily="@font/caesar_dressing"
         android:text="LOGIN"
-        android:textColor="#000"
+        android:textColor="?attr/text_light"
         android:textSize="24dp"
         android:textStyle="bold" />
 
@@ -28,6 +29,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:tint="?attr/icon_light"
         app:srcCompat="@drawable/elektro" />
 
     <LinearLayout
@@ -45,14 +47,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
-            app:boxStrokeColor="@color/color_yellow"
+            app:boxStrokeColor="?attr/line_light"
             app:errorEnabled="true"
+            android:textColorHint="?attr/text_light"
+            app:counterTextColor="?attr/text_light"
             app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/usnme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="?attr/text_light"
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -61,7 +66,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="password"
-            app:boxStrokeColor="@color/color_yellow"
+            app:boxStrokeColor="?attr/line_light"
+            app:counterTextColor="?attr/text_light"
+            android:textColorHint="?attr/text_light"
             app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
             app:passwordToggleEnabled="true">
 
@@ -69,6 +76,7 @@
                 android:id="@+id/uspass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="?attr/text_light"
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -80,7 +88,7 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:text="Forgot Password ?"
-            android:textColor="#707070" />
+            android:textColor="?attr/text_light" />
 
         <mehdi.sakout.fancybuttons.FancyButton
             android:id="@+id/btnLogin"
@@ -91,13 +99,13 @@
             android:paddingRight="20dp"
             android:paddingTop="10dp"
             android:layout_marginTop="15dp"
-            app:fb_borderColor="#FFFFFF"
+            app:fb_borderColor="?attr/line_light"
             app:fb_borderWidth="1dp"
-            app:fb_defaultColor="@color/orange"
-            app:fb_focusColor="@color/orange"
+            app:fb_defaultColor="?attr/button_dark"
+            app:fb_focusColor="?attr/button_dark"
             app:fb_radius="30dp"
             app:fb_text="LOG IN"
-            app:fb_textColor="#FFFFFF" />
+            app:fb_textColor="?attr/text_light" />
 
 
 
@@ -113,6 +121,7 @@
             android:id="@+id/txtSign"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="?attr/text_light"
             android:text="New User? SIGN UP" />
     </LinearLayout>
 </RelativeLayout>

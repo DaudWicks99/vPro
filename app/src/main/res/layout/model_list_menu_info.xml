@@ -11,7 +11,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        app:cardBackgroundColor="@color/orange"
+        app:cardBackgroundColor="?attr/line_dark"
         app:cardCornerRadius="30dp"
         >
         <androidx.cardview.widget.CardView
@@ -21,6 +21,7 @@
             android:layout_marginRight="1dp"
             android:layout_marginTop="1dp"
             app:cardCornerRadius="30dp"
+            app:cardBackgroundColor="?attr/background_light"
             >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -37,7 +38,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:textSize="20dp"
-                    android:textColor="#000"
+                    android:textColor="?attr/text_dark"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:singleLine="true"
                     android:ellipsize="marquee"
@@ -53,7 +54,7 @@
                     android:layout_height="160dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/basket"/>
+                    android:src="@drawable/placeholder"/>
                     <mehdi.sakout.fancybuttons.FancyButton
                         android:id="@+id/btnShowInfo"
                         android:layout_width="150dp"
@@ -65,13 +66,13 @@
                         android:layout_marginBottom="20dp"
                         android:layout_marginLeft="10dp"
                         android:layout_alignParentBottom="true"
-                        app:fb_borderColor="@color/black"
+                        app:fb_borderColor="?attr/line_light"
                         app:fb_borderWidth="1dp"
-                        app:fb_defaultColor="@color/orange"
-                        app:fb_focusColor="@color/orange"
+                        app:fb_defaultColor="?attr/button_dark"
+                        app:fb_focusColor="?attr/button_light"
                         app:fb_radius="30dp"
                         app:fb_text="Show More"
-                        app:fb_textColor="#FFFFFF" />
+                        app:fb_textColor="?attr/text_light" />
                 </RelativeLayout>
 
                 <LinearLayout
@@ -85,17 +86,20 @@
                         android:id="@+id/shareInfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_share"/>
+                        android:src="@mipmap/ic_share"
+                        android:tint="?attr/icon_dark"/>
                     <ImageView
                         android:id="@+id/editInfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_editv2"/>
+                        android:src="@mipmap/ic_editv2"
+                        android:tint="?attr/icon_dark"/>
                     <ImageView
                         android:id="@+id/hapusInfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_deletev2"/>
+                        android:src="@mipmap/ic_deletev2"
+                        android:tint="?attr/icon_dark"/>
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>

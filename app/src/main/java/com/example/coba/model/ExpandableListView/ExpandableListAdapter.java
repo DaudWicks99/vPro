@@ -109,14 +109,14 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         ImageView ivGroupIndicator = convertView.findViewById(R.id.ivGroupIndicator);
         ImageView iconMenu = convertView.findViewById(R.id.icon_menu);
         TextView isNew = convertView.findViewById(R.id.is_new);
-        String color3 = "#" + Integer.toHexString(ContextCompat.getColor(context, header.getColor()) & 0x00ffffff);
+        //String color3 = "#" + Integer.toHexString(ContextCompat.getColor(context, header.getColor()) & 0x00ffffff);
         lblListHeader.setText(header.getTitle());
-        lblListHeader.setTextColor(Color.parseColor(color3));
+        //lblListHeader.setTextColor(Color.parseColor(color3));
 
 
         if (header.getIcon() != -1)
             iconMenu.setImageResource(header.getIcon());
-        iconMenu.setColorFilter(Color.parseColor(color3));
+        //iconMenu.setColorFilter(Color.parseColor(color3));
         iconMenu.setVisibility(View.VISIBLE);
 
         if (header.isHasChild()) {
@@ -140,10 +140,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         if (isExpanded) {
             ivGroupIndicator.setImageResource(R.drawable.nav_min);
-            ivGroupIndicator.setColorFilter(Color.parseColor(color3));
+            //ivGroupIndicator.setColorFilter(Color.parseColor(color3));
         } else {
             ivGroupIndicator.setImageResource(R.drawable.add);
-            ivGroupIndicator.setColorFilter(Color.parseColor(color3));
+            //ivGroupIndicator.setColorFilter(Color.parseColor(color3));
         }
 
         return convertView;

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/background_dark"
     tools:context=".activity_home.VoteActivity">
     <ImageView
         android:layout_width="wrap_content"
@@ -14,7 +15,8 @@
         android:layout_marginTop="15dp"
         android:id="@+id/detailsVoteBack"
         android:elevation="1dp"
-        android:background="@drawable/myrect"
+        android:background="@null"
+        android:tint="?attr/icon_light"
         android:src="@drawable/back"/>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,7 +28,7 @@
             android:id="@+id/imgHasilVt"
             android:layout_height="300dp"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/basket"
+            android:src="@drawable/placeholder"
             app:siShape="@drawable/shape_raunded_rectangle"/>
     </RelativeLayout>
     <androidx.cardview.widget.CardView
@@ -37,6 +39,7 @@
         android:layout_marginRight="20sp"
         android:layout_marginLeft="-12sp"
         app:cardCornerRadius="30dp"
+        app:cardBackgroundColor="?attr/background_light"
         android:outlineSpotShadowColor="@color/black">
     <LinearLayout
         android:id="@+id/AlreadyVote"
@@ -51,7 +54,7 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="?attr/text_dark"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="13dp"/>
@@ -60,7 +63,7 @@
             android:id="@+id/txtJdlHasil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="?attr/text_dark"
             android:layout_marginLeft="25dp"
             android:textSize="20dp"
             android:text="HASIL VOTE : "/>
@@ -71,7 +74,7 @@
             android:layout_marginLeft="25dp"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="?attr/text_dark"
             android:text=" "/>
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/pieChartHasilVote"
@@ -90,7 +93,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="?attr/text_dark"
             android:textStyle="bold"
             android:layout_marginTop="50dp"
             android:textSize="25dp"

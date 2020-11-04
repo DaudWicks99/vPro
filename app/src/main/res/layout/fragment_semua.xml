@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/background_dark"
     >
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -17,6 +18,7 @@
             android:layout_marginLeft="6dp"
             android:layout_marginTop="15dp"
             android:background="@null"
+            android:tint="?attr/icon_light"
             android:src="@drawable/ic_menu_black_24dp" />
         <TextView
             android:id="@+id/txtVw2"
@@ -26,13 +28,14 @@
             android:gravity="center"
             android:text="HASIL VOTING"
             android:textSize="15sp"
+            android:textColor="?attr/text_light"
             android:textStyle="bold" />
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="10dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/orange"/>
+            android:background="?attr/line_dark"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/RlSemuaAll"
@@ -44,7 +47,7 @@
             android:layout_height="72dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="30dp"
             >
         <androidx.cardview.widget.CardView
@@ -53,6 +56,7 @@
             android:layout_marginTop="1dp"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
+            app:cardBackgroundColor="?attr/background_light"
             app:cardCornerRadius="30dp"
             >
             <LinearLayout
@@ -68,7 +72,7 @@
                     android:layout_marginRight="50dp"
                     android:textSize="20dp"
                     android:fontFamily="@font/arialbd"
-                    android:textColor="@color/black"/>
+                    android:textColor="?attr/text_dark"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="25dp"
@@ -77,6 +81,7 @@
                     android:text=" "
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
+                    android:textColor="?attr/text_dark"
                     android:fontFamily="@font/arialbd"/>
             </LinearLayout>
 
@@ -87,7 +92,7 @@
             android:layout_height="62dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="50dp"
             >
         <androidx.cardview.widget.CardView
@@ -97,12 +102,14 @@
             android:layout_marginTop="1dp"
             android:layout_marginRight="1dp"
             android:layout_marginLeft="1dp"
+            app:cardBackgroundColor="?attr/background_light"
             app:cardCornerRadius="50dp"
             >
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/all_logo"/>
+                android:tint="?attr/icon_dark"
+                android:src="@drawable/a_icon"/>
         </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>
 
@@ -112,7 +119,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="25dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="50dp">
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
@@ -122,13 +129,15 @@
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
             android:layout_marginTop="1dp"
+            app:cardBackgroundColor="?attr/background_light"
             app:cardCornerRadius="50dp"
             >
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/CiAll"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="#cacaca"
+                android:background="@null"
+                android:tint="?attr/icon_dark"
                 android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
         </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>
@@ -144,7 +153,7 @@
             android:layout_height="72dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="30dp"
             >
             <androidx.cardview.widget.CardView
@@ -153,6 +162,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
+                app:cardBackgroundColor="?attr/background_light"
                 app:cardCornerRadius="30dp"
                 >
                 <LinearLayout
@@ -168,13 +178,14 @@
                         android:layout_marginRight="50dp"
                         android:textSize="20dp"
                         android:fontFamily="@font/arialbd"
-                        android:textColor="@color/black"/>
+                        android:textColor="?attr/text_dark"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="25dp"
                         android:layout_marginTop="5dp"
                         android:id="@+id/itemLkfMenuHasil"
                         android:text=" "
+                        android:textColor="?attr/text_dark"
                         android:layout_marginLeft="50dp"
                         android:layout_marginRight="50dp"
                         android:fontFamily="@font/arialbd"/>
@@ -187,7 +198,7 @@
             android:layout_height="62dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="50dp"
             >
             <androidx.cardview.widget.CardView
@@ -197,12 +208,14 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="1dp"
                 android:layout_marginLeft="1dp"
+                app:cardBackgroundColor="?attr/background_light"
                 app:cardCornerRadius="50dp"
                 >
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/all_logo"/>
+                    android:tint="?attr/icon_dark"
+                    android:src="@drawable/l_icon"/>
             </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>
 
@@ -212,7 +225,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="25dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="50dp">
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -222,13 +235,14 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
                 android:layout_marginTop="1dp"
+                app:cardBackgroundColor="?attr/background_light"
                 app:cardCornerRadius="50dp"
                 >
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/CiLkf"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="#cacaca"
+                    android:tint="?attr/icon_dark"
                     android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
             </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>
@@ -244,7 +258,7 @@
             android:layout_height="72dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="30dp"
             >
             <androidx.cardview.widget.CardView
@@ -253,6 +267,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
+                app:cardBackgroundColor="?attr/background_light"
                 app:cardCornerRadius="30dp"
                 >
                 <LinearLayout
@@ -268,7 +283,7 @@
                         android:layout_marginRight="50dp"
                         android:textSize="20dp"
                         android:fontFamily="@font/arialbd"
-                        android:textColor="@color/black"/>
+                        android:textColor="?attr/text_dark"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="25dp"
@@ -277,6 +292,7 @@
                         android:text=" "
                         android:layout_marginLeft="50dp"
                         android:layout_marginRight="50dp"
+                        android:textColor="?attr/text_dark"
                         android:fontFamily="@font/arialbd"/>
                 </LinearLayout>
 
@@ -287,7 +303,7 @@
             android:layout_height="62dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="50dp"
             >
             <androidx.cardview.widget.CardView
@@ -297,12 +313,14 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="1dp"
                 android:layout_marginLeft="1dp"
+                app:cardBackgroundColor="?attr/background_light"
                 app:cardCornerRadius="50dp"
                 >
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/all_logo"/>
+                    android:tint="?attr/icon_dark"
+                    android:src="@drawable/k_icon"/>
             </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>
 
@@ -312,7 +330,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="25dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="50dp">
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -322,13 +340,14 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
                 android:layout_marginTop="1dp"
+                app:cardBackgroundColor="?attr/background_light"
                 app:cardCornerRadius="50dp"
                 >
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/CiKuliah"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="#cacaca"
+                    android:tint="?attr/icon_dark"
                     android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
             </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>
@@ -344,7 +363,7 @@
             android:layout_height="72dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="30dp"
             >
             <androidx.cardview.widget.CardView
@@ -353,6 +372,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
+                app:cardBackgroundColor="?attr/background_light"
                 app:cardCornerRadius="30dp"
                 >
                 <LinearLayout
@@ -368,7 +388,7 @@
                         android:layout_marginRight="50dp"
                         android:textSize="20dp"
                         android:fontFamily="@font/arialbd"
-                        android:textColor="@color/black"/>
+                        android:textColor="?attr/text_dark"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="25dp"
@@ -377,6 +397,7 @@
                         android:text=" "
                         android:layout_marginLeft="50dp"
                         android:layout_marginRight="50dp"
+                        android:textColor="?attr/text_dark"
                         android:fontFamily="@font/arialbd"/>
                 </LinearLayout>
 
@@ -387,7 +408,7 @@
             android:layout_height="62dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="50dp"
             >
             <androidx.cardview.widget.CardView
@@ -397,12 +418,14 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="1dp"
                 android:layout_marginLeft="1dp"
+                app:cardBackgroundColor="?attr/background_light"
                 app:cardCornerRadius="50dp"
                 >
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/all_logo"/>
+                    android:tint="?attr/icon_dark"
+                    android:src="@drawable/k_icon"/>
             </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>
 
@@ -412,7 +435,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="25dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="50dp">
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -422,13 +445,14 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
                 android:layout_marginTop="1dp"
+                app:cardBackgroundColor="?attr/background_light"
                 app:cardCornerRadius="50dp"
                 >
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/CiKbm"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="#cacaca"
+                    android:tint="?attr/icon_dark"
                     android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
             </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>
@@ -444,7 +468,7 @@
             android:layout_height="72dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="30dp"
             >
             <androidx.cardview.widget.CardView
@@ -453,6 +477,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
+                app:cardBackgroundColor="?attr/background_light"
                 app:cardCornerRadius="30dp"
                 >
                 <LinearLayout
@@ -468,7 +493,7 @@
                         android:layout_marginRight="50dp"
                         android:textSize="20dp"
                         android:fontFamily="@font/arialbd"
-                        android:textColor="@color/black"/>
+                        android:textColor="?attr/text_dark"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="25dp"
@@ -477,6 +502,7 @@
                         android:text=" "
                         android:layout_marginLeft="50dp"
                         android:layout_marginRight="50dp"
+                        android:textColor="?attr/text_dark"
                         android:fontFamily="@font/arialbd"/>
                 </LinearLayout>
 
@@ -487,7 +513,7 @@
             android:layout_height="62dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="50dp"
             >
             <androidx.cardview.widget.CardView
@@ -497,12 +523,14 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="1dp"
                 android:layout_marginLeft="1dp"
+                app:cardBackgroundColor="?attr/background_light"
                 app:cardCornerRadius="50dp"
                 >
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/all_logo"/>
+                    android:tint="?attr/icon_dark"
+                    android:src="@drawable/p_icon"/>
             </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>
 
@@ -512,7 +540,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="25dp"
-            app:cardBackgroundColor="@color/orange"
+            app:cardBackgroundColor="?attr/line_dark"
             app:cardCornerRadius="50dp">
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -522,13 +550,14 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
                 android:layout_marginTop="1dp"
+                app:cardBackgroundColor="?attr/background_light"
                 app:cardCornerRadius="50dp"
                 >
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/CiPanitia"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="#cacaca"
+                    android:tint="?attr/icon_dark"
                     android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
             </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>

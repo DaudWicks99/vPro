@@ -63,7 +63,7 @@ String sToken;
     long time;
     String times;
 
-int colorMenu=R.color.colorAccent;
+int colorMenu=R.color.text_light;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
