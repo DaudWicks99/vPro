@@ -5,13 +5,29 @@
     <attr name="line_light" format="reference"/>
     <attr name="background_dark" format="reference"/>
     <attr name="background_light" format="reference"/>
+    <attr name="background_splash" format="reference"/>
+    <attr name="background_info" format="reference"/>
+    <attr name="background_detail_info" format="reference"/>
+    <attr name="background_about" format="reference"/>
+    <attr name="background_vote" format="reference"/>
     <attr name="text_dark" format="reference"/>
     <attr name="text_light" format="reference"/>
+    <attr name="text_profile" format="reference"/>
+    <attr name="text_info" format="reference"/>
+    <attr name="text_vote" format="reference"/>
+    <attr name="text_about" format="reference"/>
     <attr name="button_light" format="reference"/>
     <attr name="button_dark" format="reference"/>
     <attr name="dark" format="reference"/>
     <attr name="light" format="reference"/>
     <attr name="icon_light" format="reference"/>
     <attr name="icon_dark" format="reference"/>
+    <attr name="icon_profile" format="reference"/>
+    <attr name="icon_info" format="reference"/>
+    <attr name="icon_vote" format="reference"/>
+    <attr name="icon_about" format="reference"/>
+    <attr name="icon_splash" format="reference"/>
+    <attr name="icon_detail_info" format="reference"/>
+    <attr name="icon_login" format="reference"/>
     <attr name="nav_bar" format="reference"/>
 </resources>

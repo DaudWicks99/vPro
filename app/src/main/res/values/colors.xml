@@ -63,5 +63,23 @@
     <color name="lightGray">#cccccc</color>
     <color name="white">#ffffff</color>
     <color name="grayBambo96">#aaaaaa</color>
+    //YellowToBlueGray
+    <color name="cream">#eeeac4</color>
+    <color name="silver">#c9c6b3</color>
+    <color name="grayPastel">#90a1a3</color>
+    <color name="stateGray">#556e78</color>
+    <color name="blueGray">#1b4458</color>
+    //PopOfRed
+    <color name="gray_light_pop">#e8e5e5</color>
+    <color name="gray_dark_pop">#c8c8c8</color>
+    <color name="red_pop">#c81717</color>
+    <color name="maron_pop">#9d0b0b</color>
+    <color name="black_pop">#000000</color>
+    //InfoFtek
+    <color name="orange_info">#F98637</color>
+    <color name="white_info">#FFFFFF</color>
+    <color name="gray_dark_info">#90a1a3</color>
+    <color name="gray_light_info">#c8c8c8</color>
+    <color name="black_info">#000000</color>
 </resources>
 

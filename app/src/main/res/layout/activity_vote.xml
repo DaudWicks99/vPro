@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="?attr/background_dark"
+    android:background="?attr/background_vote"
     tools:context=".activity_home.VoteActivity">
     <ScrollView
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
         android:id="@+id/detailsVoteBack"
         android:elevation="1dp"
         android:background="@null"
-        android:tint="?attr/icon_light"
+        android:tint="?attr/icon_vote"
         android:src="@drawable/back"/>
     <RelativeLayout
         android:layout_width="match_parent"

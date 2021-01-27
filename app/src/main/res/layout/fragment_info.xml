@@ -4,11 +4,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/background_dark">
+    android:background="?attr/background_light">
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:background="?attr/background_dark">
 
         <ImageButton
             android:id="@+id/opDrawer"
@@ -17,9 +18,8 @@
             android:layout_marginLeft="6dp"
             android:layout_marginTop="15dp"
             android:background="@null"
-            android:tint="?attr/icon_light"
-            android:src="@drawable/ic_menu_black_24dp" />
-
+            android:src="@drawable/ic_menu_black_24dp"
+            android:tint="?attr/icon_info" />
 
 
         <TextView
@@ -29,10 +29,11 @@
             android:layout_marginTop="15dp"
             android:gravity="center"
             android:text="INFO FTEK"
+            android:textColor="?attr/text_info"
             android:textSize="15sp"
-            android:textColor="?attr/text_light"
             android:textStyle="bold" />
     </RelativeLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

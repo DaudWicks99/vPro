@@ -14,9 +14,13 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_ftek"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.SBbluegreem"
+        android:theme="@style/AppTheme.InfoFtek"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity_hasilv.HasilVotingActivity"></activity>
+        <activity android:name=".SuccessActivity"></activity>
+        <activity android:name=".EnterPasswordActivity" />
+        <activity android:name=".ValidationActivity" />
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".activity_hasilv.HasilVotingActivity" />
         <activity android:name=".activity_hasilv.ShowHasilVotingActivity" />
         <activity android:name=".activity_home.ShowAllActivity" />
         <activity android:name=".EditNimActivity" />

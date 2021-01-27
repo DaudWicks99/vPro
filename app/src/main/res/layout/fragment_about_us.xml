@@ -1,286 +1,301 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:expandableTextView="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="?attr/background_dark"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ScrollView
+    android:layout_height="match_parent"
+    android:background="?attr/background_about"
+    android:orientation="vertical">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
+        android:layout_height="280dp"
+        android:fitsSystemWindows="true"
+        android:background="?attr/background_about">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-        <RelativeLayout
-            android:id="@+id/RlUs"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="?attr/dark">
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/background_about"
+            app:expandedTitleTextAppearance="@style/expandedBarTextStyle"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            app:title="About Us"
+            android:id="@+id/collapsing_toolbar">
+
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="300dp"
-                android:layout_height="150dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:tint="?attr/icon_light"
-                app:srcCompat="@drawable/fteknew" />
-        </RelativeLayout>
-            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <com.ms.square.android.expandabletextview.ExpandableTextView
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/expand_text_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    expandableTextView:maxCollapsedLines="3"
-                    expandableTextView:animDuration="200">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/arialbd"
-                        android:textSize="20dp"
-                        android:paddingTop="10dp"
-                        android:textColor="?attr/text_light"
-                        android:text="VISI : "/>
-                    <TextView
-                        android:id="@id/expandable_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="17dp"
-                        android:layout_marginRight="10dp"
-                        android:textSize="16sp"
-                        android:textColor="?attr/text_light" />
-                    <ImageButton
-                        android:id="@id/expand_collapse"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp"
-                        android:layout_gravity="right|bottom"
-                        android:tint="?attr/icon_light"
-                        android:background="@android:color/transparent"/>
-                </com.ms.square.android.expandabletextview.ExpandableTextView>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="center"
+                android:tint="?attr/icon_about"
+                app:srcCompat="@drawable/fteknew" />
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                >
+                <ImageButton
+                    android:id="@+id/DrawerAboutUs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="?attr/line_dark"/>
-                <com.ms.square.android.expandabletextview.ExpandableTextView
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/expand_text_view2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    expandableTextView:maxCollapsedLines="3"
-                    expandableTextView:animDuration="200">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/arialbd"
-                        android:textSize="20dp"
-                        android:paddingTop="10dp"
-                        android:textColor="?attr/text_light"
-                        android:text="MISI : "/>
-                    <TextView
-                        android:id="@id/expandable_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="17dp"
-                        android:layout_marginRight="10dp"
-                        android:textSize="16sp"
-                        android:textColor="?attr/text_light" />
-                    <ImageButton
-                        android:id="@id/expand_collapse"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp"
-                        android:layout_gravity="right|bottom"
-                        android:tint="?attr/icon_light"
-                        android:background="@android:color/transparent"/>
-                </com.ms.square.android.expandabletextview.ExpandableTextView>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="?attr/line_dark"/>
-                <com.ms.square.android.expandabletextview.ExpandableTextView
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/expand_text_view3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    expandableTextView:maxCollapsedLines="3"
-                    expandableTextView:animDuration="200">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/arialbd"
-                        android:textSize="20dp"
-                        android:paddingTop="10dp"
-                        android:textColor="?attr/text_light"
-                        android:text="TUJUAN : "/>
-                    <TextView
-                        android:id="@id/expandable_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="17dp"
-                        android:layout_marginRight="10dp"
-                        android:textSize="16sp"
-                        android:textColor="?attr/text_light" />
-                    <ImageButton
-                        android:id="@id/expand_collapse"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp"
-                        android:layout_gravity="right|bottom"
-                        android:tint="?attr/icon_light"
-                        android:background="@android:color/transparent"/>
-                </com.ms.square.android.expandabletextview.ExpandableTextView>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="?attr/line_dark"/>
+                    android:background="@null"
+                    android:tint="?attr/icon_about"
+                    android:src="@drawable/ic_menu_black_24dp" />
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/layout_bg"
+        android:padding="20dp"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.ms.square.android.expandabletextview.ExpandableTextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/expand_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                expandableTextView:maxCollapsedLines="3"
+                expandableTextView:animDuration="200">
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:text="Our Office"
-                    android:textSize="25dp"
-                    android:textColor="?attr/text_light"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
                     android:fontFamily="@font/arialbd"
-                    android:layout_marginLeft="10dp"/>
-                <LinearLayout
+                    android:textSize="20dp"
+                    android:paddingTop="10dp"
+                    android:textColor="?attr/text_about"
+                    android:text="VISI : "/>
+                <TextView
+                    android:id="@id/expandable_text"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="41dp"
-                        android:layout_height="41dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="5sp"
-                        android:layout_marginLeft="10dp"
-                        android:tint="?attr/icon_light"
-                        android:src="@mipmap/ic_location_new" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/arialbd"
-                        android:textColor="?attr/text_light"
-                        android:text="Alamat: "
-                        android:textSize="20dp" />
-                    <TextView
-                        android:id="@+id/alamat_about_us"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/arial"
-                        android:textColor="?attr/text_light"
-                        android:text="Gedung C Jalan Diponegoro 52-60 Salatiga "
-                        android:textSize="15dp" />
-
-                </LinearLayout>
-                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="16sp"
+                    android:textColor="?attr/text_about" />
+                <ImageButton
+                    android:id="@id/expand_collapse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:layout_gravity="right|bottom"
+                    android:tint="?attr/icon_about"
+                    android:background="@android:color/transparent"/>
+            </com.ms.square.android.expandabletextview.ExpandableTextView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="?attr/line_dark"/>
+            <com.ms.square.android.expandabletextview.ExpandableTextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/expand_text_view2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                expandableTextView:maxCollapsedLines="3"
+                expandableTextView:animDuration="200">
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="41dp"
-                        android:layout_height="41dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="5sp"
-                        android:layout_marginLeft="10dp"
-                        android:tint="?attr/icon_light"
-                        android:src="@mipmap/ic_phone_new" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/arialbd"
-                        android:text="Telepon: "
-                        android:textColor="?attr/text_light"
-                        android:textSize="20dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/arial"
-                        android:text="0298-311884 "
-                        android:textColor="?attr/text_light"
-                        android:textSize="15dp" />
-
-                </LinearLayout>
-                <LinearLayout
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/arialbd"
+                    android:textSize="20dp"
+                    android:paddingTop="10dp"
+                    android:textColor="?attr/text_about"
+                    android:text="MISI : "/>
+                <TextView
+                    android:id="@id/expandable_text"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="16sp"
+                    android:textColor="?attr/text_about" />
+                <ImageButton
+                    android:id="@id/expand_collapse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:layout_gravity="right|bottom"
+                    android:tint="?attr/icon_about"
+                    android:background="@android:color/transparent"/>
+            </com.ms.square.android.expandabletextview.ExpandableTextView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="?attr/line_dark"/>
+            <com.ms.square.android.expandabletextview.ExpandableTextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/expand_text_view3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                expandableTextView:maxCollapsedLines="3"
+                expandableTextView:animDuration="200">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/arialbd"
+                    android:textSize="20dp"
+                    android:paddingTop="10dp"
+                    android:textColor="?attr/text_about"
+                    android:text="TUJUAN : "/>
+                <TextView
+                    android:id="@id/expandable_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="16sp"
+                    android:textColor="?attr/text_about" />
+                <ImageButton
+                    android:id="@id/expand_collapse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:layout_gravity="right|bottom"
+                    android:tint="?attr/icon_about"
+                    android:background="@android:color/transparent"/>
+            </com.ms.square.android.expandabletextview.ExpandableTextView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="?attr/line_dark"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Our Office"
+                android:textSize="25dp"
+                android:textColor="?attr/text_about"
+                android:fontFamily="@font/arialbd"
+                android:layout_marginLeft="10dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="41dp"
-                        android:layout_height="41dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="5sp"
-                        android:layout_marginLeft="10dp"
-                        android:tint="?attr/icon_light"
-                        android:src="@mipmap/ic_mail_new" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/arialbd"
-                        android:text="Email: "
-                        android:textColor="?attr/text_light"
-                        android:textSize="20dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/arial"
-                        android:text="ftek@adm.uksw.edu"
-                        android:textColor="?attr/text_light"
-                        android:textSize="15dp" />
-
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="41dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5sp"
+                    android:layout_marginLeft="10dp"
+                    android:tint="?attr/icon_about"
+                    android:src="@mipmap/ic_location_new" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/arialbd"
+                    android:textColor="?attr/text_about"
+                    android:text="Alamat: "
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/alamat_about_us"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/arial"
+                    android:textColor="?attr/text_about"
+                    android:text="Gedung C Jalan Diponegoro 52-60 Salatiga "
+                    android:textSize="15dp" />
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="41dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5sp"
+                    android:layout_marginLeft="10dp"
+                    android:tint="?attr/icon_about"
+                    android:src="@mipmap/ic_phone_new" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/arialbd"
+                    android:text="Telepon: "
+                    android:textColor="?attr/text_about"
+                    android:textSize="20dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/arial"
+                    android:text="0298-311884 "
+                    android:textColor="?attr/text_about"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="41dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5sp"
+                    android:layout_marginLeft="10dp"
+                    android:tint="?attr/icon_about"
+                    android:src="@mipmap/ic_mail_new" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/arialbd"
+                    android:text="Email: "
+                    android:textColor="?attr/text_about"
+                    android:textSize="20dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/arial"
+                    android:text="ftek@adm.uksw.edu"
+                    android:textColor="?attr/text_about"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
         </LinearLayout>
-    </ScrollView>
-    <ImageButton
-        android:id="@+id/DrawerAboutUs"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="@null"
-        android:tint="?attr/icon_light"
-        android:src="@drawable/ic_menu_black_24dp" />
+    </androidx.core.widget.NestedScrollView>
 
-
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

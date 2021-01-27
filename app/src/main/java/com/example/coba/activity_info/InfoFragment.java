@@ -99,17 +99,12 @@ public class InfoFragment extends Fragment {
         });
         infSwip=(SwipeRefreshLayout)view.findViewById(R.id.infSwip);
         shimmer=(ShimmerFrameLayout)view.findViewById(R.id.SfInfo);
-
-
-
-
         adapterr=new CustomAdapterListItemInfo(getContext(),transactions,InfoFragment.this);
         getTransactions();
         LsVi.setOnScrollListener(new AbsListView.OnScrollListener() {
             private boolean scrollEnabled;
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
-
             }
 
             @Override

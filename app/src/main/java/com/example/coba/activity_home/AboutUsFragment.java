@@ -51,11 +51,11 @@ public class AboutUsFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_about_us, container, false);
         adapter=new CustomAdapterListKbm(getContext(),transactions, AboutUsFragment.this);
         drawerLayout=(DrawerLayout) getActivity().findViewById(R.id.drawer_layout);
-        // sample code snippet to set the text content on the ExpandableTextView
+//         sample code snippet to set the text content on the ExpandableTextView
         ExpandableTextView expTv1 = (ExpandableTextView) view.findViewById(R.id.expand_text_view);
         ExpandableTextView expTv2 = (ExpandableTextView) view.findViewById(R.id.expand_text_view2);
         ExpandableTextView expTv3 = (ExpandableTextView) view.findViewById(R.id.expand_text_view3);
-        // IMPORTANT - call setText on the ExpandableTextView to set the text content to display
+//         IMPORTANT - call setText on the ExpandableTextView to set the text content to display
         expTv1.setText(getString(R.string.dummy_text1));
         expTv2.setText(getString(R.string.dummy_text2));
         expTv3.setText(getString(R.string.dummy_text3));

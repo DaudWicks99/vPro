@@ -11,7 +11,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        app:cardBackgroundColor="?attr/background_dark"
+        app:cardBackgroundColor="?attr/line_dark"
         app:cardCornerRadius="30dp"
         >
         <androidx.cardview.widget.CardView

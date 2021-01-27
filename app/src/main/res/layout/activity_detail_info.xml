@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="?attr/background_dark"
+    android:background="?attr/background_detail_info"
     tools:context=".DetailInfoActivity">
     <ScrollView
         android:layout_width="match_parent"
@@ -77,6 +77,6 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="@null"
-        android:tint="?attr/icon_light"
+        android:tint="?attr/icon_detail_info"
         android:src="@drawable/back" />
 </RelativeLayout>

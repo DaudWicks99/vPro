@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/background_dark"
+    tools:context=".ForgotPasswordActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="50dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/text_findd"
+            android:text="Validation"
+            android:textColor="?attr/text_light"
+            android:fontFamily="@font/arialbd"
+            android:textSize="30dp"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/text_ett"
+            android:layout_below="@+id/text_findd"
+            android:layout_marginTop="10dp"
+            android:text="Input validation code from email below."
+            android:textColor="?attr/text_light"
+            android:fontFamily="@font/arial"
+            android:textSize="20dp"
+            android:gravity="center"/>
+        <com.chaos.view.PinView
+            android:id="@+id/code_validation"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColor="?attr/text_light"
+            android:layout_below="@+id/text_ett"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            app:itemCount="6"
+            app:itemHeight="48dp"
+            app:itemRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lineColor="?attr/line_light"
+            app:viewType="rectangle" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/code_validation"
+            android:gravity="center_horizontal">
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btn_validation"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:layout_gravity="center"
+            app:fb_borderColor="?attr/line_light"
+            app:fb_borderWidth="1dp"
+            app:fb_defaultColor="?attr/button_dark"
+            app:fb_focusColor="?attr/button_dark"
+            app:fb_radius="30dp"
+            app:fb_text="SUBMIT"
+            app:fb_textColor="?attr/text_light" />
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/btn_resend_forgot"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp"
+                android:layout_gravity="center"
+                app:fb_borderColor="?attr/line_light"
+                app:fb_borderWidth="1dp"
+                app:fb_defaultColor="?attr/button_dark"
+                app:fb_focusColor="?attr/button_dark"
+                app:fb_radius="30dp"
+                app:fb_text="RESEND"
+                app:fb_textColor="?attr/text_light" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

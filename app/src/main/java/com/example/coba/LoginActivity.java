@@ -10,6 +10,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
@@ -36,6 +37,7 @@ import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 
+import com.chaos.view.PinView;
 import com.example.coba.database.Database;
 import com.example.coba.model.Json.JsonHelper;
 import com.example.coba.model.Rest.RestHelper;
@@ -54,9 +56,11 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText usnme,uspass;
     TextInputLayout tl_username, tl_password;
     FancyButton login;
+    TextView forgotPassword;
     ProgressDialog spinner;
     String sToken;
     RelativeLayout rlRoot;
+    int count = 0;
     private String username = "", password = "";
     String restValidasi=RestUrl.getUrl(RestUrl.CHECK_VALIDASI);
     @Override
@@ -70,6 +74,14 @@ public class LoginActivity extends AppCompatActivity {
         spinner.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         tl_username = (TextInputLayout) findViewById(R.id.tl_username);
         tl_password = (TextInputLayout) findViewById(R.id.tl_password);
+        forgotPassword=(TextView)findViewById(R.id.lupaPassword);
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginActivity.this,ForgotPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
         rlRoot.startAnimation(setAnimation(R.anim.bottom_up, (new AccelerateDecelerateInterpolator()), true));
         TextView daftar = (TextView) findViewById(R.id.txtSign);
         daftar.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +128,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(JSONObject response){
                 spinner.dismiss();
                 //Toast.makeText(LoginActivity.this,response.toString(), Toast.LENGTH_LONG).show();
+                Log.e("response", response.toString());
                 if(!RestHelper.validateResponse(response)){
                     Log.w(" ", "Cannot login");
                     try {
@@ -191,13 +204,59 @@ public class LoginActivity extends AppCompatActivity {
         d.setCancelable(false);
         d.requestWindowFeature(Window.FEATURE_NO_TITLE);
         d.setContentView(R.layout.model_check_validasi);
-        final EditText cmt=(EditText) d.findViewById(R.id.editValidasi);
+        final PinView cmt=(PinView) d.findViewById(R.id.editValidasi);
 
         final ImageView cancel=(ImageView) d.findViewById(R.id.cancelEdit);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 d.dismiss();
+            }
+        });
+        final FancyButton resend=(FancyButton) d.findViewById(R.id.btnResendLogin);
+        resend.setEnabled(false);
+        if (count>=2){
+            spam(resend);
+        }else {
+            sendCode(resend);
+        }
+        resend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resend.setEnabled(false);
+                count = count + 1;
+                if (count>=2){
+                    spam(resend);
+                }else {
+                    sendCode(resend);
+                }
+                JSONObject payload= new JSONObject();
+                JsonHelper.put(payload,"token",token);
+                Response.Listener successResp = new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        spinner.dismiss();
+                        JSONObject object=response;
+                        try {
+                            String code=object.getString("code");
+                            if (code.equals("0")){
+
+                            }
+                        }catch (JSONException ex){
+                            ex.printStackTrace();
+                        }
+                    }
+                };
+                Response.ErrorListener errorResp = RestHelper.generalErrorResponse("",spinner);
+                JsonObjectRequest myReq=new JsonObjectRequest(RestUrl.getUrl(RestUrl.REUPLOAD_VALIDASI_CODE),payload,successResp,errorResp);
+                myReq.setRetryPolicy(new DefaultRetryPolicy(
+                        10000,
+                        0,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+                ));
+                spinner.setMessage("Upload....");
+                spinner.show();
+                AppController.getRest().addToReqq(myReq,"");
             }
         });
         FancyButton submit=(FancyButton) d.findViewById(R.id.btnEnterValidasi);
@@ -250,6 +309,34 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         d.show();
+    }
+    public void sendCode(final FancyButton button){
+        new CountDownTimer(10000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                button.setText("RESEND: " + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                button.setEnabled(true);
+                button.setText("RESEND");
+            }
+        }.start();
+    }
+    public void spam(final FancyButton button){
+        new CountDownTimer(1800000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                button.setText("please wait for 30 minute" );
+            }
+
+            public void onFinish() {
+                count = 0;
+                button.setEnabled(true);
+                button.setText("RESEND");
+            }
+        }.start();
+
     }
     private TextWatcher textWatcherListener(final View view, final String errorMessage) {
         return new TextWatcher() {

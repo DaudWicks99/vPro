@@ -4,12 +4,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/background_dark"
+    android:background="?attr/background_light"
     >
     <RelativeLayout
         android:id="@+id/rlHome"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:background="?attr/background_vote"
         >
 
         <ImageButton
@@ -19,7 +20,7 @@
             android:layout_marginLeft="6dp"
             android:layout_marginTop="15dp"
             android:background="@null"
-            android:tint="?attr/icon_light"
+            android:tint="?attr/icon_vote"
             android:src="@drawable/ic_menu_black_24dp" />
         <TextView
             android:id="@+id/textView2"
@@ -28,7 +29,7 @@
             android:layout_marginTop="15dp"
             android:gravity="center"
             android:text="VOTING"
-            android:textColor="?attr/text_light"
+            android:textColor="?attr/text_vote"
             android:fontFamily="@font/arialbd"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -452,20 +453,22 @@
     </LinearLayout>
     </ScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/plus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:src="@mipmap/ic_launcher_plus"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="15dp"
             android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
             android:backgroundTint="?attr/dark"
-            android:tint="?attr/icon_light"
-            android:id="@+id/plus"/>
+            android:src="@mipmap/ic_launcher_plus"
+            android:tint="?attr/icon_vote"
+            android:visibility="gone" />
     </RelativeLayout>
 </RelativeLayout>

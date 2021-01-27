@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="AppTheme.SBbluegreem" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/brancosnavy</item>
+        <item name="colorControlActivated">@color/cyan</item>
+        <item name="colorControlHighlight">@color/cyan</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorPrimaryDark">@color/castletonGreen</item>
@@ -11,16 +14,27 @@
         <item name="background_light" >@color/cyan</item>
         <item name="text_dark" >@color/brancosnavy</item>
         <item name="text_light" >@color/cyan</item>
+        <item name="text_profile" >@color/gray_light_pop</item>
+        <item name="text_info" >@color/gray_light_pop</item>
+        <item name="text_vote" >@color/gray_light_pop</item>
+        <item name="text_about" >@color/black_pop</item>
         <item name="button_light" >@color/cyan</item>
         <item name="button_dark" >@color/brancosnavy</item>
         <item name="dark" >@color/brancosnavy</item>
         <item name="light" >@color/cyan</item>
         <item name="icon_light" >@color/cyan</item>
         <item name="icon_dark" >@color/brancosnavy</item>
+        <item name="icon_profile" >@color/gray_light_pop</item>
+        <item name="icon_info" >@color/gray_light_pop</item>
+        <item name="icon_vote" >@color/gray_light_pop</item>
+        <item name="icon_about" >@color/black_pop</item>
         <item name="nav_bar" >@color/castletonGreen</item>
     </style>
 
     <style name="AppTheme.bamboo96" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/brancosnavy</item>
+        <item name="colorControlActivated">@color/cyan</item>
+        <item name="colorControlHighlight">@color/cyan</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorPrimaryDark">@color/orangeBambo86</item>
@@ -38,5 +52,103 @@
         <item name="icon_light" >@color/white</item>
         <item name="icon_dark" >@color/orangered</item>
         <item name="nav_bar" >@color/orangeBambo86</item>
+    </style>
+
+    <style name="AppTheme.YellowToBlueGray" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/blueGray</item>
+        <item name="colorControlActivated">@color/cream</item>
+        <item name="colorControlHighlight">@color/cream</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/grayPastel</item>
+        <item name="colorAccent">@color/grayPastel</item>
+        <item name="line_dark" >@color/blueGray</item>
+        <item name="line_light" >@color/cream</item>
+        <item name="background_dark" >@color/grayPastel</item>
+        <item name="background_light" >@color/silver</item>
+        <item name="text_dark" >@color/blueGray</item>
+        <item name="text_light" >@color/cream</item>
+        <item name="text_profile" >@color/gray_light_pop</item>
+        <item name="text_info" >@color/gray_light_pop</item>
+        <item name="text_vote" >@color/gray_light_pop</item>
+        <item name="text_about" >@color/black_pop</item>
+        <item name="button_light" >@color/cream</item>
+        <item name="button_dark" >@color/blueGray</item>
+        <item name="dark" >@color/blueGray</item>
+        <item name="light" >@color/cream</item>
+        <item name="icon_light" >@color/cream</item>
+        <item name="icon_dark" >@color/blueGray</item>
+        <item name="icon_profile" >@color/gray_light_pop</item>
+        <item name="icon_info" >@color/gray_light_pop</item>
+        <item name="icon_vote" >@color/gray_light_pop</item>
+        <item name="icon_about" >@color/black_pop</item>
+    </style>
+
+    <style name="AppTheme.PopOfRed" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/maron_pop</item>
+        <item name="colorControlActivated">@color/gray_light_pop</item>
+        <item name="colorControlHighlight">@color/gray_light_pop</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/red_pop</item>
+        <item name="colorAccent">@color/red_pop</item>
+        <item name="line_dark" >@color/maron_pop</item>
+        <item name="line_light" >@color/gray_dark_pop</item>
+        <item name="background_dark" >@color/red_pop</item>
+        <item name="background_light" >@color/gray_light_pop</item>
+        <item name="text_dark" >@color/black_pop</item>
+        <item name="text_light" >@color/gray_light_pop</item>
+        <item name="text_profile" >@color/gray_light_pop</item>
+        <item name="text_info" >@color/gray_light_pop</item>
+        <item name="text_vote" >@color/gray_light_pop</item>
+        <item name="text_about" >@color/black_pop</item>
+        <item name="button_light" >@color/gray_light_pop</item>
+        <item name="button_dark" >@color/maron_pop</item>
+        <item name="dark" >@color/maron_pop</item>
+        <item name="light" >@color/red_pop</item>
+        <item name="icon_light" >@color/gray_light_pop</item>
+        <item name="icon_dark" >@color/maron_pop</item>
+        <item name="icon_profile" >@color/gray_light_pop</item>
+        <item name="icon_info" >@color/gray_light_pop</item>
+        <item name="icon_vote" >@color/gray_light_pop</item>
+        <item name="icon_about" >@color/black_pop</item>
+    </style>
+
+    <style name="AppTheme.InfoFtek" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/maron_pop</item>
+        <item name="colorControlActivated">@color/orange_info</item>
+        <item name="colorControlHighlight">@color/gray_light_pop</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/orange_info</item>
+        <item name="colorAccent">@color/orange_info</item>
+        <item name="line_dark" >@color/orange_info</item>
+        <item name="line_light" >@color/white_info</item>
+        <item name="background_dark" >@color/orange_info</item>
+        <item name="background_light" >@color/white_info</item>
+        <item name="background_splash" >@color/orange_info</item>
+        <item name="background_info" >@color/orange_info</item>
+        <item name="background_detail_info" >@color/orange_info</item>
+        <item name="background_about" >@color/orange_info</item>
+        <item name="background_vote" >@color/orange_info</item>
+        <item name="text_dark" >@color/black_info</item>
+        <item name="text_light" >@color/black_info</item>
+        <item name="text_profile" >@color/white_info</item>
+        <item name="text_info" >@color/black_info</item>
+        <item name="text_vote" >@color/black_info</item>
+        <item name="text_about" >@color/black_info</item>
+        <item name="button_light" >@color/orange_info</item>
+        <item name="button_dark" >@color/orange_info</item>
+        <item name="dark" >@color/orange_info</item>
+        <item name="light" >@color/white_info</item>
+        <item name="icon_light" >@color/black_info</item>
+        <item name="icon_dark" >@color/black_info</item>
+        <item name="icon_profile" >@color/black_info</item>
+        <item name="icon_info" >@color/black_info</item>
+        <item name="icon_vote" >@color/black_info</item>
+        <item name="icon_about" >@color/black_info</item>
+        <item name="icon_splash" >@color/white_info</item>
+        <item name="icon_detail_info" >@color/white_info</item>
+        <item name="icon_login" >@color/white_info</item>
     </style>
 </resources>

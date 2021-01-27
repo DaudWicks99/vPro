@@ -21,7 +21,7 @@
         android:id="@+id/nav_view"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        android:background="?attr/background_dark" >
+        android:background="?attr/background_light" >
 
         <RelativeLayout
             android:layout_width="match_parent"

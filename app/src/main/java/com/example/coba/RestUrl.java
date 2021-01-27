@@ -43,6 +43,9 @@ public class RestUrl {
     public static final String ADD_NAMA ="/v-project/add-nama";
     public static final String CHANGE_PASSWORD ="/v-project/change-password";
     public static final String CHECK_VALIDASI ="/v-project/check-validasi";
+    public static final String SEARCH_EMAIL="/v-project/search-email";
+    public static final String FORGOT_PASSWORD ="/v-project/forgot-password";
+    public static final String REUPLOAD_VALIDASI_CODE ="/v-project/reupload-validasi-code";
 
     public static String getUrl(String name){
         if (name!=null){

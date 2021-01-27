@@ -5,8 +5,10 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -67,6 +69,44 @@ public class ShowAllActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+            }
+        });
+        refreshShowAll=(SwipeRefreshLayout)findViewById(R.id.refreshShowAll);
+        LsViShowAll.setOnScrollListener(new AbsListView.OnScrollListener() {
+            private boolean scrollEnabled;
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                int topRowVerticalPosition =
+                        (LsViShowAll == null || LsViShowAll.getChildCount() == 0) ?
+                                0 : LsViShowAll.getChildAt(0).getTop();
+
+                boolean newScrollEnabled =
+                        (firstVisibleItem == 0 && topRowVerticalPosition >= 0) ?
+                                true : false;
+
+                if (null != refreshShowAll && scrollEnabled != newScrollEnabled) {
+                    // Start refreshing....
+                    refreshShowAll.setEnabled(newScrollEnabled);
+                    refreshShowAll.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                        @Override
+                        public void onRefresh() {
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    refreshShowAll.setRefreshing(false);
+                                    onReload();
+                                }
+                            },2000);
+
+                        }
+                    });
+                    scrollEnabled = newScrollEnabled;
+
+                }
             }
         });
         loadMenu(id);

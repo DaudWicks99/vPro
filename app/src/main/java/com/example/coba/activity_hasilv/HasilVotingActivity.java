@@ -1,11 +1,14 @@
 package com.example.coba.activity_hasilv;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -46,6 +49,7 @@ public class HasilVotingActivity extends AppCompatActivity {
     Integer data1;
     Integer data2;
     ListView LsViHasilVoting;
+    SwipeRefreshLayout refreshHasilVote;
     CustomAdapterListHasil adapter;
     ImageButton back;
     @Override
@@ -56,6 +60,7 @@ public class HasilVotingActivity extends AppCompatActivity {
         LsViHasilVoting=(ListView)findViewById(R.id.LsViHasilVoting);
         sToken = UserInfos.getFromDatabase(Database.db).token;
         back=(ImageButton)findViewById(R.id.backHasilVoting);
+        refreshHasilVote=(SwipeRefreshLayout)findViewById(R.id.refreshHasilVoting);
         Intent intent= getIntent();
         id=intent.getStringExtra("id");
         adapter=new CustomAdapterListHasil(HasilVotingActivity.this,transactions,HasilVotingActivity.this);
@@ -65,8 +70,46 @@ public class HasilVotingActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        LsViHasilVoting.setOnScrollListener(new AbsListView.OnScrollListener() {
+            private boolean scrollEnabled;
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                int topRowVerticalPosition =
+                        (LsViHasilVoting == null || LsViHasilVoting.getChildCount() == 0) ?
+                                0 : LsViHasilVoting.getChildAt(0).getTop();
+
+                boolean newScrollEnabled =
+                        (firstVisibleItem == 0 && topRowVerticalPosition >= 0) ?
+                                true : false;
+
+                if (null != refreshHasilVote && scrollEnabled != newScrollEnabled) {
+                    // Start refreshing....
+                    refreshHasilVote.setEnabled(newScrollEnabled);
+                    refreshHasilVote.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                        @Override
+                        public void onRefresh() {
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    refreshHasilVote.setRefreshing(false);
+                                    onReload();
+                                }
+                            },2000);
+
+                        }
+                    });
+                    scrollEnabled = newScrollEnabled;
+
+                }
+            }
+        });
         loadMenu(id);
     }
+
     public void loadMenu(String id) {
         JSONObject payload = new JSONObject();
         JsonHelper.put(payload, "token", sToken);

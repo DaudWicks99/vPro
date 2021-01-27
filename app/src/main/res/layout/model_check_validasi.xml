@@ -14,21 +14,55 @@
         android:layout_marginTop="10dp"
         android:tint="?attr/icon_light"
         android:src="@drawable/ic_delete"/>
-    <EditText
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Validation Code"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textColor="?attr/text_light"
+        android:fontFamily="@font/arialbd"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/text_ett"
+        android:layout_marginTop="10dp"
+        android:text="Input validation code from email below."
+        android:textColor="?attr/text_light"
+        android:fontFamily="@font/arial"
+        android:textSize="20dp"
+        android:gravity="center"/>
+    <com.chaos.view.PinView
         android:id="@+id/editValidasi"
-        android:layout_width="300dp"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginRight="20dp"
-        android:layout_gravity="center"
-        android:ems="10"
-        android:hint=" "
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:inputType="number"
-        android:textColor="?attr/text_light" />
+        android:padding="10dp"
+        android:textColor="?attr/text_light"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        app:itemCount="6"
+        app:itemHeight="48dp"
+        app:itemRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lineColor="?attr/line_light"
+        app:viewType="rectangle" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center_horizontal">
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/btnEnterValidasi"
-        android:layout_width="200dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
         android:paddingLeft="20dp"
@@ -44,5 +78,24 @@
         app:fb_radius="30dp"
         app:fb_text="SUBMIT"
         app:fb_textColor="?attr/text_light" />
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnResendLogin"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            app:fb_borderColor="?attr/line_light"
+            app:fb_borderWidth="1dp"
+            app:fb_defaultColor="?attr/button_dark"
+            app:fb_focusColor="?attr/button_dark"
+            app:fb_radius="30dp"
+            app:fb_text="RESEND"
+            app:fb_textColor="?attr/text_light" />
+    </LinearLayout>
 
 </LinearLayout>
