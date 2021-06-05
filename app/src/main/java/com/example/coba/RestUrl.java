@@ -51,9 +51,9 @@ public class RestUrl {
         if (name!=null){
 
             if (BuildConfig.DEBUG){
-                return "http://167.71.199.106:3000/dev"+name;
+                return "http://167.71.199.106:3000/v2"+name;
             }
-            return "http://167.71.199.106:3000/v1"+name;
+            return "http://167.71.199.106:3000/dev"+name;
         }
         return "";
     }

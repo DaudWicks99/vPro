@@ -308,6 +308,7 @@ public class HomeFragment extends Fragment {
         Response.Listener successResp= new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                Log.e("namama",response.toString());
                 shimmerLkf.stopShimmerAnimation();
                 shimmerLkf.setVisibility(View.GONE);
                 if(!RestHelper.validateResponse(response)){
